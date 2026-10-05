@@ -1,0 +1,509 @@
+{
+  "feature_file": "15_15__reviews_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\15_15__reviews_qwen2_5_coder_7b.feature",
+  "total_scenarios": 12,
+  "automatable_scenarios_count": 12,
+  "scenarios": [
+    {
+      "title": "Mark the job as completed",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Mark as Completed\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Job marked as completed\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check the visibility of the review option",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Mark as Completed\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on the job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Leave a review\" option is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Leave a review",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Mark as Completed\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on the job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on \"Leave a review\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"Great service\" in \"Review\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Review submitted successfully\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Submit a rating",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Mark as Completed\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on the job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on \"Leave a review\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I select \"5\" as \"Rating\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Rating submitted successfully\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add written feedback",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Mark as Completed\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on the job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on \"Leave a review\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"Great service, highly recommend\" in \"Feedback\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Feedback submitted successfully\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Confirm the review appears on the appropriate business profile",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Mark as Completed\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on the job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on \"Leave a review\" option",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"Great service\" in \"Review\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I open \"https://www.tradehub.com.au/businesses/<RANDOM:8>\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "Then I see the review \"Great service\" on the business profile",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Test the ability to respond to a review",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with a completed job",
+          "matched_pattern": "I am logged in as a user with a completed job",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I navigate to the job details page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on the 'Leave a review' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter a valid review title and feedback",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the 'Submit' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see a success message indicating the review has been submitted",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check the Reliability Review process for late cancellations",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with a job that has been cancelled late",
+          "matched_pattern": "I am logged in as a user with a job that has been cancelled late",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I navigate to the job details page",
+          "matched_pattern": "I navigate to the job details page",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on the 'Reliability Review' button",
+          "matched_pattern": "I click on the 'Reliability Review' button",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see a message indicating the Reliability Review process has been initiated",
+          "matched_pattern": "I see a message indicating the Reliability Review process has been initiated",
+          "pattern_status": "matched"
+        }
+      ]
+    },
+    {
+      "title": "Verify the review option is not visible for uncompleted jobs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with an uncompleted job",
+          "matched_pattern": "I am logged in as a user with an uncompleted job",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I navigate to the job details page",
+          "matched_pattern": "I navigate to the <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to the \"{page}\" page"
+        },
+        {
+          "step_text": "Then I do not see the 'Leave a review' option",
+          "matched_pattern": "I do not see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Test invalid payload for review submission",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with a completed job",
+          "matched_pattern": "I am logged in as a user with a completed job",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I navigate to the job details page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on the 'Leave a review' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter an invalid payload (e.g., empty string, null) for review submission",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the 'Submit' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see an error message indicating the invalid payload",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Test character limits for review title and feedback",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with a completed job",
+          "matched_pattern": "I am logged in as a user with a completed job",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I navigate to the job details page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on the 'Leave a review' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter a review title with 8 words and feedback with 18 words",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the 'Submit' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see a success message indicating the review has been submitted",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Test rate limits for review submissions",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with a completed job",
+          "matched_pattern": "I am logged in as a user with a completed job",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I navigate to the job details page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on the 'Leave a review' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter a valid review title and feedback",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the 'Submit' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I wait for the rate limit to reset",
+          "matched_pattern": "I wait for <*> to reset",
+          "pattern_status": "matched",
+          "resolved_pattern": "I wait for \"{element}\" to reset"
+        },
+        {
+          "step_text": "And I click on the 'Leave a review' button again",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter another valid review title and feedback",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the 'Submit' button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see a success message indicating the review has been submitted",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,616 @@
+{
+  "feature_file": "01_1__create_a_new_account_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\01_1__create_a_new_account_qwen2_5_coder_7b.feature",
+  "total_scenarios": 20,
+  "automatable_scenarios_count": 20,
+  "scenarios": [
+    {
+      "title": "Visit TradeHub homepage",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/register\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "Then I see \"TradeHub\" in the title",
+          "matched_pattern": "I see <*> in the title",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" in the title"
+        }
+      ]
+    },
+    {
+      "title": "Click on create/register account option",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "When I click on \"Create Account\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Register\" in the title",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in {container}"
+        }
+      ]
+    },
+    {
+      "title": "Create a new Trade Business account",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "And I select \"Trade Business\" as Account Type",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {option}"
+        },
+        {
+          "step_text": "Then I see \"Trade Business\" selected as Account Type",
+          "matched_pattern": "I see <*> is selected as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{option}\" is selected as {option}"
+        }
+      ]
+    },
+    {
+      "title": "Enter valid name",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "And I enter \"Furkan\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "Then I see \"Furkan\" in the Name field",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter valid business name",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "And I enter \"ABC Plumbing\" as Business Name",
+          "matched_pattern": "I enter <*> as Business Name",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{businessName}\" as Business Name"
+        },
+        {
+          "step_text": "Then I see \"ABC Plumbing\" in the Business Name field",
+          "matched_pattern": "I see <*> in the Business Name field",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in the Business Name field"
+        }
+      ]
+    },
+    {
+      "title": "Enter valid email address",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "And I enter \"furkan@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "Then I see \"furkan@example.com\" in the Email field",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Enter valid phone number",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Phone field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "Then I see \"Phone number is valid\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Select valid primary trade",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"{option}\" as Primary Trade",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {option}"
+        },
+        {
+          "step_text": "Then I see \"{option}\" is selected as Primary Trade",
+          "matched_pattern": "I see <*> is selected as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{option}\" is selected as {option}"
+        }
+      ]
+    },
+    {
+      "title": "Enter valid suburb/location",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Suburb/Location field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "Then I see \"{text}\" in Suburb/Location Values",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in {container}"
+        }
+      ]
+    },
+    {
+      "title": "Create valid password",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Password field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "Then I see \"Password is valid\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Accept terms and conditions",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on Accept Terms and Conditions checkbox",
+          "matched_pattern": "I click on <*> checkbox",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {checkbox}"
+        },
+        {
+          "step_text": "Then I see \"Terms and Conditions accepted\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Complete account registration",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Name field",
+          "matched_pattern": "I enter <*> as Name",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{name}\" as Name"
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Business Name field",
+          "matched_pattern": "I enter <*> as Business Name",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{businessName}\" as Business Name"
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Email field",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Phone field",
+          "matched_pattern": "I enter <*> as Phone",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{phone}\" as Phone"
+        },
+        {
+          "step_text": "When I select \"{option}\" as Primary Trade",
+          "matched_pattern": "I select <*> as Primary Trade",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{trade}\" as Primary Trade"
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Suburb/Location field",
+          "matched_pattern": "I enter <*> as Suburb/Location",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{location}\" as Suburb/Location"
+        },
+        {
+          "step_text": "When I enter \"{text}\" in Password field",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "When I click on Accept Terms and Conditions checkbox",
+          "matched_pattern": "I click on <*> checkbox",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {checkbox}"
+        },
+        {
+          "step_text": "When I click on Complete Registration button",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "Then I see \"Registration successful\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check if instructions are easy to understand",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Instructions\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Instructions are easy to understand\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check if required fields are clearly identified",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Register\"",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Required fields are clearly identified\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check if incorrect fields show useful error messages",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Register\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid Name\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check if primary trade selection works correctly",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"{option}\" as Primary Trade",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {option}"
+        },
+        {
+          "step_text": "Then I see \"{option}\" is selected as Primary Trade",
+          "matched_pattern": "I see <*> is selected as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{option}\" is selected as {option}"
+        }
+      ]
+    },
+    {
+      "title": "Check if location/suburb search works correctly",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"{text}\" as Suburb",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Search\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"{text}\" in Suburb Values",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in {container}"
+        }
+      ]
+    },
+    {
+      "title": "Check if page displays correctly on mobile",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"{url}\" on mobile device",
+          "matched_pattern": "I open <*> on a mobile device",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\" on a {device}"
+        },
+        {
+          "step_text": "Then I see \"{element}\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check if registration completes successfully",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/register\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Business Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I select \"Trade Business\" as Primary Trade",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {option}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on Create Account",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Success Message is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check if user receives correct activation/verification email",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/register\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Business Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I select \"Trade Business\" as Primary Trade",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {option}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on Create Account",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Activation/Verification Email is Sent",
+          "matched_pattern": "I see <*> is Sent",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" is Sent"
+        },
+        {
+          "step_text": "And I see Activation/Verification Email is Correct",
+          "matched_pattern": "I see <*> is Correct",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is Correct"
+        }
+      ]
+    }
+  ]
+}

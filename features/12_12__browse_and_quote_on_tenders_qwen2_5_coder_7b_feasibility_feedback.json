@@ -1,0 +1,1212 @@
+{
+  "feature_file": "12_12__browse_and_quote_on_tenders_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\12_12__browse_and_quote_on_tenders_qwen2_5_coder_7b.feature",
+  "total_scenarios": 22,
+  "automatable_scenarios_count": 22,
+  "scenarios": [
+    {
+      "title": "Open Available Tenders with valid trade account",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Dashboard\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I click on \"Tenders\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Available Tenders\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Open Available Tenders with invalid trade account",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid Credentials\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "Find and open a specific tender",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Dashboard\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I click on \"Tenders\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<TODAY>\" as Search Term",
+          "matched_pattern": "I enter <*> as Search Term",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{search_term}\" as Search Term"
+        },
+        {
+          "step_text": "And I click on Search",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Specific Tender\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Open a non-existent tender",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Dashboard\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I click on \"Tenders\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"Non-existent Tender\" as Search Term",
+          "matched_pattern": "I enter <*> as Search Term",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{search_term}\" as Search Term"
+        },
+        {
+          "step_text": "And I click on Search",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I do not see \"Non-existent Tender\" is visible",
+          "matched_pattern": "I do not see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Confirm trade information visibility",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Dashboard\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I click on \"Tenders\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Specific Tender\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Trade Information\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Submit a quote with valid price and message",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Dashboard\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I click on \"Tenders\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Specific Tender\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"100\" as Price",
+          "matched_pattern": "I enter <*> as Price",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{price}\" as Price"
+        },
+        {
+          "step_text": "And I enter \"Valid Message\" as Message",
+          "matched_pattern": "I enter <*> as Message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{message}\" as Message"
+        },
+        {
+          "step_text": "And I click on Submit Quote",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Quote Submitted Successfully\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "Submit a quote with invalid price",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"-100\" as \"Price\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as \"Message\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Upload Supporting Information\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I select \"<RANDOM:8>.jpg\" as \"File\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid price\" is \"Visible\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Submit a quote with empty message",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"100\" as \"Price\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"\" as \"Message\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Upload Supporting Information\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I select <RANDOM:8>.jpg as \"File\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Empty message\" is \"Visible\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Upload supporting information",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"100\" as \"Price\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as \"Message\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Upload Supporting Information\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I select \"<RANDOM:8>.jpg\" as \"File\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Supporting information uploaded\" is \"Visible\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Submit a quote with no supporting information",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"100\" as \"Price\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as \"Message\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Upload Supporting Information\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I do not see \"File\" in \"Upload Supporting Information\" Values",
+          "matched_pattern": "I do not see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\" in \"{container}\""
+        },
+        {
+          "step_text": "And I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"No supporting information\" is \"Visible\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Confirm quote submission success",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"100\" as \"Price\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as \"Message\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Upload Supporting Information\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I select \"<RANDOM:8>.jpg\" as \"File\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Submit Quote\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Quote submitted successfully\" is \"Visible\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Open tender posted by own account",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"My Tenders\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Open Tender\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Tender details\" is \"Visible\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "View received quotes",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Received Quotes\" tab is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Open a specific received quote",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Received Quotes\" tab",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on a specific quote",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see quote details are visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check business profile information in received quote",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Received Quotes\" tab",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on a specific quote",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see business profile information is correct",
+          "matched_pattern": "I see <*> is correct",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is correct"
+        }
+      ]
+    },
+    {
+      "title": "Check quoted amount in received quote",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Received Quotes\" tab",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on a specific quote",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see quoted amount is correct",
+          "matched_pattern": "I see <*> is correct",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is correct"
+        }
+      ]
+    },
+    {
+      "title": "Contact quoting business",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Received Quotes\" tab",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on a specific quote",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Contact Business\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see contact information is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check business profile information for unrelated trades",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
+          "matched_pattern": "I enter <*> as Email",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{email}\" as Email"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"Received Quotes\" tab",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on a specific quote",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I do not see restricted trade information",
+          "matched_pattern": "I do not see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check quoted amount for unrelated trades",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"unrelatedbusiness@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "When I navigate to \"Tenders\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        },
+        {
+          "step_text": "And I select a tender with unrelated trades",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {option}"
+        },
+        {
+          "step_text": "Then I do not see \"Restricted Trade Information\"",
+          "matched_pattern": "I do not see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check message for unrelated trades",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"unrelatedbusiness@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "When I navigate to \"Tenders\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        },
+        {
+          "step_text": "And I select a tender with unrelated trades",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {option}"
+        },
+        {
+          "step_text": "Then I do not see \"Message for Unrelated Trades\"",
+          "matched_pattern": "I do not see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check supporting information for unrelated trades",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"unrelatedbusiness@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "When I navigate to \"Tenders\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        },
+        {
+          "step_text": "And I select a tender with unrelated trades",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {option}"
+        },
+        {
+          "step_text": "Then I do not see \"Supporting Information for Unrelated Trades\"",
+          "matched_pattern": "I do not see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check submission rate limits",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"premiumbusiness@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I enter \"password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {field}"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "When I navigate to \"Tenders\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        },
+        {
+          "step_text": "And I select a tender",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {option}"
+        },
+        {
+          "step_text": "And I submit a quote",
+          "matched_pattern": "I submit <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I submit {form}"
+        },
+        {
+          "step_text": "And I wait for 1 minute",
+          "matched_pattern": "I wait for <*> minute",
+          "pattern_status": "matched",
+          "resolved_pattern": "I wait for {minutes} minute"
+        },
+        {
+          "step_text": "And I submit another quote",
+          "matched_pattern": "I submit <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I submit {form}"
+        },
+        {
+          "step_text": "Then I see \"Submission Rate Limit Reached\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "feature_file": "07_7__browse_jobs_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\07_7__browse_jobs_qwen2_5_coder_7b.feature",
+  "total_scenarios": 18,
+  "automatable_scenarios_count": 18,
+  "scenarios": [
+    {
+      "title": "Open Find Jobs / Jobs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "Then I see \"Find Jobs / Jobs\" page is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Browse Available Jobs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I scroll down the page",
+          "matched_pattern": "I scroll <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I scroll {direction}"
+        },
+        {
+          "step_text": "Then I see multiple job listings",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Search for Jobs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Plumbing\" in the search bar",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Search",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see job listings related to Plumbing",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Filter by Trade",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Filter\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I select \"Plumbing\" as Trade",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "Then I see job listings related to Plumbing",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Filter by Location/Distance",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Filter\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I select \"10km\" as Distance",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "Then I see job listings within 10km",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Open Several Job Listings",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on the first job listing",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on the second job listing",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the details of the first job listing",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        },
+        {
+          "step_text": "And I see the details of the second job listing",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Return to Job Search Results",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on Job Listing 1",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on Apply/View Details",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Job Search Results is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check Search/Filter Settings",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on Job Listing 1",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on Apply/View Details",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on Search/Filter Settings",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Search/Filter Settings are Correctly Applied",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Test Experience on Mobile",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\" on a mobile device",
+          "matched_pattern": "I open <*> on a mobile device",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\" on a mobile device"
+        },
+        {
+          "step_text": "When I click on Job Listing 1",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on Apply/View Details",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Job Search Results is Visible on Mobile",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Open Job to Test Applying",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on Job Listing 1",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Apply/View Details is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Apply/Respond to Job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on Job Listing 1",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Apply/View Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Submit Application",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see Application Confirmation is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Go Backwards Without Becoming Stuck",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on Job Listing 1",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Apply/View Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Go Back Button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see Job Search Results is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Return to Jobs List",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "And I fill out the application form",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "Then I see \"Jobs List\" page is displayed",
+          "matched_pattern": "I see <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{page}\" page"
+        }
+      ]
+    },
+    {
+      "title": "Verify Application Submission",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "And I fill out the application form",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "Then I see \"Application Submitted\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Unauthorized Access",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I fill out the application form",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Unauthorized Access\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Invalid Payload Inputs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "And I fill out the application form with invalid data",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "Then I see \"Invalid Input\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Empty/Null String Inputs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "And I fill out the application form with empty or null string inputs",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "Then I see \"Empty Input\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Character Limits",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "And I fill out the application form with job title and objective exceeding character limits",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {button}"
+        },
+        {
+          "step_text": "Then I see \"Character Limit Exceeded\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    }
+  ]
+}

@@ -2,37 +2,1207 @@
   {
     "agent_id": "AutomationFeasibilityAgent",
     "category": "drain_mapping_drift",
-    "original_output": "Step: And I accept the Terms and Conditions | Pattern: I do not <*>",
-    "corrected_output": "New Pattern: I accept <*>",
-    "root_cause": "The step verb 'accept' does not match the pattern action 'do not'.",
-    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure without adding extra terms.",
+    "original_output": "Step: And I enter \"Furkan\" as Name | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "The step specifies entering text into a field, but the pattern only matches entering text without specifying the field.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
     "occurrence_count": 1
   },
   {
     "agent_id": "AutomationFeasibilityAgent",
     "category": "drain_mapping_drift",
-    "original_output": "Step: And I accept the Terms and Conditions | Pattern: I click on <*>",
-    "corrected_output": "New Pattern: I accept <*>",
-    "root_cause": "The step verb 'accept' does not match the pattern action 'click on'.",
-    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure without adding extra terms.",
+    "original_output": "Step: Then I see \"Register\" page displays correctly on mobile | Pattern: I see <*>",
+    "corrected_output": "New Pattern: I see <*> page",
+    "root_cause": "The step verb 'see' does not match the pattern action 'I see <*>'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
     "occurrence_count": 1
   },
   {
     "agent_id": "AutomationFeasibilityAgent",
     "category": "drain_mapping_drift",
-    "original_output": "Step: Then I see Success Message is Visible | Pattern: I see \"You <*> is <*>\" is Visible",
-    "corrected_output": "New Pattern: I see <*>",
-    "root_cause": "The step does not match the pattern in structure or verb.",
-    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure without adding extra terms.",
+    "original_output": "Step: Given I am logged out of the TradeHub system | Pattern: I am logged <*> the TradeHub system",
+    "corrected_output": "New Pattern: I am logged out of the TradeHub system",
+    "root_cause": "Verb mismatch: 'logged out' vs 'logged <*>'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
     "occurrence_count": 1
   },
   {
     "agent_id": "AutomationFeasibilityAgent",
     "category": "drain_mapping_drift",
-    "original_output": "Step: Then I see Error Message is Visible | Pattern: I see \"You have <*> number of free tender postings allowed\" is Visible",
-    "corrected_output": "New Pattern: I see <*> is Visible",
-    "root_cause": "The step does not match the pattern in terms of content. The step mentions 'Error Message is Visible' while the pattern suggests 'Terms and Conditions'.",
-    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure without adding extra terms.",
+    "original_output": "Step: When I enter my username and password | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "Verb mismatch: 'enter' vs 'enter <*>'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I close the browser and reopen it | Pattern: I open <*> on a mobile device",
+    "corrected_output": "New Pattern: I reopen the browser",
+    "root_cause": "Verb/action mismatch: 'close' != 'open'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I enter an invalid ABN in the ABN verification area | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'enter' vs Pattern: 'enter field'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I enter \"<RANDOM:8>\" as the public/private setting | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "Verb/action mismatch: 'enter' != 'enter field'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I filter for open jobs in my area | Pattern: I select a <*>",
+    "corrected_output": "New Pattern: I select <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'filter for' != 'select a'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I filter for recent listings | Pattern: I select a <*>",
+    "corrected_output": "New Pattern: I select <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'filter for' != 'select a'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I enter <RANDOM:8> as ABN | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as ABN",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'enter' vs Pattern: 'enter field'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I fill out the application form | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "The step verb 'fill out' does not match the pattern action 'enter'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 3
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I fill out the application form with invalid data | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "Verb/action mismatch: 'fill out' does not match 'enter'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I fill out the application form with empty or null string inputs | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "The step verb 'fill out' does not match the pattern action 'enter'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I fill out the application form with job title and objective exceeding character limits | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "Verb/action mismatch: 'fill out' does not match 'enter'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I enter \"Available for plumbing work\" as Description | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'enter' != 'enter field'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I enable the filter for test businesses | Pattern: I select a <*>",
+    "corrected_output": "New Pattern: I select <*>",
+    "root_cause": "Verb mismatch: 'enable' vs 'select'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I select a profile with available dates | Pattern: I select a <*>",
+    "corrected_output": "New Pattern: I select <*>",
+    "root_cause": "Verb mismatch: 'select' vs 'select a <*'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see the correct available dates displayed | Pattern: I see <*>",
+    "corrected_output": "New Pattern: I see <*> is visible",
+    "root_cause": "Verb mismatch: 'see' vs 'see <*>'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I leave the description field empty | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as <*>",
+    "root_cause": "Verb mismatch: 'leave' vs 'enter'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I enter \"<RANDOM:80>\" as Project Location | Pattern: I enter <*> field",
+    "corrected_output": "New Pattern: I enter <*> as Location",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'enter' vs Pattern: 'enter field'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see \"Plumbing\" and \"Electrical\" in \"Required Trades\" Values | Pattern: I see <*>",
+    "corrected_output": "New Pattern: I see <*> in <*>",
+    "root_cause": "The step verb does not match the pattern action. Step: 'I see' vs Pattern: 'I see <*>'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I open \"https://www.tradehub.com.au/register\"",
+    "corrected_output": "Given I open \"{url}\"",
+    "root_cause": "The URL was hardcoded, making the step less reusable and less maintainable.",
+    "rule_derived": "Use placeholders for dynamic values to improve step reusability and maintainability.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I enter \"<RANDOM:8>\" as Name",
+    "corrected_output": "When I enter \"{text}\" field",
+    "root_cause": "The field type was not specified, making the step less clear and potentially ambiguous.",
+    "rule_derived": "Specify the field type to improve clarity and reduce potential errors.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I select \"Trade Business\" as Primary Trade",
+    "corrected_output": "And I select \"{option}\"",
+    "root_cause": "The option was hardcoded, making the step less reusable and less maintainable.",
+    "rule_derived": "Use placeholders for dynamic values to improve step reusability and maintainability.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"File size exceeds limit\" is visible",
+    "corrected_output": "Then I see \"{element}\" is visible",
+    "root_cause": "The element was hardcoded, making the step less reusable and less maintainable.",
+    "rule_derived": "Use placeholders for dynamic values to improve step reusability and maintainability.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I click on Accept Terms and Conditions checkbox | Pattern: I click <*>",
+    "corrected_output": "New Pattern: I click on <*> checkbox",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'click on Accept Terms and Conditions checkbox' vs Pattern: 'click <*>' --> MISMATCH (click on != click)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see the recent listings displayed correctly | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> is displayed correctly",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see the recent listings displayed correctly' vs Pattern: 'I see <*> is visible' --> MISMATCH (see != see <*> is visible)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I see zero jobs listed | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> is displayed correctly",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'see zero jobs listed' != 'see <*> is visible'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I see the maximum number of listings displayed | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> is displayed correctly",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'see' != 'see is visible'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see the search results displayed correctly | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> is displayed correctly",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see the search results displayed correctly' vs Pattern: 'I see <*>' --> MISMATCH (see != see <*> is visible)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see \"Description\" is stored correctly | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> is stored correctly",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see \"Description\" is stored correctly' vs Pattern: 'I see <*>' --> MISMATCH (see != see)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I do not select any Tag | Pattern: I select <*>",
+    "corrected_output": "New Pattern: I do not select <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'do not select' != 'select'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I do not see any Tag selected | Pattern: I see <*> is <*>",
+    "corrected_output": "New Pattern: I do not see <*> is selected as <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. 'do not see' != 'see'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I enter a description longer than 255 characters | Pattern: I enter <*> as <*>",
+    "corrected_output": "New Pattern: I enter <*> as Description",
+    "root_cause": "Verb/action mismatch: 'enter' does not match 'enter as'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see an error message indicating the character limit has been exceeded | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> message indicating <*> has been exceeded",
+    "root_cause": "Verb/action mismatch: 'see' does not match 'see is visible'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see trades within 50km radius | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> in Jobs List",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see trades within 50km radius' vs Pattern: 'I see <*> is visible' --> MISMATCH (see trades within 50km radius != see <*> is visible)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see profiles with available dates listed | Pattern: I see <*> is listed",
+    "corrected_output": "New Pattern: I see <*> in Jobs List",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see profiles with available dates listed' vs Pattern: 'I see <*> is listed' --> MISMATCH (see != see <*> is listed)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see the available dates for the selected trade | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> in Jobs List",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see the available dates for the selected trade' vs Pattern: 'I see <*> is visible' --> MISMATCH (see != see <*> is visible)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: When I send a message to another user | Pattern: I enter <*> as <*>",
+    "corrected_output": "New Pattern: I send a message to <*>",
+    "root_cause": "Verb/action mismatch: 'send' != 'enter'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I receive a notification on my mobile device | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I receive <*>",
+    "root_cause": "Verb/action mismatch: 'receive' != 'see'",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I return to the job listing details screen | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I navigate to the job details page",
+    "root_cause": "The step verb 'return' does not match the pattern action 'see'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see no buttons that are too small | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I do not see <*> is visible",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see no buttons that are too small' vs Pattern: 'I see <*> is visible' --> MISMATCH (see no buttons != see is visible)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I should be redirected to the \"/secure\" page | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I navigate to <*> page",
+    "root_cause": "The step verb 'should be redirected to' does not match the pattern action 'see is visible'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see \"Your password is invalid!\" as Login Error Message field value | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I see <*> message indicating <*> has been exceeded",
+    "root_cause": "The step verb 'see' does not match the pattern action 'is visible'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I see open jobs in my area displayed correctly | Pattern: I see <*> is displayed correctly",
+    "corrected_output": "New Pattern: I see <*> in Jobs List",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I see open jobs in my area displayed correctly' vs Pattern: 'I see <*>' --> MISMATCH (see open jobs != see <*>)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: Then I am able to contact or message the selected trade | Pattern: I see <*> is visible",
+    "corrected_output": "New Pattern: I send a message to <*>",
+    "root_cause": "VERB/ACTION MISMATCH: The step verb does not match the pattern action. Step: 'I am able to contact or message the selected trade' vs Pattern: 'I see <*>' --> MISMATCH (able to contact or message != see is visible)",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I open \"https://www.tradehub.com.au/register\"",
+    "corrected_output": "Given I open \"https://www.tradehub.com.au\"",
+    "root_cause": "The original step specifies a specific page (register) that may not be necessary for all scenarios.",
+    "rule_derived": "The step should be generalized to open the main website URL.",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I click on \"Profile\"",
+    "corrected_output": "When I click on \"Edit Profile\"",
+    "root_cause": "The original step is too vague and does not specify the exact action to be taken.",
+    "rule_derived": "The step should be specific to the action being performed.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"Profile Information\" is visible",
+    "corrected_output": "Then I see \"Edit Profile\" form is visible",
+    "root_cause": "The original step is incorrect as it does not match the expected behavior of the scenario.",
+    "rule_derived": "The step should accurately reflect the expected outcome of the scenario.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:8>\" in \"Business Description\" field",
+    "corrected_output": "And I enter \"<RANDOM:8>\" as Business Description",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"+1234567890\" in \"Phone Number\" field",
+    "corrected_output": "And I enter \"+1234567890\" as Phone Number",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"https://www.example.com\" in \"Website\" field",
+    "corrected_output": "And I enter \"https://www.example.com\" as Website",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"123 Main St\" in \"Address\" field",
+    "corrected_output": "And I enter \"123 Main St\" as Address",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"Anytown\" in \"Suburb\" field",
+    "corrected_output": "And I enter \"Anytown\" as Suburb",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"12345\" in \"Postcode\" field",
+    "corrected_output": "And I enter \"12345\" as Postcode",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter my hourly rate as <RANDOM:8>",
+    "corrected_output": "And I enter my hourly rate as <RANDOM:8> as Hourly Rate",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter my day rate as <RANDOM:8>",
+    "corrected_output": "And I enter my day rate as <RANDOM:8> as Day Rate",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"New Name\" in the Name field",
+    "corrected_output": "And I enter \"New Name\" as Name",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"New Business Name\" in the Business Name field",
+    "corrected_output": "And I enter \"New Business Name\" as Business Name",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"New Email\" in the Email field",
+    "corrected_output": "And I enter \"New Email\" as Email",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"New Phone\" in the Phone field",
+    "corrected_output": "And I enter \"New Phone\" as Phone",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I select \"New Primary Trade\" as the Primary Trade",
+    "corrected_output": "And I select \"New Primary Trade\" as Primary Trade",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"New Suburb/Location\" in the Suburb/Location field",
+    "corrected_output": "And I enter \"New Suburb/Location\" as Suburb/Location",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:1000>\" as Name",
+    "corrected_output": "And I enter \"<RANDOM:1000>\" as Name",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:1000>\" as Business Name",
+    "corrected_output": "And I enter \"<RANDOM:1000>\" as Business Name",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:1000>\" as Email",
+    "corrected_output": "And I enter \"<RANDOM:1000>\" as Email",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:1000>\" as Phone",
+    "corrected_output": "And I enter \"<RANDOM:1000>\" as Phone",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:1000>\" as Suburb/Location",
+    "corrected_output": "And I enter \"<RANDOM:1000>\" as Suburb/Location",
+    "root_cause": "The original step is unclear and does not specify the element being interacted with.",
+    "rule_derived": "The step should be clear and specific to the element being interacted with.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I click on \"Subcontracting Availability\"",
+    "corrected_output": "When I navigate to the \"Subcontracting Availability\" page",
+    "root_cause": "The step does not specify that it is navigating to a page.",
+    "rule_derived": "All navigation steps should explicitly state that they are navigating to a page.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"<RANDOM:8>\" as Description",
+    "corrected_output": "And I enter \"<description>\" as Description",
+    "root_cause": "The step uses a placeholder for a random value, which is not necessary for all scenarios.",
+    "rule_derived": "All steps that require input should use a placeholder that can be replaced with actual values.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"5\" as Number of Workers",
+    "corrected_output": "And I enter \"{number_of_workers}\" as Number of Workers",
+    "root_cause": "The step uses a specific number, which is not necessary for all scenarios.",
+    "rule_derived": "All steps that require input should use a placeholder that can be replaced with actual values.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"100\" as Rate",
+    "corrected_output": "And I enter \"{rate}\" as Rate",
+    "root_cause": "The step uses a specific rate, which is not necessary for all scenarios.",
+    "rule_derived": "All steps that require input should use a placeholder that can be replaced with actual values.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on \"Save\"",
+    "corrected_output": "And I click on the \"Save\" button",
+    "root_cause": "The step does not specify that it is clicking on a button.",
+    "rule_derived": "All click steps should explicitly state that they are clicking on a button.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"Availability saved successfully\" message",
+    "corrected_output": "Then I see the \"Availability saved successfully\" message",
+    "root_cause": "The step does not specify that it is looking for a message.",
+    "rule_derived": "All steps that require verification should explicitly state that they are looking for a message.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter the new availability dates",
+    "corrected_output": "And I enter \"{new_availability_dates}\" as Availability Dates",
+    "root_cause": "The step does not specify that it is entering availability dates.",
+    "rule_derived": "All steps that require input should explicitly state what they are entering.",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I save the changes",
+    "corrected_output": "And I click on the \"Save Changes\" button",
+    "root_cause": "The step does not specify that it is clicking on a button.",
+    "rule_derived": "All click steps should explicitly state that they are clicking on a button.",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see the updated availability dates displayed on the account",
+    "corrected_output": "Then I see the updated availability dates displayed on the \"Account\" page",
+    "root_cause": "The step does not specify that it is looking on a specific page.",
+    "rule_derived": "All steps that require verification should explicitly state on which page they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter the new availability description",
+    "corrected_output": "And I enter \"{new_availability_description}\" as Availability Description",
+    "root_cause": "The step does not specify that it is entering availability description.",
+    "rule_derived": "All steps that require input should explicitly state what they are entering.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on the delete icon next to the saved availability date",
+    "corrected_output": "And I click on the \"Delete\" icon next to the saved availability date",
+    "root_cause": "The step does not specify that it is clicking on a specific icon.",
+    "rule_derived": "All click steps should explicitly state that they are clicking on a specific icon.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I confirm the deletion",
+    "corrected_output": "And I click on the \"Confirm Deletion\" button",
+    "root_cause": "The step does not specify that it is clicking on a button.",
+    "rule_derived": "All click steps should explicitly state that they are clicking on a button.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I do not see the deleted availability date displayed on the account",
+    "corrected_output": "Then I do not see the deleted availability date displayed on the \"Account\" page",
+    "root_cause": "The step does not specify that it is looking on a specific page.",
+    "rule_derived": "All steps that require verification should explicitly state on which page they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on the add new date button",
+    "corrected_output": "And I click on the \"Add New Date\" button",
+    "root_cause": "The step does not specify that it is clicking on a button.",
+    "rule_derived": "All click steps should explicitly state that they are clicking on a button.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see the new availability date displayed on the account",
+    "corrected_output": "Then I see the new availability date displayed on the \"Account\" page",
+    "root_cause": "The step does not specify that it is looking on a specific page.",
+    "rule_derived": "All steps that require verification should explicitly state on which page they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I open the TradeHub directory",
+    "corrected_output": "Given I open \"https://www.tradehub.com.au\"",
+    "root_cause": "The step does not specify the exact URL of the directory.",
+    "rule_derived": "All steps that require opening a URL should specify the exact URL.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I select a saved availability listing",
+    "corrected_output": "When I select a saved availability listing from the directory",
+    "root_cause": "The step does not specify that it is selecting from a directory.",
+    "rule_derived": "All selection steps should explicitly state that they are selecting from a specific location.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on Delete/Cancel button",
+    "corrected_output": "And I click on the \"Delete/Cancel\" button",
+    "root_cause": "The step does not specify that it is clicking on a button.",
+    "rule_derived": "All click steps should explicitly state that they are clicking on a button.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see the availability listing is removed from the directory",
+    "corrected_output": "Then I do not see the availability listing displayed in the directory",
+    "root_cause": "The step does not specify that it is looking in the directory.",
+    "rule_derived": "All steps that require verification should explicitly state in which location they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I attempt to search the directory with another account",
+    "corrected_output": "Given I attempt to search the directory with an unauthorized account",
+    "root_cause": "The step does not specify that the account is unauthorized.",
+    "rule_derived": "All steps that require specifying an account should explicitly state the account type.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see an error message indicating unauthorized access",
+    "corrected_output": "Then I see an error message indicating that the action is unauthorized",
+    "root_cause": "The step does not specify the exact error message.",
+    "rule_derived": "All steps that require verifying an error message should specify the exact message.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I select the filter option to show only profiles with upcoming available dates",
+    "corrected_output": "Given I select the filter option to show only profiles with upcoming available dates in the directory",
+    "root_cause": "The step does not specify that it is selecting from a directory.",
+    "rule_derived": "All selection steps should explicitly state that they are selecting from a specific location.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see only profiles with upcoming available dates are displayed",
+    "corrected_output": "Then I see only profiles with upcoming available dates displayed in the directory",
+    "root_cause": "The step does not specify that it is looking in the directory.",
+    "rule_derived": "All steps that require verification should explicitly state in which location they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I enable the filter to show only profiles with upcoming available dates",
+    "corrected_output": "Given I enable the filter to show only profiles with upcoming available dates in the directory",
+    "root_cause": "The step does not specify that it is enabling a filter in a directory.",
+    "rule_derived": "All steps that require enabling a filter should specify the location of the filter.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see the test business in the directory",
+    "corrected_output": "Then I see the test business displayed in the directory",
+    "root_cause": "The step does not specify that it is looking in the directory.",
+    "rule_derived": "All steps that require verification should explicitly state in which location they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I select a business with available dates",
+    "corrected_output": "Given I select a business with available dates in the directory",
+    "root_cause": "The step does not specify that it is selecting from a directory.",
+    "rule_derived": "All selection steps should explicitly state that they are selecting from a specific location.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see the correct available dates displayed",
+    "corrected_output": "Then I see the correct available dates displayed in the directory",
+    "root_cause": "The step does not specify that it is looking in the directory.",
+    "rule_derived": "All steps that require verification should explicitly state in which location they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I attempt to enter an empty description",
+    "corrected_output": "Given I attempt to enter an empty description in the Description field",
+    "root_cause": "The step does not specify that it is entering in a specific field.",
+    "rule_derived": "All steps that require input should explicitly state in which field they are entering.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see an error message indicating the input is invalid",
+    "corrected_output": "Then I see an error message indicating that the input is invalid in the Description field",
+    "root_cause": "The step does not specify that it is looking in a specific field.",
+    "rule_derived": "All steps that require verification should explicitly state in which field they are looking.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"{text}\" in Description field",
+    "corrected_output": "And I enter \"{text}\" as Description",
+    "root_cause": "The step does not specify that it is entering as a Description.",
+    "rule_derived": "All steps that require input should explicitly state what they are entering.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"{text}\" in Availability field",
+    "corrected_output": "And I enter \"{text}\" as Availability",
+    "root_cause": "The step does not specify that it is entering as an Availability.",
+    "rule_derived": "All steps that require input should explicitly state what they are entering.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.uber.com/blog/qa/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 406",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.uber.com/blog/qa/",
+    "occurrence_count": 13
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://engineering.uber.com/news/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 406",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://engineering.uber.com/news/",
+    "occurrence_count": 5
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.airbus.com/en/research-and-development/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.airbus.com/en/research-and-development/research-and-development.html",
+    "occurrence_count": 3
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.bmw.com/en/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.bmw.com', port=443): Read timed out. (read timeout=3)",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.bmw.com/en/research-and-development.html",
+    "occurrence_count": 9
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.porsche.com/en/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.porsche.com/en/research-and-development.html",
+    "occurrence_count": 7
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.mercedes-benz.com/en/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 403",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.mercedes-benz.com/en/research-and-development.html",
+    "occurrence_count": 6
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.boeing.com/commercial/aerderivatives/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.boeing.com/commercial/aerderivatives/research-and-development.html",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.spotify.com/en-gb/developer/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 502",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.spotify.com/en-gb/developer/",
+    "occurrence_count": 12
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.netflix.com/en/developer/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 403",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.netflix.com/en/developer/",
+    "occurrence_count": 14
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.behavebdd.org/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.behavebdd.org', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002514658A8A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.behavebdd.org/",
+    "occurrence_count": 10
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://engineering.uber.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 406",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://engineering.uber.com/",
+    "occurrence_count": 11
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.airbus.com/en/research-and-development/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.airbus.com/en/research-and-development/",
+    "occurrence_count": 12
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.boeing.com/commercial/aeroderivatives/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.boeing.com/commercial/aeroderivatives/",
+    "occurrence_count": 10
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.mercedes-benz.com/en/research-and-development/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 403",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.mercedes-benz.com/en/research-and-development/",
+    "occurrence_count": 9
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.porsche.com/en/research-and-development/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.porsche.com/en/research-and-development/",
+    "occurrence_count": 7
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://medium.com/tag/testing",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 403",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://medium.com/tag/testing",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.spotlightonquality.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.spotlightonquality.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B746B83380>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.spotlightonquality.com/",
+    "occurrence_count": 8
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.turkishairlines.com/en-int/company/about-us/research-and-development/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.turkishairlines.com', port=443): Read timed out. (read timeout=3)",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.turkishairlines.com/en-int/company/about-us/research-and-development/",
+    "occurrence_count": 13
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.boeing.com/commercial/aeroderivatives/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.boeing.com/commercial/aeroderivatives/research-and-development.html",
+    "occurrence_count": 3
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://docs Behave BDD.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='docs%20behave%20bdd.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A3DA8ABAD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://docs Behave BDD.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.airbus.com/en/research-and-development.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.airbus.com/en/research-and-development.html",
+    "occurrence_count": 3
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.bmw.com/en/research-and-development/software-testing.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.bmw.com', port=443): Read timed out. (read timeout=3)",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.bmw.com/en/research-and-development/software-testing.html",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.airbus.com/en/research-and-development/software-testing/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.airbus.com/en/research-and-development/software-testing/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.boeing.com/commercial/aeroderivatives.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.boeing.com/commercial/aeroderivatives.html",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.bmw.com/en/research-and-development/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.bmw.com', port=443): Read timed out. (read timeout=3)",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.bmw.com/en/research-and-development/",
+    "occurrence_count": 4
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.airbus.com/en/research-and-development/software-testing.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.airbus.com/en/research-and-development/software-testing.html",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.porsche.com/en/research-and-development/software-testing.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.porsche.com/en/research-and-development/software-testing.html",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.medium.com/tag/testing",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 403",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.medium.com/tag/testing",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://docs.behavebdd.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='docs.behavebdd.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002955D066840>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://docs.behavebdd.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.vector-informatik.com/en/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.vector-informatik.com', port=443): Max retries exceeded with url: /en/ (Caused by SSLError(CertificateError(\"hostname 'www.vector-informatik.com' doesn't match 'bremen.mosaiq.com'\")))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.vector-informatik.com/en/",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.bosch.com/en-US/home.html",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.bosch.com/en-US/home.html",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.tesla.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 403",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.tesla.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.automotive-testing.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.automotive-testing.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)')))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.automotive-testing.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.safetycritical.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.safetycritical.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.safetycritical.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.automotivequalityinfo.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.automotivequalityinfo.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001CC823EA990>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.automotivequalityinfo.com/",
     "occurrence_count": 1
   }
 ]

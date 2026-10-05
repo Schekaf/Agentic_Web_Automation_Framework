@@ -114,7 +114,8 @@ class FeasibilityTargetScope(BaseModel):
 
 class AutomationFeasibilityCoachResponse(BaseModel):
     should_run_feasibility: bool = Field(description="True if at least one feature needs EVALUATE or RE_EVALUATE")
-    target_scope: List[FeasibilityTargetScope] = Field(description="MUST contain an entry for EVERY feature where feedback_exists is false or re-evaluation is needed")
+    target_scope: List[FeasibilityTargetScope] = Field(
+        description="MUST contain an entry for EVERY feature where feedback_exists is false or re-evaluation is needed")
     should_harvest_patterns: bool = Field(default=True)
 
 
@@ -154,4 +155,39 @@ class StepImplementationCoachResponse(BaseModel):
     target_scope: List[StepImplementationTargetScope] = Field(
         default_factory=list,
         description="List of undefined step targets and their implementation directives"
+    )
+
+
+class TargetSite(BaseModel):
+    url: str = Field(description="URL of the site (documentation or company QA blog)")
+    site_type: str = Field(description="e.g., 'Company Engineering Blog', 'Official Documentation'")
+    reason: str = Field(description="Why this site was chosen for benchmarking")
+
+
+class DiscoveryPayload(BaseModel):
+    discovered_sites: List[TargetSite] = Field(default_factory=list)
+
+
+class TechStackInsight(BaseModel):
+    category: str = Field(
+        description="Category, e.g., 'BDD Automation', 'Self-Healing Locators', 'Performance & Load', 'AI Testing Patterns'"
+    )
+    technology_or_pattern: str = Field(
+        description="Name of the technology, library, framework, or architectural pattern"
+    )
+    summary: str = Field(
+        description="Brief explanation of how this technology/pattern improves testing efficiency or code quality"
+    )
+    prompt_injection_rule: str = Field(
+        description="A concise, actionable directive rule to inject into generator agent prompts (e.g., 'Prefer play-based async waiting over fixed explicit sleeps')"
+    )
+
+
+class SectorBenchmarkResponse(BaseModel):
+    executive_summary: str = Field(
+        description="Overall summary of current trends observed across the testing sector"
+    )
+    insights: List[TechStackInsight] = Field(
+        default_factory=list,
+        description="List of specific tech stack recommendations and best practice rules"
     )

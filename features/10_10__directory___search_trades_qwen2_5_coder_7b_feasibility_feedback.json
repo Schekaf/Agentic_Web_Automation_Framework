@@ -1,0 +1,542 @@
+{
+  "feature_file": "10_10__directory___search_trades_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\10_10__directory___search_trades_qwen2_5_coder_7b.feature",
+  "total_scenarios": 18,
+  "automatable_scenarios_count": 18,
+  "scenarios": [
+    {
+      "title": "Open Directory",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "Then I see \"Directory\" page is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Search for a trade",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Plumbing\" in search bar",
+          "matched_pattern": "I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "Then I see \"Plumbing\" trades listed",
+          "matched_pattern": "I see <*> is listed",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is listed"
+        }
+      ]
+    },
+    {
+      "title": "Search by suburb/location",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Sydney\" in search bar",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see trades listed for \"Sydney\"",
+          "matched_pattern": "I see <*> is listed",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is listed"
+        }
+      ]
+    },
+    {
+      "title": "Change distance/radius",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"50km\" as search radius",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see trades within 50km radius",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        }
+      ]
+    },
+    {
+      "title": "Test available-date filtering",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"Show only profiles with upcoming available dates\"",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see profiles with available dates listed",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        }
+      ]
+    },
+    {
+      "title": "Open several profiles",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on first trade profile",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on second trade profile",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see both trade profiles open",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Check rates",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/trades\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select a trade from the directory",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see the rates for the selected trade",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check reviews",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/trades\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select a trade from the directory",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see the reviews for the selected trade",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check available dates",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/trades\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select a trade from the directory",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see the available dates for the selected trade",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        }
+      ]
+    },
+    {
+      "title": "Check profile descriptions",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/trades\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select a trade from the directory",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see the profile descriptions for the selected trade",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Contact/message a business",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/trades\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select a trade from the directory",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I click on \"Contact\" or \"Message\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I am able to contact or message the selected trade",
+          "matched_pattern": "I send a message to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I send a message to {recipient}"
+        }
+      ]
+    },
+    {
+      "title": "Confirm that the results make sense based on the filters selected",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/trades\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I apply filters such as \"Location\", \"Trade Type\", \"Availability\"",
+          "matched_pattern": "I apply <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I apply {option}"
+        },
+        {
+          "step_text": "Then I see the search results match the filters selected by the user",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check Free account radius restrictions",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"Free\" as Account Type",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I enter \"Furkan\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Furkan@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"12345678\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"12345678\" as Confirm Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"12345678\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"12345678\" as Suburb/Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Register Account\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Free\" as Account Type",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {option}"
+        },
+        {
+          "step_text": "And I see \"15km\" as Radius",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {option}"
+        }
+      ]
+    },
+    {
+      "title": "Search with an empty query",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/search\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"\" as Search Query",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Search\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"No results found\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Search with a non-existent location",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/search\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Non-existent Location\" as Search Query",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Search\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"No results found\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Search with a very large radius",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/search\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"10000\" as Radius",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Search\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Search results within 10000km\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Search with a very small radius",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/search\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"1\" as Radius",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Search\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Search results within 1km\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Search with a non-numeric radius",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/search\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"abc\" as Radius",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Search\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid radius value\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    }
+  ]
+}

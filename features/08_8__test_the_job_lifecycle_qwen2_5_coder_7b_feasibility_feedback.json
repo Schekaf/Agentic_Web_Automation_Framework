@@ -1,0 +1,744 @@
+{
+  "feature_file": "08_8__test_the_job_lifecycle_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\08_8__test_the_job_lifecycle_qwen2_5_coder_7b.feature",
+  "total_scenarios": 18,
+  "automatable_scenarios_count": 18,
+  "scenarios": [
+    {
+      "title": "Business A posts a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"BusinessA@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Post Job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"Plumbing\" as Primary Trade",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123 Main St\" as Suburb/Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Job Title",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Job Description",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Post Job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see Job is posted and status is \"Pending\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Business B applies/responds to the job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"BusinessB@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Job Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Apply for Job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see Job is applied and status is \"Pending\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Business A selects Business B",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"BusinessA@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Job Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Select Applicant",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I select \"BusinessB\" as Applicant",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "Then I see Job status is updated to \"Pending\"",
+          "matched_pattern": "I see <*> is updated to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+        }
+      ]
+    },
+    {
+      "title": "Job changes to Pending",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"BusinessA@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Job Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Select Applicant",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I select \"BusinessB\" as Applicant",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "Then I see Job status is updated to \"Pending\"",
+          "matched_pattern": "I see <*> is updated to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+        }
+      ]
+    },
+    {
+      "title": "Business B accepts the job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"BusinessB@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Job Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Accept Job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see Job status is updated to \"Confirmed\"",
+          "matched_pattern": "I see <*> is updated to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+        }
+      ]
+    },
+    {
+      "title": "Business A performs the final confirmation",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"BusinessA@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Password123\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Job Details",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I click on Confirm Job",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see Job status is updated to \"Confirmed\"",
+          "matched_pattern": "I see <*> is updated to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+        }
+      ]
+    },
+    {
+      "title": "Job becomes Confirmed",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as Business A",
+          "matched_pattern": "I am logged in as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as {user}"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I select an Open job",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I click on the Confirm button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see the job status is updated to 'Confirmed'",
+          "matched_pattern": "I see <*> is updated to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+        }
+      ]
+    },
+    {
+      "title": "Job can be marked Completed",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as Business A",
+          "matched_pattern": "I am logged in as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as {user}"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I select an Accepted job",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I click on the Complete button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see the job status is updated to 'Completed'",
+          "matched_pattern": "I see <*> is updated to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+        }
+      ]
+    },
+    {
+      "title": "Both users see the correct status at every stage",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as Business A",
+          "matched_pattern": "I am logged in as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as {user}"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I select an Open job",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I click on the Confirm button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I log out",
+          "matched_pattern": "I log out",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I log in as Business B",
+          "matched_pattern": "I am logged in as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as {user}"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "Then I see the job status is updated to 'Confirmed'",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Notifications are generated when the status changes",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as Business A",
+          "matched_pattern": "I am logged in as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as {user}"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I select an Open job",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I click on the Confirm button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I receive a notification that the job status has changed to 'Confirmed'",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Unauthorized access to post a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a Public User",
+          "matched_pattern": "I am logged in as a Public User",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to the <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to the \"{page_name}\" page"
+        },
+        {
+          "step_text": "And I click on the Post Job button",
+          "matched_pattern": "I click on the <*> button",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on the {button}"
+        },
+        {
+          "step_text": "Then I see an error message indicating that I am not authorized to post a job",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "Invalid payload input for posting a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as Business A",
+          "matched_pattern": "I am logged in as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as {user}"
+        },
+        {
+          "step_text": "And I navigate to the Job Management page",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on the Post Job button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter an invalid payload (e.g., missing required fields)",
+          "matched_pattern": "I enter <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\""
+        },
+        {
+          "step_text": "And I click on the Submit button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see an error message indicating that the payload is invalid",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Unauthorized access to apply/respond to a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Apply\" button for a job",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Unauthorized Access\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Invalid payload input for applying/responding to a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Application Details",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid Payload\" error message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Unauthorized access to select an applicant",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Select Applicant\" button for a job",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Unauthorized Access\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Invalid payload input for selecting an applicant",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Selection Details",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid Payload\" error message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Unauthorized access to accept a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Accept\" button for a job",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Unauthorized Access\" message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    },
+    {
+      "title": "Invalid payload input for accepting a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Acceptance Details",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit\" button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid Payload\" error message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://docs.pytest.org/en/stable/",
+    "site_type": "Official documentation portal",
+    "reason": "Pytest is a widely-used testing framework in Python, and its official documentation provides comprehensive information on test automation."
+  },
+  {
+    "url": "https://www.selenium.dev/documentation/",
+    "site_type": "Official documentation portal",
+    "reason": "Selenium is a popular tool for web UI testing, and its official documentation is a key resource for test automation."
+  },
+  {
+    "url": "https://behave.readthedocs.io/en/latest/",
+    "site_type": "Official documentation portal",
+    "reason": "Behave is a BDD testing framework for Python, and its official documentation is a key resource for understanding BDD practices and test automation."
+  },
+  {
+    "url": "https://www.tricentis.com/",
+    "site_type": "Enterprise QA provider",
+    "reason": "Tricentis' official website, offering a range of testing tools and solutions for automotive and aerospace industries."
+  },
+  {
+    "url": "https://www.capgemini.com/",
+    "site_type": "IT/QA consultancy",
+    "reason": "Capgemini's official website, offering QA and testing services for various industries, including automotive and aerospace."
+  },
+  {
+    "url": "https://www.capgemini.com/en/",
+    "site_type": "IT/QA consultancy",
+    "reason": "Capgemini's official website, offering QA and testing services for various industries, including automotive and aerospace."
+  },
+  {
+    "url": "https://www.selenium.dev/blog/",
+    "site_type": "Major tech company engineering blog",
+    "reason": "Selenium's official blog, sharing QA benchmarks and infrastructure case studies."
+  },
+  {
+    "url": "https://www.tricentis.com/blog/",
+    "site_type": "Major tech company engineering blog",
+    "reason": "Tricentis' official blog, sharing QA benchmarks and infrastructure case studies."
+  }
+]

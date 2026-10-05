@@ -1,0 +1,253 @@
+{
+  "feature_file": "practice_tests.feature",
+  "feature_path": "features\\practice_tests.feature",
+  "total_scenarios": 5,
+  "automatable_scenarios_count": 5,
+  "scenarios": [
+    {
+      "title": "Open Web Inputs on Practice",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://practice.expandtesting.com/\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "And I click on Web Inputs Try it out button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "When I enter \"5\" into Input Number field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"5\" as Input Number field value",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "When I enter \"Hello\" into Input Text field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Hello\" as Input Text field value",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "When I enter \"Password\" into Input Password field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Password\" as Input Password field value",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "When I enter \"<TODAY>\" into Input Date field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"<TODAY>\" as Input Date field value",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Successful Login",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://practice.expandtesting.com/\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "And I click on Test Login Page Try it out button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "When I enter \"practice\" into Username field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"SuperSecretPassword!\" into Password field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I should be redirected to the \"/secure\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        }
+      ]
+    },
+    {
+      "title": "Invalid Password Login",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://practice.expandtesting.com/\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "And I click on Test Login Page Try it out button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "When I enter \"practice\" into Username field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" into Password field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Your password is invalid!\" as Login Error Message field value",
+          "matched_pattern": "I see <*> message indicating <*> has been exceeded",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message indicating \"{limit}\" has been exceeded"
+        }
+      ]
+    },
+    {
+      "title": "Invalid Username Login",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://practice.expandtesting.com/\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "And I click on Test Login Page Try it out button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "When I enter \"invalidUser\" into Username field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"SuperSecretPassword!\" into Password field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on Login button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid username.\" as Login Error Message field value",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Successful Register",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://practice.expandtesting.com/\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "And I click on Test Register Page Try it out button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" into Username field",
+          "matched_pattern": "I enter <*> as Username",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{username}\" as Username"
+        },
+        {
+          "step_text": "And I enter \"Password1234!\" into Password field",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I enter \"Password1234!\" into Confirm Password field",
+          "matched_pattern": "I enter <*> as Confirm Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{confirm_password}\" as Confirm Password"
+        },
+        {
+          "step_text": "And I click on Register button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Successfully registered, you can log in now.\" as Register Message field value",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    }
+  ]
+}

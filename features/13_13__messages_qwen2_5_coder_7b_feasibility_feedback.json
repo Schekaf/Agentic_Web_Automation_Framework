@@ -1,0 +1,826 @@
+{
+  "feature_file": "13_13__messages_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\13_13__messages_qwen2_5_coder_7b.feature",
+  "total_scenarios": 20,
+  "automatable_scenarios_count": 20,
+  "scenarios": [
+    {
+      "title": "Send a message from Account A to Account B",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AccountA\" as Username",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"PasswordA\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I navigate to the Messages section",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on \"New Message\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"AccountB\" as Recipient",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"Hello from Account A\" as Message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Success Message is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Open Account B",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AccountB\" as Username",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"PasswordB\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Dashboard is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Confirm the message appears in Account B",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AccountB\" as Username",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"PasswordB\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I navigate to the Messages section",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "Then I see \"Hello from Account A\" in Messages",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+        }
+      ]
+    },
+    {
+      "title": "Reply to the message from Account B",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AccountB\" as Username",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"PasswordB\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I navigate to the Messages section",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on \"Hello from Account A\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"Hello from Account B\" as Reply",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Success Message is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Confirm Account A receives the reply",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AccountA\" as Username",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"PasswordA\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I navigate to the Messages section",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "Then I see \"Hello from Account B\" in Messages",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+        }
+      ]
+    },
+    {
+      "title": "Send multiple messages from Account A to Account B",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AccountA\" as Username",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"PasswordA\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Login",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I navigate to the Messages section",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "And I click on \"New Message\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"AccountB\" as Recipient",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"Message 1 from Account A\" as Message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on \"New Message\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"AccountB\" as Recipient",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter \"Message 2 from Account A\" as Message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Success Message is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I navigate to the Messages section",
+          "matched_pattern": "I navigate to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{url}\""
+        },
+        {
+          "step_text": "Then I see \"Message 1 from Account A\" in Messages",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+        },
+        {
+          "step_text": "And I see \"Message 2 from Account A\" in Messages",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+        }
+      ]
+    },
+    {
+      "title": "Test long messages",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/messages\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as a long message in the message input field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Success Message is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Test short messages",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/messages\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Hello!\" as a short message in the message input field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send button",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see Success Message is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Test messaging from a job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on a job listing",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on the Message button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the messaging interface for the job",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Test messaging from a tender if available",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/tenders\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on a tender listing",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I click on the Message button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the messaging interface for the tender",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Check unread message counts",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/messages\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on the Unread Messages tab",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the correct unread message count displayed",
+          "matched_pattern": "I see <*> is displayed",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is displayed"
+        }
+      ]
+    },
+    {
+      "title": "Open the conversation",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/messages\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on a conversation thread",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the conversation interface for the selected thread",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Confirm unread status changes correctly",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open the messaging application",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I receive a new message",
+          "matched_pattern": "I receive <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I receive \"{message}\""
+        },
+        {
+          "step_text": "Then I see the message is marked as unread",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
+        },
+        {
+          "step_text": "When I open the message",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "Then I see the message is marked as read",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
+        }
+      ]
+    },
+    {
+      "title": "Test messaging functionality on mobile",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open the messaging application on my mobile device",
+          "matched_pattern": "I open <*> on a mobile device",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\" on a mobile device"
+        },
+        {
+          "step_text": "When I send a message to another user",
+          "matched_pattern": "I send a message to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I send a message to \"{recipient}\""
+        },
+        {
+          "step_text": "Then I receive a notification on my mobile device",
+          "matched_pattern": "I receive <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I receive \"{message}\""
+        },
+        {
+          "step_text": "When I open the messaging application on my mobile device",
+          "matched_pattern": "I open <*> on a mobile device",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\" on a mobile device"
+        },
+        {
+          "step_text": "Then I see the received message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Send a message with an empty title",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open the messaging application",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter an empty title in the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter a message body",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see an error message indicating that the title cannot be empty",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Send a message with a null title",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open the messaging application",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter a null title in the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter a message body",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see an error message indicating that the title cannot be null",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Send a message with a title exceeding the character limit",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open the messaging application",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter a title exceeding the character limit in the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter a message body",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see an error message indicating that the title exceeds the character limit",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Send a message with an invalid payload",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open the messaging application",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter a valid title in the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I enter an invalid payload in the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+        },
+        {
+          "step_text": "And I click on Send",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see an error message indicating that the payload is invalid",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Send a message when Account B is not open",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with Account B",
+          "matched_pattern": "I am logged in as a user with <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as a user with \"{role}\""
+        },
+        {
+          "step_text": "And Account B is not open",
+          "matched_pattern": "Account <*> is not open",
+          "pattern_status": "matched",
+          "resolved_pattern": "Account \"{account}\" is not open"
+        },
+        {
+          "step_text": "When I attempt to send a message to Account B",
+          "matched_pattern": "I attempt to send a message to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I attempt to send a message to \"{recipient}\""
+        },
+        {
+          "step_text": "Then I receive an error message indicating that Account B is not open",
+          "matched_pattern": "I receive an error message indicating that <*> is not open",
+          "pattern_status": "matched",
+          "resolved_pattern": "I receive an error message indicating that \"{element}\" is not open"
+        }
+      ]
+    },
+    {
+      "title": "Send a message when Account A is not open",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I am logged in as a user with Account A",
+          "matched_pattern": "I am logged in as a user with <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I am logged in as a user with \"{role}\""
+        },
+        {
+          "step_text": "And Account A is not open",
+          "matched_pattern": "Account <*> is not open",
+          "pattern_status": "matched",
+          "resolved_pattern": "Account \"{account}\" is not open"
+        },
+        {
+          "step_text": "When I attempt to send a message to Account A",
+          "matched_pattern": "I attempt to send a message to <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I attempt to send a message to \"{recipient}\""
+        },
+        {
+          "step_text": "Then I receive an error message indicating that Account A is not open",
+          "matched_pattern": "I receive an error message indicating that <*> is not open",
+          "pattern_status": "matched",
+          "resolved_pattern": "I receive an error message indicating that \"{element}\" is not open"
+        }
+      ]
+    }
+  ]
+}

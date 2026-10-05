@@ -1,0 +1,622 @@
+{
+  "feature_file": "06_6__post_a_job_qwen2_5_coder_7b.feature",
+  "feature_path": "features\\06_6__post_a_job_qwen2_5_coder_7b.feature",
+  "total_scenarios": 20,
+  "automatable_scenarios_count": 20,
+  "scenarios": [
+    {
+      "title": "Enter a valid job title",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Plumbing Job\" in \"Job Title\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Job Title\" is \"Valid\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "And I see \"Job Title\" is stored correctly",
+          "matched_pattern": "I see <*> is stored correctly",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{data}\" is stored correctly"
+        }
+      ]
+    },
+    {
+      "title": "Enter an invalid job title (exceeding 8 words)",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Plumbing Job for Residential Development\" in \"Job Title\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Job Title\" is \"Invalid\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "And I see an appropriate error message is displayed",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Select a valid trade",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"Plumbing\" as \"Trade\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Trade\" is selected as \"Plumbing\"",
+          "matched_pattern": "I see <*> is selected as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{option}\" is selected as {element}"
+        },
+        {
+          "step_text": "And I see \"Trade\" is stored correctly",
+          "matched_pattern": "I see <*> is stored correctly",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{data}\" is stored correctly"
+        }
+      ]
+    },
+    {
+      "title": "Select an invalid trade",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"Invalid Trade\" as \"Trade\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Trade\" is \"Invalid\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "And I see an appropriate error message is displayed",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Enter a detailed description",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"We need a plumber to fix the leaky faucet\" in \"Description\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Description\" is stored correctly",
+          "matched_pattern": "I see <*> is stored correctly",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{data}\" is stored correctly"
+        }
+      ]
+    },
+    {
+      "title": "Enter an empty description",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"\" in \"Description\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Description\" is \"Invalid\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        },
+        {
+          "step_text": "And I see an appropriate error message is displayed",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Enter a job location",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"123 Main St, Anytown\" in \"Job Location\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Job location saved successfully\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter an invalid job location",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Invalid Location\" in \"Job Location\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid job location\" error message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter a valid date",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<TODAY>\" in \"Job Date\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Job date saved successfully\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter an invalid date",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"2020-02-30\" in \"Job Date\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid job date\" error message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter a valid expected duration",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"2 days\" in \"Expected Duration\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Expected duration saved successfully\" message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter an invalid expected duration",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Invalid Duration\" in \"Expected Duration\" field",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid expected duration\" error message is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Enter a valid rate/budget",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"100\" as Rate/Budget",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Rate/Budget\" is \"Valid\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Enter an invalid rate/budget",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"abc\" as Rate/Budget",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Rate/Budget\" is \"Invalid\"",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Add an emergency/urgent tag",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"Emergency\" as Tag",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "Then I see \"Emergency\" is selected as Tag",
+          "matched_pattern": "I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Do not add an emergency/urgent tag",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I do not select any Tag",
+          "matched_pattern": "I do not select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not select {element}"
+        },
+        {
+          "step_text": "Then I do not see any Tag selected",
+          "matched_pattern": "I do not see <*> is selected as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{option}\" is selected as {element}"
+        }
+      ]
+    },
+    {
+      "title": "Upload a valid attachment/photo",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I upload \"valid_photo.jpg\" as Attachment",
+          "matched_pattern": "I upload <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I upload \"{file}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"valid_photo.jpg\" in Attachment Values",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in {container}"
+        }
+      ]
+    },
+    {
+      "title": "Upload an invalid attachment/photo",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I upload \"invalid_file.txt\" as Attachment",
+          "matched_pattern": "I upload <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I upload \"{file}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid file type\" error message",
+          "matched_pattern": "I see <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\""
+        }
+      ]
+    },
+    {
+      "title": "Submit the job",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/post-job\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Job Title",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Job Description",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I select \"Plumbing\" as Primary Trade",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Contact Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Contact Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Submit Job\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Job submitted successfully\" is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Confirm job appears in account",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as Username",
+          "matched_pattern": "I enter <*> as Username",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{username}\" as Username"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "matched_pattern": "I enter <*> as Password",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{password}\" as Password"
+        },
+        {
+          "step_text": "And I click on \"Login\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Dashboard\" is Visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I see \"<RANDOM:8>\" as Job Title in Jobs List",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        },
+        {
+          "step_text": "And I see \"<RANDOM:8>\" as Job Description in Jobs List",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        },
+        {
+          "step_text": "And I see \"Plumbing\" as Primary Trade in Jobs List",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        },
+        {
+          "step_text": "And I see \"<RANDOM:8>\" as Suburb/Location in Jobs List",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        },
+        {
+          "step_text": "And I see \"<RANDOM:8>\" as Contact Email in Jobs List",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        },
+        {
+          "step_text": "And I see \"<RANDOM:8>\" as Contact Phone in Jobs List",
+          "matched_pattern": "I see <*> in Jobs List",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" in Jobs List"
+        }
+      ]
+    }
+  ]
+}
