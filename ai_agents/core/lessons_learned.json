@@ -897,7 +897,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 406",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.uber.com/blog/qa/",
-    "occurrence_count": 13
+    "occurrence_count": 15
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -960,7 +960,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 502",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.spotify.com/en-gb/developer/",
-    "occurrence_count": 12
+    "occurrence_count": 13
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -969,7 +969,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 403",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.netflix.com/en/developer/",
-    "occurrence_count": 14
+    "occurrence_count": 15
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -978,7 +978,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.behavebdd.org', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002514658A8A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.behavebdd.org/",
-    "occurrence_count": 10
+    "occurrence_count": 11
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -996,7 +996,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 404",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.airbus.com/en/research-and-development/",
-    "occurrence_count": 12
+    "occurrence_count": 13
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1023,7 +1023,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 404",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.porsche.com/en/research-and-development/",
-    "occurrence_count": 7
+    "occurrence_count": 8
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1113,7 +1113,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.bmw.com', port=443): Read timed out. (read timeout=3)",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.bmw.com/en/research-and-development/",
-    "occurrence_count": 4
+    "occurrence_count": 5
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1140,7 +1140,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 403",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.medium.com/tag/testing",
-    "occurrence_count": 1
+    "occurrence_count": 2
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1158,7 +1158,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.vector-informatik.com', port=443): Max retries exceeded with url: /en/ (Caused by SSLError(CertificateError(\"hostname 'www.vector-informatik.com' doesn't match 'bremen.mosaiq.com'\")))",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.vector-informatik.com/en/",
-    "occurrence_count": 2
+    "occurrence_count": 5
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1167,7 +1167,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 404",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.bosch.com/en-US/home.html",
-    "occurrence_count": 2
+    "occurrence_count": 4
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1176,7 +1176,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTP 403",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.tesla.com/",
-    "occurrence_count": 1
+    "occurrence_count": 3
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1185,7 +1185,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.automotive-testing.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)')))",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.automotive-testing.com/",
-    "occurrence_count": 1
+    "occurrence_count": 4
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1194,7 +1194,7 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.safetycritical.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.safetycritical.com/",
-    "occurrence_count": 1
+    "occurrence_count": 4
   },
   {
     "agent_id": "ResearchDiscoveryAgent",
@@ -1203,6 +1203,339 @@
     "corrected_output": "Remove dead link from target discovery list",
     "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.automotivequalityinfo.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001CC823EA990>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
     "rule_derived": "DO NOT suggest broken URL or domain: https://www.automotivequalityinfo.com/",
+    "occurrence_count": 4
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.k6.io/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.k6.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000021D330677A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.k6.io/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/bdd/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/bdd/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/pytest/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/pytest/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/k6/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/k6/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/k6/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/k6/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/gatling/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/gatling/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/blazemeter/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/blazemeter/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/safety-critical/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/safety-critical/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/safety-critical/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/safety-critical/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/hil/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/hil/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/hil/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/hil/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/log-pattern-analysis/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/log-pattern-analysis/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/log-pattern-analysis/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/log-pattern-analysis/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-traceability/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-traceability/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-traceability/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-traceability/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-architecture/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-architecture/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-architecture/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-architecture/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-design-patterns/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-design-patterns/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-design-patterns/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-design-patterns/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-benchmarks/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-benchmarks/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-benchmarks/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-benchmarks/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-case-studies/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-case-studies/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-case-studies/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-case-studies/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-compliance/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-compliance/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-compliance/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-compliance/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-standards/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-standards/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-standards/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-standards/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-patterns/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-patterns/",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-patterns/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-patterns/",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestinghelp.com/test-strategies/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestinghelp.com/test-strategies/",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.softwaretestingmaterial.com/test-strategies/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.softwaretestingmaterial.com/test-strategies/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.zaptest.com/tr/qa-testi-nedir-turleri-surecleri-yaklasimlari-araclari-ve-daha-fazlasi",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.zaptest.com/tr/qa-testi-nedir-turleri-surecleri-yaklasimlari-araclari-ve-daha-fazlasi",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.zhihu.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 405",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.zhihu.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.linkedin.com/in/michelemorris",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 405",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.linkedin.com/in/michelemorris",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://www.shift.gearboxsoftware.com/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='www.shift.gearboxsoftware.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002420CEC2990>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://www.shift.gearboxsoftware.com/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://qapractices.com/documentation/pytest-qa-best-practices/",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTP 404",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://qapractices.com/documentation/pytest-qa-best-practices/",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "ResearchDiscoveryAgent",
+    "category": "URL_REACHABILITY",
+    "original_output": "Suggested URL: https://ansys.synopsys.com/simulation-topics/what-is-hardware-in-the-loop-testing",
+    "corrected_output": "Remove dead link from target discovery list",
+    "root_cause": "Domain unreachable or returned error: HTTPSConnectionPool(host='ansys.synopsys.com', port=443): Max retries exceeded with url: /simulation-topics/what-is-hardware-in-the-loop-testing (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000023699CC9160>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed'))",
+    "rule_derived": "DO NOT suggest broken URL or domain: https://ansys.synopsys.com/simulation-topics/what-is-hardware-in-the-loop-testing",
     "occurrence_count": 1
   }
 ]

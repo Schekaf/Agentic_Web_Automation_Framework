@@ -1,14 +1,19 @@
 import json
+import time
 from pathlib import Path
+from typing import List, Dict
 
 import requests
+from ddgs import DDGS
 from langchain_core.prompts import PromptTemplate
-
 from ai_agents.core.base_agent import BaseAgent
-from ai_agents.core.schemas import DiscoveryPayload
+from ai_agents.core.schemas import DiscoveryPayload, SearchQueries
 
 SCOUT_PROMPT = """You are the Research Discovery Agent (Scout Agent).
 Your job is to dynamically discover, evaluate, and output high-quality web resources for software testing benchmarks, tools, and practices across the global QA ecosystem.
+
+CORE TARGET KEYWORDS (Ground your query generation around these terms):
+{formatted_keywords}
 
 LESSONS LEARNED: 
 {lessons_learned}
@@ -53,6 +58,43 @@ TARGET CRITERIA:
 
 OUTPUT: Return a list of targeted URLs matching the criteria.
 """
+
+# Core keywords to ground query generation
+KEYWORDS_LIST = [
+    "QA", "Quality Engineering", "Software Testing", "Web Automation Framework",
+    "Behavior-Driven Development", "BDD", "Gherkin", "Behave", "Given-When-Then",
+    "Feature Files", "Step Definitions", "Selenium", "Playwright", "Pytest",
+    "Pytest-BDD", "Page Object Model", "POM", "Robot Framework",
+    "Hardware-in-the-Loop", "HIL Testing", "ISO 26262", "DO-178C",
+    "Agentic AI Testing", "Autonomous Test Generation", "Self-Healing Locators",
+    "Test Flakiness Reduction", "Shift-Left Testing"
+]
+FORMATTED_KEYWORDS = "\n".join([f"- {kw}" for kw in KEYWORDS_LIST])
+
+# Enhanced Stage 1 Prompt incorporating regional horizons & domain specs
+QUERY_GEN_PROMPT = """You are the Research Discovery Agent (Scout Agent).
+Generate 3 to 5 precise, highly targeted web search queries to discover high-value software testing benchmarks, tools, and practices across global QA hubs.
+DO NOT write long sentences or paragraphs. Use real search engine syntax.
+
+CORE TARGET KEYWORDS:
+{formatted_keywords}
+
+Generate queries that combine these regional targets, frameworks, and domain standards.
+"""
+
+# Stage 2 Prompt: Select Valuable URLs from Search Results
+URL_SELECTION_PROMPT = """You are the Research Discovery Agent (Scout Agent).
+Review the live search results fetched from DuckDuckGo and select only the high-value, relevant URLs for software testing benchmarks.
+
+SEARCH RESULTS FETCHED FROM WEB:
+{search_results_json}
+
+ALREADY DISCOVERED SITES (DO NOT REPEAT THESE):
+{already_discovered_json}
+
+Filter out generic marketing spam or irrelevant sites. Return only useful target URLs with a brief reason.
+"""
+
 AUTOMOTIVE_AVIATION_FOCUS_AREA = """
 Automotive and Aviation Industry Software Testing & QA Practices:
 1. High-reliability web/UI test automation frameworks (Python, Behave BDD, Selenium, Pytest, Playwrite).
@@ -63,10 +105,47 @@ Automotive and Aviation Industry Software Testing & QA Practices:
 
 
 class ResearchDiscoveryAgent(BaseAgent):
-    def __init__(self, json_path: str = "ai_agents/core/discovered_sites.json", **kwargs):
+    def __init__(self, discovered_sites_path: str = "ai_agents/core/discovered_sites.json", **kwargs):
         super().__init__(temperature=0.2, **kwargs)
-        self.json_path = Path(json_path)
-        self.chain = PromptTemplate.from_template(SCOUT_PROMPT) | self.llm.with_structured_output(DiscoveryPayload)
+        self.json_path = Path(discovered_sites_path)
+        # Stage 1 Chain: Generates dynamic search queries
+        self.query_chain = (
+                PromptTemplate.from_template(QUERY_GEN_PROMPT)
+                | self.llm.with_structured_output(SearchQueries)
+        )
+
+        # Stage 2 Chain: Selects and enriches target URLs from search results
+        self.selection_chain = (
+                PromptTemplate.from_template(URL_SELECTION_PROMPT)
+                | self.llm.with_structured_output(DiscoveryPayload)
+        )
+
+    @staticmethod
+    def execute_web_search(queries: List[str], max_results_per_query: int = 3) -> List[Dict[str, str]]:
+        """Executes live web search queries via DuckDuckGo and returns structured URL metadata."""
+        collected_results = []
+        seen_urls = set()
+
+        with DDGS() as ddgs:
+            for query in queries:
+                try:
+                    print(f"Executing web search query: '{query}'")
+                    results = ddgs.text(query, max_results=max_results_per_query)
+                    time.sleep(10)
+                    for r in results:
+                        url = r.get("href")
+                        if url and url not in seen_urls:
+                            seen_urls.add(url)
+                            collected_results.append({
+                                "title": r.get("title"),
+                                "url": url,
+                                "snippet": r.get("body"),
+                                "query_used": query
+                            })
+                except Exception as e:
+                    print(f"Search execution failed for query '{query}': {e}")
+
+        return collected_results
 
     def _validate_sites(self, payload: DiscoveryPayload) -> DiscoveryPayload:
         """
@@ -116,10 +195,35 @@ class ResearchDiscoveryAgent(BaseAgent):
             root_cause=f"Domain unreachable or returned error: {reason}",
             rule_derived=f"DO NOT suggest broken URL or domain: {url}",
         )
+        print(f"⚠️ Broken URL detected: {url} | Reason: {reason}")
 
     def discover_sites(self, focus_area: str = AUTOMOTIVE_AVIATION_FOCUS_AREA) -> DiscoveryPayload:
+        """Executes the complete 2-stage discovery process and persists verified targets."""
         already_discovered = self.json_path.read_text(encoding="utf-8") if self.json_path.exists() else "[]"
-        response = self.invoke(self.chain, {
+        lessons_text = (
+            self.lessons_manager.load_lessons(self.agent_name)
+            if hasattr(self, 'lessons_manager') and self.lessons_manager
+            else "No prior negative constraints recorded."
+        )
+
+        # Step 1: LLM Agent generates search queries
+        query_response: SearchQueries = self.invoke(self.query_chain, {
             "focus_area": focus_area,
-            "already_discovered_json": already_discovered})
-        return self._validate_sites(response)
+            "formatted_keywords": FORMATTED_KEYWORDS,
+            "lessons_learned": lessons_text,
+        })
+
+        # Step 2: Execute live search via DuckDuckGo
+        search_results = self.execute_web_search(query_response.queries)
+        if not search_results:
+            print("No search results returned from web queries.")
+            return DiscoveryPayload(discovered_sites=[])
+
+        # Step 3: LLM Agent selects useful URLs from live web snippets
+        selection_response: DiscoveryPayload = self.invoke(self.selection_chain, {
+            "search_results_json": json.dumps(search_results, indent=2),
+            "already_discovered_json": already_discovered,
+        })
+
+        # Step 4: Validate URL HTTP status codes and save to discovered_sites.json
+        return self._validate_sites(selection_response)

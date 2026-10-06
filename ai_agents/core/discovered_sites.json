@@ -38,5 +38,97 @@
     "url": "https://www.tricentis.com/blog/",
     "site_type": "Major tech company engineering blog",
     "reason": "Tricentis' official blog, sharing QA benchmarks and infrastructure case studies."
+  },
+  {
+    "url": "https://qapractices.com/documentation/robot-framework-testing-guide/",
+    "reason": "Offers a comprehensive guide to using Robot Framework for QA testing, including key ideas and tools."
+  },
+  {
+    "url": "https://robotframework.org/",
+    "reason": "Official website for Robot Framework, a generic open-source automation framework for QA testing."
+  },
+  {
+    "url": "https://embedenv.com/online-compiler/robot-framework",
+    "reason": "Provides an online compiler for Robot Framework, useful for testing and automation."
+  },
+  {
+    "url": "https://www.opal-rt.com/blog/a-guide-to-hardware-in-the-loop-testing/",
+    "reason": "Offers a guide to hardware-in-the-loop testing, which is crucial for embedded systems development."
+  },
+  {
+    "url": "https://helpmetest.com/blog/hardware-in-the-loop-testing-guide/",
+    "reason": "Provides a detailed guide to hardware-in-the-loop testing, useful for embedded engineers."
+  },
+  {
+    "url": "https://www.qa-systems.com/solutions/iso-26262/",
+    "reason": "Offers solutions for ISO 26262 compliance, which is essential for automotive software testing."
+  },
+  {
+    "url": "https://www.qa-systems.com/blog/iso-26262-testing-best-practices/",
+    "reason": "Shares best practices for ISO 26262 testing, which is critical for automotive functional safety."
+  },
+  {
+    "url": "https://www.qa-systems.com/solutions/do-178/",
+    "reason": "Provides solutions for DO-178C compliance, which is crucial for aerospace software testing."
+  },
+  {
+    "url": "https://www.do178.org/do178_introduction.html",
+    "reason": "Offers guidance on DO-178C, the primary document for certifying software in aerospace systems."
+  },
+  {
+    "url": "https://katalon.com/resources-center/blog/what-is-agentic-qa-the-complete-guide-for-2026",
+    "reason": "Provides a comprehensive guide to agentic QA, an approach to software quality assurance using autonomous AI agents."
+  },
+  {
+    "url": "https://testquality.com/the-shift-to-agentic-qa-beyond-automated-testing-to-autonomous-ai-generation-in-2026/",
+    "reason": "Discusses the shift to agentic QA, focusing on autonomous AI test case generation."
+  },
+  {
+    "url": "https://remote.qa/blog/agentic-qa-autonomous-test-agents-2026/",
+    "reason": "Explains agentic QA and its role in autonomous test agents for software testing."
+  },
+  {
+    "url": "https://qa.tech/blog/the-13-best-ai-testing-tools-in-2026",
+    "reason": "Reviews the 13 best AI testing tools, including autonomous test generation and managed services."
+  },
+  {
+    "url": "https://www.virtuosoqa.com/post/test-case-generation",
+    "reason": "Discusses AI-powered test generation and its impact on QA, including self-healing maintenance."
+  },
+  {
+    "url": "https://qatechtools.com/2026/06/02/self-healing-locators-hype-vs-reality/",
+    "reason": "Analyzes the concept of self-healing locators and their limitations in UI test maintenance."
+  },
+  {
+    "url": "https://delta-qa.com/en/blog/self-healing-locators-visual-testing/",
+    "reason": "Provides a solution for visual testing with self-healing locators, addressing UI element changes."
+  },
+  {
+    "url": "https://www.qabash.com/glossary/test-automation/self-healing-locators",
+    "reason": "Defines and explains self-healing locators in test automation, focusing on their practical use."
+  },
+  {
+    "url": "https://getautonoma.com/blog/reduce-test-flakiness-best-practices",
+    "reason": "Offers best practices for reducing test flakiness, improving test reliability and maintainability."
+  },
+  {
+    "url": "https://justqa.pro/blog/reduce-flaky-tests-automated-qa",
+    "reason": "Discusses the challenges of reducing flaky tests in automated QA and provides practical solutions."
+  },
+  {
+    "url": "https://contextqa.com/blog/flaky-test-playbook-diagnose-eliminate/",
+    "reason": "Provides a playbook for diagnosing and eliminating flaky tests, focusing on identifying and fixing issues."
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/software-testing/shift-left-testing-software-testing/",
+    "reason": "Explains the concept of shift-left testing and its challenges in software development."
+  },
+  {
+    "url": "https://totalshiftleft.com/blog/shift-left-testing-complete-guide",
+    "reason": "Offers a comprehensive guide to shift-left testing, including implementation strategies and case studies."
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/software-engineering/shift-left-testing-approach/",
+    "reason": "Provides an overview of the shift-left testing approach and its benefits in software development."
   }
 ]

@@ -158,14 +158,17 @@ class StepImplementationCoachResponse(BaseModel):
     )
 
 
-class TargetSite(BaseModel):
-    url: str = Field(description="URL of the site (documentation or company QA blog)")
-    site_type: str = Field(description="e.g., 'Company Engineering Blog', 'Official Documentation'")
-    reason: str = Field(description="Why this site was chosen for benchmarking")
+class SearchQueries(BaseModel):
+    queries: List[str] = Field(description="List of 3 to 5 targeted search query strings")
+
+
+class DiscoveredURL(BaseModel):
+    url: str = Field(description="Verified URL selected from search results")
+    reason: str = Field(description="Brief explanation of why this target is useful")
 
 
 class DiscoveryPayload(BaseModel):
-    discovered_sites: List[TargetSite] = Field(default_factory=list)
+    discovered_sites: List[DiscoveredURL] = Field(description="Filtered list of useful target URLs")
 
 
 class TechStackInsight(BaseModel):
