@@ -164,6 +164,7 @@ class SearchQueries(BaseModel):
 
 class DiscoveredURL(BaseModel):
     url: str = Field(description="Verified URL selected from search results")
+    site_type: str = Field(description="e.g., 'Company Engineering Blog', 'Official Documentation'")
     reason: str = Field(description="Brief explanation of why this target is useful")
 
 
