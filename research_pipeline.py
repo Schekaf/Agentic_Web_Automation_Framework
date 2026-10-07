@@ -1,6 +1,7 @@
 import sys
 
 from ai_agents.qa_sector_benchmark_agent.research_discovery_agent import ResearchDiscoveryAgent
+from ai_agents.qa_sector_benchmark_agent.sector_benchmark_agent import SectorBenchmarkAgent
 
 
 def print_discovery_results(discovery_results) -> None:
@@ -27,10 +28,17 @@ def print_discovery_results(discovery_results) -> None:
         print(f"     🔗 URL:    {url}")
         print(f"     💡 REASON: {reason}")
         print("-" * 80)
+
+
 def main():
+    print("🤖 Running Research Discovery Agent...")
     scout = ResearchDiscoveryAgent()
     discovery_results = scout.discover_sites()
     print_discovery_results(discovery_results)
+
+    print("\n🤖 Running Sector Benchmark Agent...")
+    benchmark_agent = SectorBenchmarkAgent()
+    benchmark_agent.start_benchmark()
 
 
 if __name__ == "__main__":
