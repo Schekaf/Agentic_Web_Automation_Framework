@@ -187,11 +187,15 @@ class TechStackInsight(BaseModel):
     )
 
 
-class SectorBenchmarkResponse(BaseModel):
-    executive_summary: str = Field(
-        description="Overall summary of current trends observed across the testing sector"
-    )
-    insights: List[TechStackInsight] = Field(
-        default_factory=list,
-        description="List of specific tech stack recommendations and best practice rules"
-    )
+class SectorInsight(BaseModel):
+    insight_id: str = Field(description="Unique identifier or UUID for the extracted insight.")
+    title: str = Field(description="Headline or title of the scraped resource or standard update.")
+    category: str = Field(description="Category such as Automotive (ISO 26262), Aerospace (DO-178C), BDD Automation, or Tool Update.")
+    summary: str = Field(description="Concise summary of what happened or what new testing practice was introduced.")
+    key_takeaways: List[str] = Field(description="Specific technical rules, requirements, or benchmarks extracted.")
+    actionable_impact: str = Field(description="How this affects our automation framework or whether it requires new test scenarios.")
+    relevance_score: float = Field(description="Relevance score between 0.0 and 1.0 evaluating value for high-reliability QA.")
+
+
+class SectorInsightsPayload(BaseModel):
+    insights: List[SectorInsight] = Field(description="List of extracted testing sector insights.")
