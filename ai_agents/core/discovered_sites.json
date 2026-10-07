@@ -130,5 +130,45 @@
   {
     "url": "https://www.geeksforgeeks.org/software-engineering/shift-left-testing-approach/",
     "reason": "Provides an overview of the shift-left testing approach and its benefits in software development."
+  },
+  {
+    "url": "https://www.guru99.com/testing-tools.html",
+    "site_type": "Blog",
+    "reason": "Provides a comprehensive list of top software testing tools, useful for comparison and selection."
+  },
+  {
+    "url": "https://www.testwheel.com/blog/best-software-testing-tools/",
+    "site_type": "Blog",
+    "reason": "Offers a detailed comparison of 12 software testing tools, suitable for QA teams."
+  },
+  {
+    "url": "https://appsinsight.co/software-testing-tools/",
+    "site_type": "Blog",
+    "reason": "Compares 10 of the best software testing tools, helping to identify the most suitable solution."
+  },
+  {
+    "url": "https://testdino.com/blog/playwright-bdd",
+    "site_type": "Blog",
+    "reason": "Provides a guide on setting up Playwright BDD, useful for end-to-end testing with Gherkin."
+  },
+  {
+    "url": "https://gherkinizer.com/bdd/playwright",
+    "site_type": "Website",
+    "reason": "Offers information on using Gherkin with Playwright for BDD, relevant for test automation."
+  },
+  {
+    "url": "https://pytest-bdd.readthedocs.io/en/latest/",
+    "site_type": "Documentation",
+    "reason": "Provides documentation for Pytest-BDD, a BDD framework for pytest, useful for test automation."
+  },
+  {
+    "url": "https://github.com/gherkin-by-example/python-behave",
+    "site_type": "GitHub Repository",
+    "reason": "Contains examples of using Gherkin with Behave for test automation, relevant for BDD."
+  },
+  {
+    "url": "https://www.parasoft.com/resources/case-studies/federal-agency-fulfills-rigorous-do-178c-standard-with-unified-automated-testing-solution/",
+    "site_type": "Case Study",
+    "reason": "Shares a case study on fulfilling DO-178C standards with automated testing solutions, relevant for aerospace and automotive industries."
   }
 ]
