@@ -8,3 +8,4 @@ python-dotenv~=1.2.2
 drain3~=0.9.11
 ollama~=0.6.2
 ddgs
+bs4
