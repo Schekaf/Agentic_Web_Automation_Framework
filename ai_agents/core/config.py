@@ -23,7 +23,9 @@ LLAMA = "llama3.2:3b"
 AGENT_MODEL_MAP = {
     # Supervisory Coach Agents (General LLM for decision reasoning & JSON adherence)
     "TestGenerationCoachAgent": GENERAL,
-    "AutomationFeasibilityCoachAgent": LLAMA,
+    "AutomationFeasibilityCoachAgent": CODER,
+    "AuditCoachAgent": GENERAL,
+    "StepImplementationGenerationCoachAgent": CODER,
 
     # Phase 0: Planning
     "RequirementsRouterAgent": GENERAL,
