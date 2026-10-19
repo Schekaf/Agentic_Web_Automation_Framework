@@ -21,8 +21,9 @@ import functools
 import subprocess
 import time
 from drain3 import TemplateMiner
-from drain3.masking import MaskingInstruction
 from drain3.template_miner_config import TemplateMinerConfig
+
+from ai_agents.core.step_scanner import get_undefined_steps_via_behave
 
 PERF_LIST = {
 }
@@ -48,6 +49,7 @@ def rest_check(func):
     Decorator to monitor GPU temperature before running a function.
     If GPU temperature exceeds `temp_limit`, pauses execution for `cooldown_sec`.
     """
+
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         try:
@@ -233,3 +235,20 @@ def mine_patterns_with_drain(raw_steps: list[str]) -> list[str]:
     # Return pure cluster templates from Drain3
     drained_steps = [cluster.get_template() for cluster in miner.drain.clusters]
     return collapse_drain_wildcards(drained_steps)
+
+
+def collect_raw_steps(feature_files: list[str], tag: str | None = None) -> tuple[list[dict], list[str]]:
+    """Runs behave dry-run across feature files and returns mapped steps and a flattened list."""
+    feature_steps_map = []
+    all_raw_steps = []
+
+    for feature_file in feature_files:
+        tags_param = [tag] if tag else None
+        steps = get_undefined_steps_via_behave([feature_file], tags=tags_param)
+        if steps:
+            feature_steps_map.append({"file": feature_file, "steps": steps})
+            all_raw_steps.extend(steps)
+
+    return feature_steps_map, all_raw_steps
+
+
