@@ -89,10 +89,10 @@ class TestGeneratorAgent(BaseAgent):
 
     @rest_check
     def generate_tests_for_instructions(
-        self,
-        coverage_plan: CoveragePlan,
-        step_patterns: str = "",
-        business_knowledge: str = ""
+            self,
+            coverage_plan: CoveragePlan,
+            step_patterns: str = "",
+            business_knowledge: str = ""
     ) -> FeatureSuite:
         """
         Translates a CoveragePlan into a FeatureSuite using BaseAgent invocation.
