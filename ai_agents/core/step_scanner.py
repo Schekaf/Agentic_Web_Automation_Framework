@@ -20,8 +20,6 @@ import re
 import subprocess
 from typing import List, Optional
 
-from ai_agents.core.utils import timer
-
 
 def strip_gherkin_prefix(step_text: str) -> str:
     """Removes leading Given, When, Then, And, But keywords from a step string."""
