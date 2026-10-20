@@ -22,7 +22,7 @@ A scalable, maintainable End-to-End (E2E) UI testing framework built with **Pyth
 - **Browser Automation:** [Selenium WebDriver](https://www.selenium.dev/)
 - **AI & Orchestration:** LangChain, Pydantic, ChatOllama / Local LLMs
 - **Design Pattern:** Page Object Model (POM)
-- **Designated Runner / Utils:** `webdriver-manager`, `BeautifulSoup4`, `requests`
+- **Designated Runner / Utils:** `ddgs`, `BeautifulSoup4`, `behave`, `drain3`, `ruff`
 
 ---
 
@@ -72,6 +72,7 @@ Agentic_Web_Automation_Framework/
 │   │   ├── lessons_learned.json                            # Historical reflection logs for agents
 │   │   ├── lessons_learned_manager.py                      # Agent memory and feedback loop manager
 │   │   ├── model_selector.py                               # Interactive CLI model switcher & registry
+│   │   ├── orchecstrator.py                                # Master CLI orchestrator for multi-agent workflows
 │   │   ├── qa_sector_insights.json                         # Harvested safety & testing benchmark data
 │   │   ├── schemas.py                                      # Shared Pydantic structured output models
 │   │   ├── step_library.py                                 # Reusable Behave step registry
