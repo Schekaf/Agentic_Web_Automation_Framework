@@ -25,43 +25,43 @@
           "step_text": "And I enter \"\" in Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"\" in Business Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"\" in Email field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"\" in Phone field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"\" in Primary Trade field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"\" in Suburb/Location field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"\" in Password field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "Then I see Success Message is not Visible",
@@ -98,7 +98,7 @@
           "step_text": "And I enter \"<RANDOM:800>\" in Business Name field",
           "matched_pattern": "I enter <*> as Business Name",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{businessName}\" as Business Name"
+          "resolved_pattern": "I enter \"{business_name}\" as Business Name"
         },
         {
           "step_text": "And I enter \"<RANDOM:800>\" in Email field",
@@ -116,13 +116,13 @@
           "step_text": "And I enter \"<RANDOM:800>\" in Primary Trade field",
           "matched_pattern": "I enter <*> as Primary Trade",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{primaryTrade}\" as Primary Trade"
+          "resolved_pattern": "I enter \"{primary_trade}\" as Primary Trade"
         },
         {
           "step_text": "And I enter \"<RANDOM:800>\" in Suburb/Location field",
           "matched_pattern": "I enter <*> as Suburb/Location",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{suburb}\" as Suburb/Location"
+          "resolved_pattern": "I enter \"{suburb_location}\" as Suburb/Location"
         },
         {
           "step_text": "And I enter \"<RANDOM:800>\" in Password field",
@@ -165,7 +165,7 @@
           "step_text": "And I enter \"@#$$%^&*()_+\" in Business Name field",
           "matched_pattern": "I enter <*> as Business Name",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{businessName}\" as Business Name"
+          "resolved_pattern": "I enter \"{business_name}\" as Business Name"
         },
         {
           "step_text": "And I enter \"@#$$%^&*()_+\" in Email field",
@@ -183,13 +183,13 @@
           "step_text": "And I enter \"@#$$%^&*()_+\" in Primary Trade field",
           "matched_pattern": "I enter <*> as Primary Trade",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{primaryTrade}\" as Primary Trade"
+          "resolved_pattern": "I enter \"{primary_trade}\" as Primary Trade"
         },
         {
           "step_text": "And I enter \"@#$$%^&*()_+\" in Suburb/Location field",
           "matched_pattern": "I enter <*> as Suburb/Location",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{suburb}\" as Suburb/Location"
+          "resolved_pattern": "I enter \"{suburb_location}\" as Suburb/Location"
         },
         {
           "step_text": "And I enter \"@#$$%^&*()_+\" in Password field",
@@ -232,7 +232,7 @@
           "step_text": "And I enter \"TradeHub\" in Business Name field",
           "matched_pattern": "I enter <*> as Business Name",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{businessName}\" as Business Name"
+          "resolved_pattern": "I enter \"{business_name}\" as Business Name"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" in Email field",
@@ -250,13 +250,13 @@
           "step_text": "And I enter \"Plumbing\" in Primary Trade field",
           "matched_pattern": "I enter <*> as Primary Trade",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{primaryTrade}\" as Primary Trade"
+          "resolved_pattern": "I enter \"{primary_trade}\" as Primary Trade"
         },
         {
           "step_text": "And I enter \"Sydney\" in Suburb/Location field",
           "matched_pattern": "I enter <*> as Suburb/Location",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{suburb}\" as Suburb/Location"
+          "resolved_pattern": "I enter \"{suburb_location}\" as Suburb/Location"
         },
         {
           "step_text": "And I enter \"password123\" in Password field",
@@ -305,7 +305,7 @@
           "step_text": "And I enter \"TradeHub\" in Business Name field",
           "matched_pattern": "I enter <*> as Business Name",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{businessName}\" as Business Name"
+          "resolved_pattern": "I enter \"{business_name}\" as Business Name"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" in Email field",
@@ -323,13 +323,13 @@
           "step_text": "And I enter \"Plumbing\" in Primary Trade field",
           "matched_pattern": "I enter <*> as Primary Trade",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{primaryTrade}\" as Primary Trade"
+          "resolved_pattern": "I enter \"{primary_trade}\" as Primary Trade"
         },
         {
           "step_text": "And I enter \"Sydney\" in Suburb/Location field",
           "matched_pattern": "I enter <*> as Suburb/Location",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{suburb}\" as Suburb/Location"
+          "resolved_pattern": "I enter \"{suburb_location}\" as Suburb/Location"
         },
         {
           "step_text": "And I enter \"password123\" in Password field",
@@ -371,43 +371,43 @@
           "step_text": "And I enter \"Furkan\" in Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"TradeHub\" in Business Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" in Email field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"1234567890\" in Phone field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"Plumbing\" in Primary Trade field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"Sydney\" in Suburb/Location field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"password123\" in Password field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I click on Submit",
@@ -444,43 +444,43 @@
           "step_text": "When I enter \"<RANDOM:8>\" as Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Business Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Phone field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I select \"Trade Business\" as Primary Trade field",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Password field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -498,7 +498,7 @@
           "step_text": "And I select a large file",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "Then I see \"{element}\" is visible",
@@ -523,43 +523,43 @@
           "step_text": "When I enter \"<RANDOM:8>\" as Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Business Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Phone field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I select \"Trade Business\" as Primary Trade field",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Password field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -577,7 +577,7 @@
           "step_text": "And I select an unsupported file type",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "Then I see \"{element}\" is visible",
@@ -608,43 +608,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Business Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Phone field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I select \"Trade Business\" as Primary Trade field",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Password field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -662,7 +662,7 @@
           "step_text": "And I select a date in the past",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "Then I see \"{element}\" is visible",
@@ -693,43 +693,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Business Name field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Phone field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I select \"Trade Business\" as Primary Trade field",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Password field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {value}"
+          "resolved_pattern": "I enter \"{value1}\" as {value2}"
         },
         {
           "step_text": "And I click on \"Register Account\"",

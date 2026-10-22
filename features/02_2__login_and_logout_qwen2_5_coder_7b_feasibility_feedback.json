@@ -1,11 +1,11 @@
 {
   "feature_file": "02_2__login_and_logout_qwen2_5_coder_7b.feature",
   "feature_path": "features\\02_2__login_and_logout_qwen2_5_coder_7b.feature",
-  "total_scenarios": 18,
-  "automatable_scenarios_count": 18,
+  "total_scenarios": 16,
+  "automatable_scenarios_count": 16,
   "scenarios": [
     {
-      "title": "Logout",
+      "title": "User successfully logs in with valid credentials",
       "is_automatable": true,
       "reason": "",
       "steps": [
@@ -16,787 +16,253 @@
           "resolved_pattern": "I open \"{url}\""
         },
         {
-          "step_text": "When I enter \"<RANDOM:8>\" as Username",
+          "step_text": "When I enter \"valid_username\" as Username",
           "matched_pattern": "I enter <*> as Username",
           "pattern_status": "matched",
           "resolved_pattern": "I enter \"{username}\" as Username"
         },
         {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
+          "step_text": "And I enter \"valid_password\" as Password",
           "matched_pattern": "I enter <*> as Password",
           "pattern_status": "matched",
           "resolved_pattern": "I enter \"{password}\" as Password"
         },
         {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I click on Logout Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see Login Page is Visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Re-login",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>\" as Username",
-          "matched_pattern": "I enter <*> as Username",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{username}\" as Username"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I click on Logout Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>\" as Username",
-          "matched_pattern": "I enter <*> as Username",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{username}\" as Username"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see Dashboard Page is Visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Browser Close and Reopen",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>\" as Username",
-          "matched_pattern": "I enter <*> as Username",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{username}\" as Username"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I close the browser",
-          "matched_pattern": "I close the browser",
-          "pattern_status": "matched"
-        },
-        {
-          "step_text": "And I reopen the browser",
-          "matched_pattern": "I reopen the browser",
-          "pattern_status": "matched"
-        },
-        {
-          "step_text": "And I open \"https://www.tradehub.com.au/dashboard\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "Then I see Dashboard Page is Visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Check Session Behavior",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>\" as Username",
-          "matched_pattern": "I enter <*> as Username",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{username}\" as Username"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I close the browser",
-          "matched_pattern": "I close the browser",
-          "pattern_status": "matched"
-        },
-        {
-          "step_text": "And I reopen the browser",
-          "matched_pattern": "I reopen the browser",
-          "pattern_status": "matched"
-        },
-        {
-          "step_text": "And I open \"https://www.tradehub.com.au/dashboard\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "Then I see Dashboard Page is Visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Forgot Password",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I click on Forgot Password Link",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Email",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on Submit Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see Password Reset Email is Sent",
-          "matched_pattern": "I see <*> is Sent",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{message}\" is Sent"
-        }
-      ]
-    },
-    {
-      "title": "Password Reset Email Arrival",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I click on Forgot Password Link",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Email",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on Submit Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see Password Reset Email is Sent",
-          "matched_pattern": "I see <*> is Sent",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{message}\" is Sent"
-        }
-      ]
-    },
-    {
-      "title": "Password Reset Link Validity",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I click on \"Forgot Password\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on \"Reset Password\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Password reset link sent\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I open the password reset link",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "Then I see \"Reset Password\" form is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as New Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Confirm New Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on \"Submit\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Password reset successful\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Unexpected Logout",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
-          "matched_pattern": "I enter <*> as Email",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{email}\" as Email"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on \"Login\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I navigate to \"Dashboard\"",
-          "matched_pattern": "I navigate to <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I navigate to \"{url}\""
-        },
-        {
-          "step_text": "And I wait for 10 minutes",
-          "matched_pattern": "I wait for <*> minutes",
-          "pattern_status": "matched",
-          "resolved_pattern": "I wait for {minutes} minutes"
-        },
-        {
-          "step_text": "Then I see \"Login\" button is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Login Loop",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
-          "matched_pattern": "I enter <*> as Email",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{email}\" as Email"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on \"Login\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I see \"Login successful\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I click on \"Logout\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I see \"Login\" button is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I click on \"Login\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Login successful\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Incorrect Redirects",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>@example.com\" as Email",
-          "matched_pattern": "I enter <*> as Email",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{email}\" as Email"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on \"Login\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I navigate to \"Dashboard\"",
-          "matched_pattern": "I navigate to <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I navigate to \"{url}\""
-        },
-        {
-          "step_text": "And I click on \"Logout\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I see \"Login\" button is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I click on \"Login\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Login successful\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Password Reset Issues",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I click on \"Forgot Password\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on \"Reset Password\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Password reset link sent\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I open the password reset link",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "Then I see \"Reset Password\" form is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as New Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Confirm New Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on \"Submit\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Password reset successful\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Accessible Pages When Logged Out",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I click on \"Forgot Password\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on \"Reset Password\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Password reset link sent\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I open the password reset link",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "Then I see \"Reset Password\" form is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as New Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I enter \"<RANDOM:8>\" as Confirm New Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on \"Submit\"",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Password reset successful\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Invalid Password",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"<RANDOM:8>\" as Username",
-          "matched_pattern": "I enter <*> as Username",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{username}\" as Username"
-        },
-        {
-          "step_text": "And I enter \"invalidpassword\" as Password",
-          "matched_pattern": "I enter <*> as Password",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{password}\" as Password"
-        },
-        {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Invalid password\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Empty Username",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"\" as Username",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I enter \"password123\" as Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
-        },
-        {
-          "step_text": "Then I see \"Username cannot be empty\" is visible",
-          "matched_pattern": "I see <*> is visible",
-          "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
-        }
-      ]
-    },
-    {
-      "title": "Empty Password",
-      "is_automatable": true,
-      "reason": "",
-      "steps": [
-        {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
-          "matched_pattern": "I open <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\""
-        },
-        {
-          "step_text": "When I enter \"username123\" as Username",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I enter \"\" as Password",
-          "matched_pattern": "I enter <*> as <*>",
-          "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
-        },
-        {
-          "step_text": "And I click on Login Button",
+          "step_text": "And I click on \"Login\" button",
           "matched_pattern": "I click <*>",
           "pattern_status": "matched",
           "resolved_pattern": "I click {element}"
         },
         {
-          "step_text": "Then I see \"Password cannot be empty\" is visible",
-          "matched_pattern": "I see <*> is visible",
+          "step_text": "Then I see \"Welcome, valid_username!\" message",
+          "matched_pattern": "I see <*> message",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
+          "resolved_pattern": "I see \"{message}\" message"
         }
       ]
     },
     {
-      "title": "Negative Password",
+      "title": "User registers a new account with valid details",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/register\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Furkan\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Trade Business\" as Business Type",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Furkan's Plumbing\" as Business Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"furkan@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"1234567890\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" as Confirm Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Register\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Registration successful!\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "User posts a job and is prompted for ABN",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs/post\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Plumbing\" as Job Type",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123 Main St\" as Address",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"1234567890\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Post Job\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Please enter your ABN\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "User lists availability dates and confirms",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/account\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Add New Date\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-10-01\" as Availability Dates",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Available for plumbing work\" as Availability Description",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save Changes\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the updated availability description displayed on the \"Account\" page",
+          "matched_pattern": "I see <*> is displayed correctly",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is displayed correctly"
+        }
+      ]
+    },
+    {
+      "title": "User filters directory to show only profiles with upcoming available dates",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/directory\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select the filter option to show only profiles with upcoming available dates as Filter",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "Then I see only profiles with upcoming available dates displayed in the directory",
+          "matched_pattern": "I see only profiles with upcoming available dates in the directory",
+          "pattern_status": "matched"
+        }
+      ]
+    },
+    {
+      "title": "User sends a message and sees confirmation",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I navigate to the \"Messages\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        },
+        {
+          "step_text": "When I select Account A as the sender",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "And I select Account B as the recipient",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "And I enter \"Hello, this is a test message\" as the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the \"Send\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the \"Message sent successfully\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "User successfully logs in with valid credentials",
       "is_automatable": true,
       "reason": "",
       "steps": [
@@ -807,33 +273,241 @@
           "resolved_pattern": "I open \"{url}\""
         },
         {
-          "step_text": "When I enter \"username123\" as Username",
-          "matched_pattern": "I enter <*> as <*>",
+          "step_text": "When I enter \"valid_username\" as Username",
+          "matched_pattern": "I enter <*> as Username",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{username}\" as Username"
         },
         {
-          "step_text": "And I enter \"-password123\" as Password",
-          "matched_pattern": "I enter <*> as <*>",
+          "step_text": "And I enter \"valid_password\" as Password",
+          "matched_pattern": "I enter <*> as Password",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{password}\" as Password"
         },
         {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
+          "step_text": "And I click on \"Login\" button",
+          "matched_pattern": "I click <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
-          "step_text": "Then I see \"Invalid password\" is visible",
-          "matched_pattern": "I see <*> is visible",
+          "step_text": "Then I see \"Welcome, valid_username!\" message",
+          "matched_pattern": "I see <*> message",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
+          "resolved_pattern": "I see \"{message}\" message"
         }
       ]
     },
     {
-      "title": "Max Password Length",
+      "title": "User registers a new account with valid details",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/register\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Furkan\" as Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Trade Business\" as Business Type",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Furkan's Plumbing\" as Business Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"furkan@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"1234567890\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" as Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" as Confirm Password",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Register\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Registration successful!\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "User posts a job and triggers ABN prompt",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs/post\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Plumbing\" as Job Type",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"1234567890\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" as Price",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Post Job\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Please enter your ABN\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "Business lists available dates and integrates into Directory Search filter",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/account\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"List Subcontracting Dates\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-10-01\" as Start Date",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-10-05\" as End Date",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save Changes\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Availability dates saved successfully\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        },
+        {
+          "step_text": "And I select the filter option to show only profiles with upcoming available dates as Filter",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "Then I see only profiles with upcoming available dates displayed in the directory",
+          "matched_pattern": "I see <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{text}\" in \"{container}\""
+        }
+      ]
+    },
+    {
+      "title": "User sends a message and sees the confirmation message",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I navigate to the \"Messages\" page",
+          "matched_pattern": "I navigate to <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I navigate to \"{page}\" page"
+        },
+        {
+          "step_text": "When I select \"Account A\" as the sender",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I select \"Account B\" as the recipient",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Hello, this is a test message\" as the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on the \"Send\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the \"Message sent successfully\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "User successfully logs in with valid credentials",
       "is_automatable": true,
       "reason": "",
       "steps": [
@@ -844,77 +518,254 @@
           "resolved_pattern": "I open \"{url}\""
         },
         {
-          "step_text": "When I enter \"username123\" as Username",
-          "matched_pattern": "I enter <*> as <*>",
+          "step_text": "When I enter \"valid_username\" as Username",
+          "matched_pattern": "I enter <*> as Username",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{username}\" as Username"
         },
         {
-          "step_text": "And I enter \"<RANDOM:100>\" as Password",
-          "matched_pattern": "I enter <*> as <*>",
+          "step_text": "And I enter \"valid_password\" as Password",
+          "matched_pattern": "I enter <*> as Password",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{password}\" as Password"
         },
         {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
+          "step_text": "And I click on \"Login\" button",
+          "matched_pattern": "I click <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
-          "step_text": "Then I see \"Password exceeds maximum length\" is visible",
-          "matched_pattern": "I see <*> is visible",
+          "step_text": "Then I see \"Welcome, valid_username!\" message",
+          "matched_pattern": "I see <*> message",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is visible"
+          "resolved_pattern": "I see \"{message}\" message"
         }
       ]
     },
     {
-      "title": "Rate Limiting",
+      "title": "User registers a new account with valid details",
       "is_automatable": true,
       "reason": "",
       "steps": [
         {
-          "step_text": "Given I open \"https://www.tradehub.com.au/login\"",
+          "step_text": "Given I open \"https://www.tradehub.com.au/register\"",
           "matched_pattern": "I open <*>",
           "pattern_status": "matched",
           "resolved_pattern": "I open \"{url}\""
         },
         {
-          "step_text": "When I enter \"username123\" as Username",
+          "step_text": "When I enter \"Furkan\" as Name",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Trade Business\" as Business Type",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Furkan's Plumbing\" as Business Name",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"furkan@example.com\" as Email",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"1234567890\" as Phone",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Plumbing\" as Primary Trade",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Sydney\" as Suburb/Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"password123\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
-          "step_text": "And I click on Login Button",
-          "matched_pattern": "I click on <*>",
+          "step_text": "And I click on \"Register\" button",
+          "matched_pattern": "I click <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
-          "step_text": "And I wait for 1 minute",
-          "matched_pattern": "I wait for <*>",
+          "step_text": "Then I see \"Activation email sent!\" message",
+          "matched_pattern": "I see <*> message",
           "pattern_status": "matched",
-          "resolved_pattern": "I wait for {time}"
-        },
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "User posts a job and triggers ABN prompt",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
         {
-          "step_text": "And I click on Login Button again",
-          "matched_pattern": "I click on <*>",
+          "step_text": "Given I open \"https://www.tradehub.com.au/jobs\"",
+          "matched_pattern": "I open <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I open \"{url}\""
         },
         {
-          "step_text": "Then I see \"Too many login attempts\" is visible",
+          "step_text": "When I click on \"Post Job\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"Plumbing\" as Job Type",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Rough-in assistance\" as Job Description",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"Sydney\" as Location",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Post Job\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"Please enter your ABN\" message",
+          "matched_pattern": "I see <*> message",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message"
+        }
+      ]
+    },
+    {
+      "title": "Business lists subcontracting dates and integrates into Directory Search filter",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/account\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"List Subcontracting Dates\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "And I enter \"2 plumbers available Wed/Thu\" as Availability Dates",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save Changes\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see \"2 plumbers available Wed/Thu\" displayed on the \"Account\" page",
+          "matched_pattern": "I see <*> is displayed on <*> page",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is displayed on \"{page}\" page"
+        },
+        {
+          "step_text": "And I select the filter option to show only profiles with upcoming available dates in the directory",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "Then I see only profiles with upcoming available dates displayed in the directory",
+          "matched_pattern": "I see <*> is displayed in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is displayed in \"{container}\""
+        }
+      ]
+    },
+    {
+      "title": "User sends messages and verifies message content and sender/receiver",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"https://www.tradehub.com.au/messages\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I select \"Account A\" as the sender",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "And I select \"Account B\" as the recipient",
+          "matched_pattern": "I select <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\""
+        },
+        {
+          "step_text": "And I enter \"Hello, this is a test message\" as the message",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Send\" button",
+          "matched_pattern": "I click <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click {element}"
+        },
+        {
+          "step_text": "Then I see the \"Message sent successfully\" message",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
           "resolved_pattern": "I see \"{element}\" is visible"
+        },
+        {
+          "step_text": "And I see the message \"Hello, this is a test message\" from \"Account A\"",
+          "matched_pattern": "I see <*> message from <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message from \"{source}\""
+        },
+        {
+          "step_text": "And I see the message \"This is a reply\" from \"Account B\"",
+          "matched_pattern": "I see <*> message from <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{message}\" message from \"{source}\""
         }
       ]
     }

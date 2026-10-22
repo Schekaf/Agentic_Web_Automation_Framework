@@ -25,7 +25,7 @@
           "step_text": "Then I see \"Project Name\" field is valid",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -50,7 +50,7 @@
           "step_text": "Then I see \"Project Name\" field is invalid",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -75,7 +75,7 @@
           "step_text": "Then I see \"Project Name\" field is valid",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -100,7 +100,7 @@
           "step_text": "Then I see \"Project Name\" field is invalid",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -125,7 +125,7 @@
           "step_text": "Then I see \"Project Location\" field is valid",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -150,7 +150,7 @@
           "step_text": "Then I see \"Project Location\" field is invalid",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -175,7 +175,7 @@
           "step_text": "Then I see \"Project Location\" is \"Valid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -200,7 +200,7 @@
           "step_text": "Then I see \"Project Location\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -231,7 +231,7 @@
           "step_text": "Then I see \"Project Dates\" is \"Valid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -262,7 +262,7 @@
           "step_text": "Then I see \"Project Dates\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -293,7 +293,7 @@
           "step_text": "Then I see \"Project Dates\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -324,7 +324,7 @@
           "step_text": "Then I see \"Project Dates\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -349,7 +349,7 @@
           "step_text": "Then I see \"Project Description\" is \"Valid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -374,7 +374,7 @@
           "step_text": "Then I see \"Project Description\" is \"Valid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -399,7 +399,7 @@
           "step_text": "Then I see \"Project Description\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -430,7 +430,7 @@
           "step_text": "Then I see \"File\" is selected as \"Upload Plans\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{option}\" is selected as {element}"
         }
       ]
     },
@@ -461,7 +461,7 @@
           "step_text": "Then I see \"File\" is not selected as \"Upload Plans\"",
           "matched_pattern": "I see <*> is not selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is not selected as {option}"
+          "resolved_pattern": "I see \"{option}\" is not selected as {element}"
         }
       ]
     },
@@ -492,7 +492,7 @@
           "step_text": "Then I see \"Plumbing\" and \"Electrical\" in \"Required Trades\" Values",
           "matched_pattern": "I see <*> in <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} in {container}"
+          "resolved_pattern": "I see \"{text}\" in {element}"
         }
       ]
     },
@@ -547,7 +547,7 @@
           "step_text": "Then I see \"Separate descriptions for each trade entered successfully\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -602,7 +602,7 @@
           "step_text": "Then I see \"Error: Negative budget values are not allowed\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     }

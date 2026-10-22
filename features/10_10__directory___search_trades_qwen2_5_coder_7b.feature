@@ -1,128 +1,150 @@
 Feature: Web Automation with Behave
 
-  @DirectoryOpenSuccess
-  Scenario: Open Directory
-    Given I open "https://www.tradehub.com.au/directory"
-    Then I see "Directory" page is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    BrowserSteps I open "https://www.tradehub.com.au/login"
+    ActionSteps I enter "<RANDOM:8>" as Username
+    ActionSteps I enter "<RANDOM:8>" as Password
+    ActionSteps I click on Login
+    ValidationSteps I see "Dashboard" is "Visible"
 
-  @TradeSearchSuccess
-  Scenario: Search for a trade
-    Given I open "https://www.tradehub.com.au/directory"
-    When I enter "<RANDOM:8>" as Search Term
-    Then I see search results for trades
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    BrowserSteps I open "https://www.tradehub.com.au/register"
+    ActionSteps I enter "Furkan" as Name
+    ActionSteps I enter "Trade Business" as Business Type
+    ActionSteps I enter "Furkan's Plumbing" as Business Name
+    ActionSteps I enter "furkan@example.com" as Email
+    ActionSteps I enter "12345678" as Phone
+    ActionSteps I enter "123456" as Password
+    ActionSteps I click on Register
+    ValidationSteps I see "Activation Email Sent" is "Visible"
 
-  @SuburbSearchSuccess
-  Scenario: Search by suburb/location
-    Given I open "https://www.tradehub.com.au/directory"
-    When I enter "<RANDOM:8>" as Suburb/Location
-    Then I see search results for trades in the specified suburb/area
+  @ListAvailability
+  Scenario: Business lists availability dates
+    BrowserSteps I open "https://www.tradehub.com.au/account"
+    ActionSteps I click on List Subcontracting Dates
+    ActionSteps I enter "2023-10-01" as Start Date
+    ActionSteps I enter "2023-10-31" as End Date
+    ActionSteps I click on Save Changes
+    ValidationSteps I see "Availability Dates Saved" is "Visible"
 
-  @ChangeSearchRadiusSuccess
-  Scenario: Change distance/radius
-    Given I open "https://www.tradehub.com.au/directory"
-    When I select "5 km" as Search Radius
-    Then I see search results within 5 km radius
+  @FilterAvailability
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    BrowserSteps I open "https://www.tradehub.com.au/directory"
+    ActionSteps I select Filter option to show only profiles with upcoming available dates as Filter
+    ValidationSteps I see only profiles with upcoming available dates displayed in the directory
 
-  @AvailableDateFilterSuccess
-  Scenario: Test available-date filtering
-    Given I open "https://www.tradehub.com.au/directory"
-    When I select "Upcoming" as Available Date Filter
-    Then I see trades with upcoming available dates
+  @SendMessages
+  Scenario: User sends a message
+    BrowserSteps I navigate to the "Messages" page
+    ActionSteps I select Account A as the sender
+    ActionSteps I select Account B as the recipient
+    ActionSteps I enter "Hello, this is a test message" as the message
+    ActionSteps I click on the "Send" button
+    ValidationSteps I see the "Message sent successfully" message
 
-  @OpenSeveralProfilesSuccess
-  Scenario: Open several profiles
-    Given I open "https://www.tradehub.com.au/directory"
-    When I click on the first trade profile
-    And I click on the second trade profile
-    Then I see the profiles of two trades
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @DirectorySearchTrades
-  Scenario: Check rates
-    Given I open "https://www.tradehub.com.au/trades"
-    When I select "Plumbing" as Primary Trade
-    And I click on "Search"
-    Then I see "Rates" is visible
-
-  @DirectorySearchTrades
-  Scenario: Check reviews
-    Given I open "https://www.tradehub.com.au/trades"
-    When I select "Electrical" as Primary Trade
-    And I click on "Search"
-    Then I see "Reviews" is visible
-
-  @DirectorySearchTrades
-  Scenario: Check available dates
-    Given I open "https://www.tradehub.com.au/trades"
-    When I select "Carpentry" as Primary Trade
-    And I click on "Search"
-    Then I see "Available Dates" is visible
-
-  @DirectorySearchTrades
-  Scenario: Check profile descriptions
-    Given I open "https://www.tradehub.com.au/trades"
-    When I select "Painting" as Primary Trade
-    And I click on "Search"
-    Then I see "Profile Descriptions" is visible
-
-  @DirectorySearchTrades
-  Scenario: Contact/message a business
-    Given I open "https://www.tradehub.com.au/trades"
-    When I select "Plumbing" as Primary Trade
-    And I click on "Search"
-    And I click on "Contact" for the first trade
-    Then I see "Message" is visible
-
-  @DirectorySearchTrades
-  Scenario: Confirm that the results make sense based on the filters selected
-    Given I open "https://www.tradehub.com.au/trades"
-    When I select "Electrical" as Primary Trade
-    And I enter "Sydney" as Location
-    And I click on "Search"
-    Then I see "Search Results" match the filters selected
-
-  @FreeAccountRadiusRestrictions
-  Scenario: Check Free account radius restrictions
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Name
-    And I enter "<RANDOM:8>@example.com" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Register"
-    Then I see "Free account is limited to 15km radius" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @EmptySearchQuery
-  Scenario: Search with an empty query
-    Given I open "https://www.tradehub.com.au/search"
-    When I enter "" as Search Query
-    And I click on "Search"
-    Then I see "No results found" is visible
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "123 Main St" as Address
+    And I enter "123456" as Budget
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
 
-  @NonExistentLocation
-  Scenario: Search with a non-existent location
-    Given I open "https://www.tradehub.com.au/search"
-    When I enter "NonExistentLocation" as Location
-    And I click on "Search"
-    Then I see "No results found" is visible
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @VeryLargeRadius
-  Scenario: Search with a very large radius
-    Given I open "https://www.tradehub.com.au/search"
-    When I enter "10000" as Radius
-    And I click on "Search"
-    Then I see "Search results within 10000km" is visible
+  @SendMessages
+  Scenario: User sends messages and verifies message content
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 
-  @VerySmallRadius
-  Scenario: Search with a very small radius
-    Given I open "https://www.tradehub.com.au/search"
-    When I enter "1" as Radius
-    And I click on "Search"
-    Then I see "Search results within 1km" is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "testuser" as Username
+    And I enter "password123" as Password
+    And I click on Login
+    Then I see Success Message is Visible
 
-  @NonNumericRadius
-  Scenario: Search with a non-numeric radius
-    Given I open "https://www.tradehub.com.au/search"
-    When I enter "abc" as Radius
-    And I click on "Search"
-    Then I see "Invalid radius value" is visible
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
+
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on Post Job
+    Then I see ABN Prompt is Visible
+
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on the "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends messages and verifies message content
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 

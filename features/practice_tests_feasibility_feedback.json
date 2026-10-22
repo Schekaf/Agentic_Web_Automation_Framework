@@ -19,7 +19,7 @@
           "step_text": "And I click on Web Inputs Try it out button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "When I enter \"5\" into Input Number field",
@@ -86,7 +86,7 @@
           "step_text": "And I click on Test Login Page Try it out button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "When I enter \"practice\" into Username field",
@@ -104,7 +104,7 @@
           "step_text": "And I click on Login button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "And I should be redirected to the \"/secure\" page",
@@ -129,7 +129,7 @@
           "step_text": "And I click on Test Login Page Try it out button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "When I enter \"practice\" into Username field",
@@ -147,13 +147,13 @@
           "step_text": "And I click on Login button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "Then I see \"Your password is invalid!\" as Login Error Message field value",
           "matched_pattern": "I see <*> message indicating <*> has been exceeded",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{message}\" message indicating \"{limit}\" has been exceeded"
+          "resolved_pattern": "I see \"{message}\" message indicating {limit} has been exceeded"
         }
       ]
     },
@@ -172,7 +172,7 @@
           "step_text": "And I click on Test Login Page Try it out button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "When I enter \"invalidUser\" into Username field",
@@ -190,7 +190,7 @@
           "step_text": "And I click on Login button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "Then I see \"Invalid username.\" as Login Error Message field value",
@@ -215,7 +215,7 @@
           "step_text": "And I click on Test Register Page Try it out button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "When I enter \"<RANDOM:8>\" into Username field",
@@ -233,13 +233,13 @@
           "step_text": "And I enter \"Password1234!\" into Confirm Password field",
           "matched_pattern": "I enter <*> as Confirm Password",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{confirm_password}\" as Confirm Password"
+          "resolved_pattern": "I enter \"{password}\" as Confirm Password"
         },
         {
           "step_text": "And I click on Register button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "Then I see \"Successfully registered, you can log in now.\" as Register Message field value",

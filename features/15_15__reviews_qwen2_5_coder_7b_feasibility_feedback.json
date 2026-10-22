@@ -93,7 +93,7 @@
           "step_text": "And I enter \"Great service\" in \"Review\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -142,7 +142,7 @@
           "step_text": "And I select \"5\" as \"Rating\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select \"{option}\" as \"{field}\""
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -191,7 +191,7 @@
           "step_text": "And I enter \"Great service, highly recommend\" in \"Feedback\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -240,7 +240,7 @@
           "step_text": "And I enter \"Great service\" in \"Review\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -288,7 +288,7 @@
           "step_text": "And I enter a valid review title and feedback",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on the 'Submit' button",
@@ -300,7 +300,7 @@
           "step_text": "Then I see a success message indicating the review has been submitted",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -381,7 +381,7 @@
           "step_text": "And I enter an invalid payload (e.g., empty string, null) for review submission",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on the 'Submit' button",
@@ -393,7 +393,7 @@
           "step_text": "Then I see an error message indicating the invalid payload",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -423,7 +423,7 @@
           "step_text": "And I enter a review title with 8 words and feedback with 18 words",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on the 'Submit' button",
@@ -435,7 +435,7 @@
           "step_text": "Then I see a success message indicating the review has been submitted",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -465,7 +465,7 @@
           "step_text": "And I enter a valid review title and feedback",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on the 'Submit' button",
@@ -489,7 +489,7 @@
           "step_text": "And I enter another valid review title and feedback",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on the 'Submit' button",
@@ -501,7 +501,7 @@
           "step_text": "Then I see a success message indicating the review has been submitted",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     }

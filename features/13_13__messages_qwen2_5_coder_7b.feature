@@ -1,162 +1,207 @@
 Feature: Web Automation with Behave
 
-  @SendMessage
-  Scenario: Send a message from Account A to Account B
-    Given I open the TradeHub website
-    When I log in to Account A
-    And I navigate to the messaging section
-    And I enter the message 'Hello from Account A' in the message field
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
+
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I enter "2 plumbers available" as Description
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+
+  @DeleteAvailability
+  Scenario: Business deletes an availability date
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "Delete" icon next to the saved availability date
+    And I click on the "Confirm Deletion" button
+    Then I do not see the deleted availability date displayed on the "Account" page
+
+  @FilterAvailability
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends a message
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
     And I select Account B as the recipient
-    And I click on the Send button
-    Then I see a confirmation message 'Message sent successfully'
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
 
-  @OpenAccount
-  Scenario: Open Account B
-    Given I open the TradeHub website
-    When I click on the Register button
-    And I enter 'JohnDoe' as Name
-    And I enter 'JohnDoeBusiness' as Business Name
-    And I enter 'john.doe@example.com' as Email
-    And I enter '<RANDOM:8>' as Phone
-    And I select 'Trade Business' as Primary Trade
-    And I enter 'Sydney' as Suburb/Location
-    And I enter '<RANDOM:8>' as Password
-    And I click on the Register button
-    Then I see a confirmation message 'Account registered successfully'
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @ConfirmMessageAppears
-  Scenario: Confirm the message appears in Account B
-    Given I open the TradeHub website
-    When I log in to Account B
-    And I navigate to the messaging section
-    Then I see the message 'Hello from Account A' from Account A
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @ReplyMessage
-  Scenario: Reply to the message from Account B
-    Given I open the TradeHub website
-    When I log in to Account B
-    And I navigate to the messaging section
-    And I click on the message from Account A
-    And I enter the reply 'Hello from Account B' in the reply field
-    And I click on the Send button
-    Then I see a confirmation message 'Reply sent successfully'
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing job" as Job Title
+    And I enter "Sydney" as Location
+    And I enter "100" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN" message
 
-  @ConfirmReplyReceived
-  Scenario: Confirm Account A receives the reply
-    Given I open the TradeHub website
-    When I log in to Account A
-    And I navigate to the messaging section
-    Then I see the reply 'Hello from Account B' from Account B
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
+    And I see "Show only profiles with upcoming available dates" option in Directory Search filter
 
-  @SendMultipleMessages
-  Scenario: Send multiple messages from Account A to Account B
-    Given I open the TradeHub website
-    When I log in to Account A
-    And I navigate to the messaging section
-    And I enter the message 'First message from Account A' in the message field
-    And I select Account B as the recipient
-    And I click on the Send button
-    And I enter the message 'Second message from Account A' in the message field
-    And I select Account B as the recipient
-    And I click on the Send button
-    Then I see a confirmation message 'Message sent successfully'
-    And I see a confirmation message 'Message sent successfully'
-    Then I see the message 'First message from Account A' from Account A
-    And I see the message 'Second message from Account A' from Account A
+  @SendMessages
+  Scenario: User sends messages and verifies message content and sender/receiver
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "Hello, this is a test message" from "Account B"
 
-  @test_long_messages
-  Scenario: Test long messages
-    Given I open the messaging application
-    When I enter a long message in the message input field
-    And I click on the send button
-    Then I see the long message is successfully sent and received
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @test_short_messages
-  Scenario: Test short messages
-    Given I open the messaging application
-    When I enter a short message in the message input field
-    And I click on the send button
-    Then I see the short message is successfully sent and received
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "FurkanTech" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @test_messaging_from_job
-  Scenario: Test messaging from a job
-    Given I open the messaging application
-    When I navigate to a job listing
-    And I click on the message button for the job
-    Then I see the messaging interface for the job
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN for verification" message
 
-  @test_messaging_from_tender
-  Scenario: Test messaging from a tender if available
-    Given I open the messaging application
-    When I navigate to a tender listing
-    And I click on the message button for the tender
-    Then I see the messaging interface for the tender
+  @ListSubcontractingDates
+  Scenario: Business lists subcontracting dates and filters directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @check_unread_message_counts
-  Scenario: Check unread message counts
-    Given I open the messaging application
-    When I navigate to the inbox
-    Then I see the correct unread message counts displayed
+  @SendMessages
+  Scenario: User sends messages between accounts
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "This is a reply" from "Account B"
 
-  @open_conversation
-  Scenario: Open the conversation
-    Given I open the messaging application
-    When I click on a conversation
-    Then I see the conversation interface
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @confirm_unread_status_changes
-  Scenario: Confirm unread status changes correctly
-    Given I open the messaging application
-    When I read a message
-    Then I see the unread status changes to read
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "FurkanTech" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Activation email sent to furkan@example.com" message
 
-  @test_messaging_on_mobile
-  Scenario: Test messaging functionality on mobile
-    Given I open the messaging application on a mobile device
-    When I send a message
-    Then I receive the message on my mobile device
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I enter "2 plumbers available Wed/Thu" as Availability Description
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
 
-  @send_message_with_empty_title
-  Scenario: Send a message with an empty title
-    Given I open the messaging application
-    When I enter an empty title in the message
-    And I enter a valid message body
-    And I click on Send
-    Then I see an error message indicating that the title cannot be empty
+  @FilterDirectory
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select "Show only profiles with upcoming available dates" as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @send_message_with_null_title
-  Scenario: Send a message with a null title
-    Given I open the messaging application
-    When I enter a null title in the message
-    And I enter a valid message body
-    And I click on Send
-    Then I see an error message indicating that the title cannot be null
-
-  @send_message_with_title_exceeding_limit
-  Scenario: Send a message with a title exceeding the character limit
-    Given I open the messaging application
-    When I enter a title exceeding the character limit in the message
-    And I enter a valid message body
-    And I click on Send
-    Then I see an error message indicating that the title exceeds the character limit
-
-  @send_message_with_invalid_payload
-  Scenario: Send a message with an invalid payload
-    Given I open the messaging application
-    When I enter a valid title in the message
-    And I enter an invalid payload in the message
-    And I click on Send
-    Then I see an error message indicating that the payload is invalid
-
-  @send_message_when_account_not_open
-  Scenario: Send a message when Account B is not open
-    Given I open the TradeHub website
-    When I attempt to send a message to Account B
-    Then I receive an error message indicating that Account B is not open
-
-  @send_message_when_account_not_open
-  Scenario: Send a message when Account A is not open
-    Given I open the TradeHub website
-    When I attempt to send a message to Account A
-    Then I receive an error message indicating that Account A is not open
+  @SendMessages
+  Scenario: User sends a message
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on "Send" button
+    Then I see the "Message sent successfully" message
 

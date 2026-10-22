@@ -1,156 +1,206 @@
 Feature: Web Automation with Behave
 
-  @Positive
-  Scenario: Enter project name
-    Given I open the project tender page
-    When I enter "ValidProjectName" in the project name field
-    Then I see the project name is saved successfully
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @Negative
-  Scenario: Enter project name with invalid characters
-    Given I open the project tender page
-    When I enter "Invalid@ProjectName" in the project name field
-    Then I see an error message indicating invalid characters
-
-  @Boundary
-  Scenario: Enter project name with maximum character limit
-    Given I open the project tender page
-    When I enter "<RANDOM:100>" in the project name field
-    Then I see the project name is saved successfully
-
-  @Negative
-  Scenario: Enter project name with empty string
-    Given I open the project tender page
-    When I enter an empty string in the project name field
-    Then I see an error message indicating empty project name
-
-  @Positive
-  Scenario: Enter project location
-    Given I open the project tender page
-    When I enter "ValidLocation" in the project location field
-    Then I see the project location is saved successfully
-
-  @Negative
-  Scenario: Enter project location with invalid characters
-    Given I open the project tender page
-    When I enter "Invalid@Location" in the project location field
-    Then I see an error message indicating invalid characters
-
-  @Boundary
-  Scenario: Enter project location with maximum character limit
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I enter "<RANDOM:80>" as Project Location
-    Then I see "Project location is valid" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "FurkanTech" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @Negative
-  Scenario: Enter project location with empty string
+  @ABNVerification
+  Scenario: User is prompted to enter ABN after posting a job
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Job Title" as Job Title
+    And I enter "Job Description" as Job Description
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
+
+  @AvailabilityListing
+  Scenario: User lists availability dates and verifies listing in directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-12-25" as Availability Dates
+    And I enter "Available for plumbing work" as Availability Description
+    And I click on "Save Changes" button
+    Then I see the updated availability description displayed on the "Account" page
+    When I navigate to the "Directory" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @MessageSending
+  Scenario: User sends a message and verifies receipt
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I enter "" as Project Location
-    Then I see "Project location is required" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @Positive
-  Scenario: Enter project dates
+  @ABNVerification
+  Scenario: User is prompted to enter ABN after posting a job
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Job Title" as Job Title
+    And I enter "Job Description" as Job Description
+    And I click on Post Job
+    Then I see ABN Verification Prompt is Visible
+
+  @AvailabilityListing
+  Scenario: User lists availability dates and verifies listing
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Availability Dates
+    And I click on the "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+
+  @AvailabilityFilter
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @MessageSending
+  Scenario: User sends a message and verifies receipt
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I enter "<TODAY>" as Start Date
-    And I enter "<TODAY>" as End Date
-    Then I see "Project dates are valid" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
+    And I see an email with subject "Activate your TradeHub account"
 
-  @Negative
-  Scenario: Enter project dates with invalid format
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Price
+    And I click on "Post Job" button
+    Then I see "Please provide your ABN" message
+
+  @ListSubcontractingDates
+  Scenario: User lists subcontracting dates and sees them in directory filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-12-01" as Availability Dates
+    And I click on "Save Changes" button
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see the test business displayed in the directory
+
+  @SendMessages
+  Scenario: User sends a message and sees it in the messages page
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "testuser" as Username
+    And I enter "password123" as Password
+    And I click on Login
+    Then I see Success Message is Visible
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I enter "2023-13-01" as Start Date
-    And I enter "2023-13-01" as End Date
-    Then I see "Project dates are invalid" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @Negative
-  Scenario: Enter project dates with future dates
-    Given I open "https://www.tradehub.com.au/register"
-    When I enter "<TODAY>" as Start Date
-    And I enter "<TODAY> + 1 day" as End Date
-    Then I see "Project dates are invalid" is visible
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I enter "2 plumbers available Wed/Thu" as Availability Description
+    And I click on the "Save Changes" button
+    Then I see the updated availability dates displayed on the "Account" page
 
-  @Negative
-  Scenario: Enter project dates with past dates
-    Given I open "https://www.tradehub.com.au/register"
-    When I enter "<TODAY> - 1 day" as Start Date
-    And I enter "<TODAY> - 1 day" as End Date
-    Then I see "Project dates are invalid" is visible
+  @FilterDirectory
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @Positive
-  Scenario: Add overall project description
-    Given I open the project tender page
-    When I enter a valid overall project description
-    Then I see the project description is saved successfully
-
-  @Boundary
-  Scenario: Add overall project description with maximum character limit
-    Given I open the project tender page
-    When I enter the maximum allowed characters for the overall project description
-    Then I see the project description is saved successfully
-
-  @Negative
-  Scenario: Add overall project description with empty string
-    Given I open the project tender page
-    When I enter an empty string for the overall project description
-    Then I see an error message indicating that the description cannot be empty
-
-  @Positive
-  Scenario: Upload plans
-    Given I open the project tender page
-    When I upload valid plans
-    Then I see the plans are uploaded successfully
-
-  @Negative
-  Scenario: Upload plans with invalid file type
-    Given I open the project tender page
-    When I upload plans with an invalid file type
-    Then I see an error message indicating that the file type is not allowed
-
-  @Positive
-  Scenario: Select multiple required trades
-    Given I open the project tender page
-    When I select multiple required trades
-    Then I see the selected trades are saved successfully
-
-  @Positive
-  Scenario: Enter separate description for each trade
-    Given I open "https://www.tradehub.com.au/register"
-    When I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Business Name
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on Create Account
-    And I click on "Create Tender"
-    And I enter "<RANDOM:8>" as Tender Title
-    And I enter "<RANDOM:8>" as Description for Plumbing
-    And I enter "<RANDOM:8>" as Description for Electrical
-    And I enter "<RANDOM:8>" as Description for Carpentry
-    And I enter "<RANDOM:8>" as Description for Painting
-    And I click on "Submit Tender"
-    Then I see "Tender Created Successfully" is visible
-
-  @Negative
-  Scenario: Enter budget for each trade with negative value
-    Given I open "https://www.tradehub.com.au/register"
-    When I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Business Name
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on Create Account
-    And I click on "Create Tender"
-    And I enter "<RANDOM:8>" as Tender Title
-    And I enter "<RANDOM:8>" as Description for Plumbing
-    And I enter "<RANDOM:8>" as Description for Electrical
-    And I enter "<RANDOM:8>" as Description for Carpentry
-    And I enter "<RANDOM:8>" as Description for Painting
-    And I enter "-1000" as Budget for Plumbing
-    And I enter "-500" as Budget for Electrical
-    And I enter "-200" as Budget for Carpentry
-    And I enter "-100" as Budget for Painting
-    And I click on "Submit Tender"
-    Then I see "Invalid Budget Value" is visible
+  @SendMessages
+  Scenario: User sends a message
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
 

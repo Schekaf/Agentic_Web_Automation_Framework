@@ -1,190 +1,81 @@
 Feature: Web Automation with Behave
 
-  @ViewProfile
-  Scenario: View your profile
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Edit Profile"
-    Then I see "Edit Profile" form is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials (LoginSuccess)
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @EditProfile
-  Scenario: Click Edit Profile
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Edit Profile"
-    Then I see "Edit Profile" form is visible
+  @RegisterAccount
+  Scenario: User registers a new account with valid details (RegisterAccount)
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @EditDescription
-  Scenario: Add or edit business description
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Edit Profile"
-    And I enter "<RANDOM:8>" as Business Description
-    And I click on "Save"
-    Then I see "Business Description" is updated
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt (PostJob)
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Price
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
 
-  @AddPhoneNumber
-  Scenario: Add business phone number
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Edit Profile"
-    And I enter "+1234567890" as Phone Number
-    And I click on "Save"
-    Then I see "Phone Number" is updated
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into directory search (ListAvailability)
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    When I select the filter option to show only profiles with upcoming available dates in the directory
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @AddWebsite
-  Scenario: Add website if available
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Edit Profile"
-    And I enter "https://www.example.com" as Website
-    And I click on "Save"
-    Then I see "Website" is updated
+  @SendMessages
+  Scenario: User sends messages between accounts (SendMessages)
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 
-  @AddServiceLocation
-  Scenario: Add service/location information
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Edit Profile"
-    And I enter "123 Main St" as Address
-    And I enter "Anytown" as Suburb
-    And I enter "12345" as Postcode
-    And I click on "Save"
-    Then I see "Service/Location Information" is updated
+  @PostJob
+  Scenario: User posts a job and is prompted for ABN (PostJob)
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide your ABN to post this job" message
 
-  @AddRate
-  Scenario: Add hourly or day rate if available
-    Given I open the TradeHub website
-    When I navigate to the Business Profile page
-    And I enter my hourly rate as <RANDOM:8> as Hourly Rate
-    And I enter my day rate as <RANDOM:8> as Day Rate
-    And I click on Save button
-    Then I see a success message indicating the rates have been saved
+  @ListSubcontractingDates
+  Scenario: Business lists subcontracting dates and it appears in directory search (ListSubcontractingDates)
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "2023-10-01 to 2023-10-05" displayed in the directory search filter
 
-  @UploadImage
-  Scenario: Upload/change profile image or logo
-    Given I open the TradeHub website
-    When I navigate to the Business Profile page
-    And I click on the Profile Image/Logo upload button
-    And I select a new image file
-    And I click on Save button
-    Then I see a success message indicating the image has been uploaded
-
-  @EditOtherInfo
-  Scenario: Edit any other available business information
-    Given I open the TradeHub website
-    When I navigate to the Business Profile page
-    And I enter new business information in the relevant fields
-    And I click on Save button
-    Then I see a success message indicating the information has been updated
-
-  @SaveProfile
-  Scenario: Save the profile
-    Given I open the TradeHub website
-    When I navigate to the Business Profile page
-    And I make changes to the profile
-    And I click on Save button
-    Then I see a success message indicating the profile has been saved
-
-  @RefreshPage
-  Scenario: Refresh the page
-    Given I open the TradeHub website
-    When I navigate to the Business Profile page
-    And I refresh the page
-    Then I see the Business Profile page is refreshed
-
-  @ConfirmSaved
-  Scenario: Confirm all changes remain saved
-    Given I open the TradeHub website
-    When I navigate to the Business Profile page
-    And I make changes to the profile
-    And I click on Save button
-    And I refresh the page
-    Then I see the changes are still present in the profile
-
-  @ViewPublicProfile
-  Scenario: View the public version of the profile
-    Given I open the public profile page
-    Then I see the public profile is visible
-
-  @PublicProfileCorrect
-  Scenario: Check that the public profile displays the correct information
-    Given I open the public profile page
-    Then I see the correct Name is displayed
-    And I see the correct Business Name is displayed
-    And I see the correct Email is displayed
-    And I see the correct Phone is displayed
-    And I see the correct Primary Trade is displayed
-    And I see the correct Suburb/Location is displayed
-
-  @ChangeVisibility
-  Scenario: Change the profile between Public and Private
-    Given I open the profile settings page
-    When I select 'Private' as the profile visibility
-    Then I see the profile visibility is changed to Private
-    And I see the public profile is no longer visible
-    When I select 'Public' as the profile visibility
-    Then I see the profile visibility is changed to Public
-    And I see the public profile is visible
-
-  @ConfirmVisibility
-  Scenario: Confirm the visibility setting behaves correctly
-    Given I open the profile settings page
-    When I select 'Private' as the profile visibility
-    Then I see the profile visibility is changed to Private
-    And I see the public profile is no longer visible
-    When I select 'Public' as the profile visibility
-    Then I see the profile visibility is changed to Public
-    And I see the public profile is visible
-
-  @EditAfterSetup
-  Scenario: Edit the profile a second time to make sure information can be changed after initial setup
-    Given I open the profile settings page
-    When I enter 'New Name' as Name
-    And I enter 'New Business Name' as Business Name
-    And I enter 'New Email' as Email
-    And I enter 'New Phone' as Phone
-    And I select 'New Primary Trade' as Primary Trade
-    And I enter 'New Suburb/Location' as Suburb/Location
-    And I click on Save Changes
-    Then I see the profile information is updated
-
-  @UnauthorizedAccess
-  Scenario: Unauthorized access to edit profile
-    Given I open the public profile page
-    When I click on Edit Profile
-    Then I see an error message indicating unauthorized access
-
-  @InvalidPayload
-  Scenario: Invalid payload inputs
-    Given I open "https://www.tradehub.com.au"
-    When I enter "<RANDOM:8>" as Name
-    And I enter "<RANDOM:8>" as Business Name
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Suburb/Location
-    And I enter "<RANDOM:8>" as Password
-    And I click on Create Account
-    Then I see "Invalid payload" is visible
-
-  @BoundaryEdgeCases
-  Scenario: Boundary and edge cases for profile fields
-    Given I open "https://www.tradehub.com.au"
-    When I enter "" as Name
-    And I enter "" as Business Name
-    And I enter "" as Email
-    And I enter "" as Phone
-    And I select "Trade Business" as Primary Trade
-    And I enter "" as Suburb/Location
-    And I enter "" as Password
-    And I click on Create Account
-    Then I see "Empty fields" is visible
-    Given I open "https://www.tradehub.com.au"
-    When I enter "<RANDOM:1000>" as Name
-    And I enter "<RANDOM:1000>" as Business Name
-    And I enter "<RANDOM:1000>" as Email
-    And I enter "<RANDOM:1000>" as Phone
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:1000>" as Suburb/Location
-    And I enter "<RANDOM:1000>" as Password
-    And I click on Create Account
-    Then I see "Maximum character limit" is visible
-    Given I open "https://www.tradehub.com.au"
-    When I enter "1234567890" as Phone
-    And I click on Create Account
-    Then I see "Invalid phone number" is visible
+  @MessageCommunication
+  Scenario: User sends and receives messages (MessageCommunication)
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B

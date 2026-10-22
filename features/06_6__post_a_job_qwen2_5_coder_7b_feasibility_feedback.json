@@ -19,19 +19,19 @@
           "step_text": "When I enter \"Plumbing Job\" in \"Job Title\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Job Title\" is \"Valid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         },
         {
           "step_text": "And I see \"Job Title\" is stored correctly",
           "matched_pattern": "I see <*> is stored correctly",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{data}\" is stored correctly"
+          "resolved_pattern": "I see \"{element}\" is stored correctly"
         }
       ]
     },
@@ -50,13 +50,13 @@
           "step_text": "When I enter \"Plumbing Job for Residential Development\" in \"Job Title\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Job Title\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         },
         {
           "step_text": "And I see an appropriate error message is displayed",
@@ -81,19 +81,19 @@
           "step_text": "When I select \"Plumbing\" as \"Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select \"{option}\" as \"{value}\""
         },
         {
           "step_text": "Then I see \"Trade\" is selected as \"Plumbing\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{option}\" is selected as {element}"
+          "resolved_pattern": "I see \"{option}\" is selected as \"{value}\""
         },
         {
           "step_text": "And I see \"Trade\" is stored correctly",
           "matched_pattern": "I see <*> is stored correctly",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{data}\" is stored correctly"
+          "resolved_pattern": "I see \"{element}\" is stored correctly"
         }
       ]
     },
@@ -112,13 +112,13 @@
           "step_text": "When I select \"Invalid Trade\" as \"Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select \"{option}\" as \"{value}\""
         },
         {
           "step_text": "Then I see \"Trade\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         },
         {
           "step_text": "And I see an appropriate error message is displayed",
@@ -143,13 +143,13 @@
           "step_text": "When I enter \"We need a plumber to fix the leaky faucet\" in \"Description\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Description\" is stored correctly",
           "matched_pattern": "I see <*> is stored correctly",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{data}\" is stored correctly"
+          "resolved_pattern": "I see \"{element}\" is stored correctly"
         }
       ]
     },
@@ -168,13 +168,13 @@
           "step_text": "When I enter \"\" in \"Description\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Description\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         },
         {
           "step_text": "And I see an appropriate error message is displayed",
@@ -199,7 +199,7 @@
           "step_text": "When I enter \"123 Main St, Anytown\" in \"Job Location\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Job location saved successfully\" message is visible",
@@ -224,7 +224,7 @@
           "step_text": "When I enter \"Invalid Location\" in \"Job Location\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Invalid job location\" error message is visible",
@@ -249,7 +249,7 @@
           "step_text": "When I enter \"<TODAY>\" in \"Job Date\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Job date saved successfully\" message is visible",
@@ -274,7 +274,7 @@
           "step_text": "When I enter \"2020-02-30\" in \"Job Date\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Invalid job date\" error message is visible",
@@ -299,7 +299,7 @@
           "step_text": "When I enter \"2 days\" in \"Expected Duration\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Expected duration saved successfully\" message is visible",
@@ -324,7 +324,7 @@
           "step_text": "When I enter \"Invalid Duration\" in \"Expected Duration\" field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Invalid expected duration\" error message is visible",
@@ -349,13 +349,13 @@
           "step_text": "When I enter \"100\" as Rate/Budget",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Rate/Budget\" is \"Valid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         }
       ]
     },
@@ -374,13 +374,13 @@
           "step_text": "When I enter \"abc\" as Rate/Budget",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Rate/Budget\" is \"Invalid\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         }
       ]
     },
@@ -405,7 +405,7 @@
           "step_text": "Then I see \"Emergency\" is selected as Tag",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is {state}"
+          "resolved_pattern": "I see \"{element}\" is \"{state}\""
         }
       ]
     },
@@ -424,13 +424,13 @@
           "step_text": "When I do not select any Tag",
           "matched_pattern": "I do not select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I do not select {element}"
+          "resolved_pattern": "I do not select \"{element}\""
         },
         {
           "step_text": "Then I do not see any Tag selected",
           "matched_pattern": "I do not see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I do not see \"{option}\" is selected as {element}"
+          "resolved_pattern": "I do not see \"{option}\" is selected as \"{value}\""
         }
       ]
     },
@@ -449,13 +449,13 @@
           "step_text": "When I upload \"valid_photo.jpg\" as Attachment",
           "matched_pattern": "I upload <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I upload \"{file}\" as {element}"
+          "resolved_pattern": "I upload \"{file}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"valid_photo.jpg\" in Attachment Values",
           "matched_pattern": "I see <*> in <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" in {container}"
+          "resolved_pattern": "I see \"{element}\" in \"{container}\""
         }
       ]
     },
@@ -474,7 +474,7 @@
           "step_text": "When I upload \"invalid_file.txt\" as Attachment",
           "matched_pattern": "I upload <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I upload \"{file}\" as {element}"
+          "resolved_pattern": "I upload \"{file}\" as \"{field}\""
         },
         {
           "step_text": "Then I see \"Invalid file type\" error message",
@@ -499,13 +499,13 @@
           "step_text": "When I enter \"<RANDOM:8>\" as Job Title",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Job Description",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I select \"Plumbing\" as Primary Trade",
@@ -517,25 +517,25 @@
           "step_text": "And I enter \"<RANDOM:8>\" as Suburb/Location",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Contact Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Contact Phone",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {element}"
+          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
         },
         {
           "step_text": "And I click on \"Submit Job\"",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "Then I see \"Job submitted successfully\" is Visible",
@@ -572,7 +572,7 @@
           "step_text": "And I click on \"Login\"",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {element}"
+          "resolved_pattern": "I click {element}"
         },
         {
           "step_text": "Then I see \"Dashboard\" is Visible",

@@ -19,7 +19,7 @@
           "step_text": "When I click on \"Dashboard\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Dashboard\" page is visible",
@@ -44,7 +44,7 @@
           "step_text": "When I click on \"Jobs\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Jobs\" page is visible",
@@ -69,7 +69,7 @@
           "step_text": "When I click on \"Find Jobs\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Find Jobs\" page is visible",
@@ -94,7 +94,7 @@
           "step_text": "When I click on \"Post a Job\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Post a Job\" page is visible",
@@ -119,7 +119,7 @@
           "step_text": "When I click on \"Tenders\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Tenders\" page is visible",
@@ -144,7 +144,7 @@
           "step_text": "When I click on \"Post Project Tender\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Post Project Tender\" page is visible",
@@ -350,7 +350,7 @@
           "step_text": "Then I see \"Unauthorized Access\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -375,7 +375,7 @@
           "step_text": "Then I see \"Invalid Payload\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -425,7 +425,7 @@
           "step_text": "Then I see \"Character Limit\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -449,7 +449,7 @@
           "step_text": "Then I see \"Rate Limit\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -468,7 +468,7 @@
           "step_text": "When I click on \"Dashboard\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I select \"Settings\" as \"Dashboard\"",
@@ -486,7 +486,7 @@
           "step_text": "And I click on \"Save\" button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"Password updated successfully\" message is visible",
@@ -517,7 +517,7 @@
           "step_text": "When I click on \"Dashboard\" link",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I select \"Settings\" as \"Dashboard\"",
@@ -535,13 +535,13 @@
           "step_text": "And I click on \"Save\" button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I click on \"Dashboard\" link again",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I select \"Notifications\" as \"Dashboard\"",
@@ -553,7 +553,7 @@
           "step_text": "And I click on \"Mark All as Read\" button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see \"All notifications marked as read\" message is visible",

@@ -135,7 +135,7 @@
           "step_text": "And I enter \"<TODAY>\" as Search Term",
           "matched_pattern": "I enter <*> as Search Term",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{search_term}\" as Search Term"
+          "resolved_pattern": "I enter \"{searchTerm}\" as Search Term"
         },
         {
           "step_text": "And I click on Search",
@@ -196,7 +196,7 @@
           "step_text": "And I enter \"Non-existent Tender\" as Search Term",
           "matched_pattern": "I enter <*> as Search Term",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{search_term}\" as Search Term"
+          "resolved_pattern": "I enter \"{searchTerm}\" as Search Term"
         },
         {
           "step_text": "And I click on Search",
@@ -318,7 +318,7 @@
           "step_text": "And I enter \"100\" as Price",
           "matched_pattern": "I enter <*> as Price",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{price}\" as Price"
+          "resolved_pattern": "I enter \"{value}\" as Price"
         },
         {
           "step_text": "And I enter \"Valid Message\" as Message",
@@ -966,7 +966,7 @@
           "step_text": "Then I do not see restricted trade information",
           "matched_pattern": "I do not see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I do not see \"{element}\""
+          "resolved_pattern": "I do not see {element}"
         }
       ]
     },
@@ -1021,7 +1021,7 @@
           "step_text": "Then I do not see \"Restricted Trade Information\"",
           "matched_pattern": "I do not see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I do not see \"{element}\""
+          "resolved_pattern": "I do not see {element}"
         }
       ]
     },
@@ -1076,7 +1076,7 @@
           "step_text": "Then I do not see \"Message for Unrelated Trades\"",
           "matched_pattern": "I do not see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I do not see \"{element}\""
+          "resolved_pattern": "I do not see {element}"
         }
       ]
     },
@@ -1131,7 +1131,7 @@
           "step_text": "Then I do not see \"Supporting Information for Unrelated Trades\"",
           "matched_pattern": "I do not see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I do not see \"{element}\""
+          "resolved_pattern": "I do not see {element}"
         }
       ]
     },

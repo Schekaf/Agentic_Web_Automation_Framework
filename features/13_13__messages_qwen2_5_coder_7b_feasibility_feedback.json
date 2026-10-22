@@ -19,19 +19,19 @@
           "step_text": "When I enter \"AccountA\" as Username",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"PasswordA\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Login",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I navigate to the Messages section",
@@ -43,25 +43,25 @@
           "step_text": "And I click on \"New Message\"",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I enter \"AccountB\" as Recipient",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"Hello from Account A\" as Message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see Success Message is Visible",
@@ -86,19 +86,19 @@
           "step_text": "When I enter \"AccountB\" as Username",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"PasswordB\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Login",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see Dashboard is Visible",
@@ -123,19 +123,19 @@
           "step_text": "When I enter \"AccountB\" as Username",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"PasswordB\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Login",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I navigate to the Messages section",
@@ -147,7 +147,7 @@
           "step_text": "Then I see \"Hello from Account A\" in Messages",
           "matched_pattern": "I see <*> in <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+          "resolved_pattern": "I see \"{text}\" in {element}"
         }
       ]
     },
@@ -166,19 +166,19 @@
           "step_text": "When I enter \"AccountB\" as Username",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"PasswordB\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Login",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I navigate to the Messages section",
@@ -190,19 +190,19 @@
           "step_text": "And I click on \"Hello from Account A\"",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I enter \"Hello from Account B\" as Reply",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see Success Message is Visible",
@@ -227,19 +227,19 @@
           "step_text": "When I enter \"AccountA\" as Username",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"PasswordA\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Login",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I navigate to the Messages section",
@@ -251,7 +251,7 @@
           "step_text": "Then I see \"Hello from Account B\" in Messages",
           "matched_pattern": "I see <*> in <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+          "resolved_pattern": "I see \"{text}\" in {element}"
         }
       ]
     },
@@ -270,19 +270,19 @@
           "step_text": "When I enter \"AccountA\" as Username",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"PasswordA\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Login",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I navigate to the Messages section",
@@ -294,49 +294,49 @@
           "step_text": "And I click on \"New Message\"",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I enter \"AccountB\" as Recipient",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"Message 1 from Account A\" as Message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I click on \"New Message\"",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "And I enter \"AccountB\" as Recipient",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"Message 2 from Account A\" as Message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see Success Message is Visible",
@@ -354,13 +354,13 @@
           "step_text": "Then I see \"Message 1 from Account A\" in Messages",
           "matched_pattern": "I see <*> in <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+          "resolved_pattern": "I see \"{text}\" in {element}"
         },
         {
           "step_text": "And I see \"Message 2 from Account A\" in Messages",
           "matched_pattern": "I see <*> in <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" in \"{container}\""
+          "resolved_pattern": "I see \"{text}\" in {element}"
         }
       ]
     },
@@ -379,13 +379,13 @@
           "step_text": "When I enter \"<RANDOM:8>\" as a long message in the message input field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see Success Message is Visible",
@@ -410,13 +410,13 @@
           "step_text": "When I enter \"Hello!\" as a short message in the message input field",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send button",
           "matched_pattern": "I click on <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I click {element}"
+          "resolved_pattern": "I click on {element}"
         },
         {
           "step_text": "Then I see Success Message is Visible",
@@ -453,7 +453,7 @@
           "step_text": "Then I see the messaging interface for the job",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -484,7 +484,7 @@
           "step_text": "Then I see the messaging interface for the tender",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -534,7 +534,7 @@
           "step_text": "Then I see the conversation interface for the selected thread",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -559,7 +559,7 @@
           "step_text": "Then I see the message is marked as unread",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is \"{state}\""
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "When I open the message",
@@ -571,7 +571,7 @@
           "step_text": "Then I see the message is marked as read",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\" is \"{state}\""
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -584,7 +584,7 @@
           "step_text": "Given I open the messaging application on my mobile device",
           "matched_pattern": "I open <*> on a mobile device",
           "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\" on a mobile device"
+          "resolved_pattern": "I open \"{url}\" on a {device}"
         },
         {
           "step_text": "When I send a message to another user",
@@ -602,13 +602,13 @@
           "step_text": "When I open the messaging application on my mobile device",
           "matched_pattern": "I open <*> on a mobile device",
           "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\" on a mobile device"
+          "resolved_pattern": "I open \"{url}\" on a {device}"
         },
         {
           "step_text": "Then I see the received message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -627,13 +627,13 @@
           "step_text": "When I enter an empty title in the message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter a message body",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
@@ -645,7 +645,7 @@
           "step_text": "Then I see an error message indicating that the title cannot be empty",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -664,13 +664,13 @@
           "step_text": "When I enter a null title in the message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter a message body",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
@@ -682,7 +682,7 @@
           "step_text": "Then I see an error message indicating that the title cannot be null",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -701,13 +701,13 @@
           "step_text": "When I enter a title exceeding the character limit in the message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter a message body",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
@@ -719,7 +719,7 @@
           "step_text": "Then I see an error message indicating that the title exceeds the character limit",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -738,13 +738,13 @@
           "step_text": "When I enter a valid title in the message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter an invalid payload in the message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{element}\""
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send",
@@ -756,7 +756,7 @@
           "step_text": "Then I see an error message indicating that the payload is invalid",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },

@@ -73,7 +73,7 @@
           "step_text": "Then I see Job is posted and status is \"Pending\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is {state}"
+          "resolved_pattern": "I see {element} is {state}"
         }
       ]
     },
@@ -122,7 +122,7 @@
           "step_text": "Then I see Job is applied and status is \"Pending\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is {state}"
+          "resolved_pattern": "I see {element} is {state}"
         }
       ]
     },
@@ -171,13 +171,13 @@
           "step_text": "And I select \"BusinessB\" as Applicant",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "Then I see Job status is updated to \"Pending\"",
           "matched_pattern": "I see <*> is updated to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+          "resolved_pattern": "I see \"{element}\" is updated to \"{value}\""
         }
       ]
     },
@@ -226,13 +226,13 @@
           "step_text": "And I select \"BusinessB\" as Applicant",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "Then I see Job status is updated to \"Pending\"",
           "matched_pattern": "I see <*> is updated to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+          "resolved_pattern": "I see \"{element}\" is updated to \"{value}\""
         }
       ]
     },
@@ -281,7 +281,7 @@
           "step_text": "Then I see Job status is updated to \"Confirmed\"",
           "matched_pattern": "I see <*> is updated to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+          "resolved_pattern": "I see \"{element}\" is updated to \"{value}\""
         }
       ]
     },
@@ -330,7 +330,7 @@
           "step_text": "Then I see Job status is updated to \"Confirmed\"",
           "matched_pattern": "I see <*> is updated to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+          "resolved_pattern": "I see \"{element}\" is updated to \"{value}\""
         }
       ]
     },
@@ -355,7 +355,7 @@
           "step_text": "And I select an Open job",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on the Confirm button",
@@ -367,7 +367,7 @@
           "step_text": "Then I see the job status is updated to 'Confirmed'",
           "matched_pattern": "I see <*> is updated to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+          "resolved_pattern": "I see \"{element}\" is updated to \"{value}\""
         }
       ]
     },
@@ -392,7 +392,7 @@
           "step_text": "And I select an Accepted job",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on the Complete button",
@@ -404,7 +404,7 @@
           "step_text": "Then I see the job status is updated to 'Completed'",
           "matched_pattern": "I see <*> is updated to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is updated to \"{new_value}\""
+          "resolved_pattern": "I see \"{element}\" is updated to \"{value}\""
         }
       ]
     },
@@ -429,7 +429,7 @@
           "step_text": "And I select an Open job",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on the Confirm button",
@@ -458,7 +458,7 @@
           "step_text": "Then I see the job status is updated to 'Confirmed'",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" is {state}"
+          "resolved_pattern": "I see {element} is {state}"
         }
       ]
     },
@@ -483,7 +483,7 @@
           "step_text": "And I select an Open job",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on the Confirm button",
@@ -495,7 +495,7 @@
           "step_text": "Then I receive a notification that the job status has changed to 'Confirmed'",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -513,13 +513,13 @@
           "step_text": "And I navigate to the Job Management page",
           "matched_pattern": "I navigate to the <*> page",
           "pattern_status": "matched",
-          "resolved_pattern": "I navigate to the \"{page_name}\" page"
+          "resolved_pattern": "I navigate to the \"{page}\" page"
         },
         {
           "step_text": "And I click on the Post Job button",
           "matched_pattern": "I click on the <*> button",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on the {button}"
+          "resolved_pattern": "I click on the \"{button}\" button"
         },
         {
           "step_text": "Then I see an error message indicating that I am not authorized to post a job",
@@ -568,7 +568,7 @@
           "step_text": "Then I see an error message indicating that the payload is invalid",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -593,7 +593,7 @@
           "step_text": "Then I see \"Unauthorized Access\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -624,7 +624,7 @@
           "step_text": "Then I see \"Invalid Payload\" error message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -649,7 +649,7 @@
           "step_text": "Then I see \"Unauthorized Access\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -680,7 +680,7 @@
           "step_text": "Then I see \"Invalid Payload\" error message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -705,7 +705,7 @@
           "step_text": "Then I see \"Unauthorized Access\" message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -736,7 +736,7 @@
           "step_text": "Then I see \"Invalid Payload\" error message",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     }

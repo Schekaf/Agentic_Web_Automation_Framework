@@ -1,136 +1,163 @@
 Feature: Web Automation with Behave
 
-  @ABN
-  Scenario: Browse jobs without an ABN
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Jobs"
-    Then I see "Job listings" is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @ABN
-  Scenario: Browse tenders without an ABN
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Tenders"
-    Then I see "Tender listings" is visible
-
-  @ABN
-  Scenario: Browse the Directory without an ABN
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Directory"
-    Then I see "Business profiles" is visible
-
-  @ABN
-  Scenario: Post a job without an ABN and verify system requests ABN
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Post Job"
-    Then I see "ABN is required" is visible
-
-  @ABN
-  Scenario: Apply/quote for a job where applicable without an ABN and verify system requests ABN
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Apply for Job"
-    Then I see "ABN is required" is visible
-
-  @ABN
-  Scenario: Post a tender without an ABN and verify system requests ABN
-    Given I open "https://www.tradehub.com.au"
-    When I click on "Post Tender"
-    Then I see "ABN is required" is visible
-
-  @ABN
-  Scenario: Quote on a tender without an ABN and verify system requests ABN
+  @RegisterAccount
+  Scenario: User successfully registers a new account
     Given I open "https://www.tradehub.com.au/register"
-    When I click on "Register"
-    And I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Submit"
-    Then I see "Please provide an ABN" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Activation email sent!" message
 
-  @ABN
-  Scenario: List subcontracting availability without an ABN and verify system requests ABN
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on "Register"
-    And I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Submit"
-    Then I see "Please provide an ABN" is visible
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Rough-in assistance" as Job Description
+    And I enter "Sydney" as Location
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
 
-  @ABN
-  Scenario: Enter an ABN
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on "Register"
-    And I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Submit"
-    And I enter "<RANDOM:8>" as ABN
-    And I click on "Save"
+  @ListSubcontractingDates
+  Scenario: Business lists future available dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I enter "2 plumbers available Wed/Thu" as Availability Description
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
 
-  @ABN
-  Scenario: Save it
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on "Register"
-    And I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Submit"
-    And I enter "<RANDOM:8>" as ABN
-    And I click on "Save"
-    Then I see "ABN saved successfully" is visible
+  @FilterDirectory
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select "Show only profiles with upcoming available dates" as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @ABN
-  Scenario: Confirm the ABN is attached to the account
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on "Register"
-    And I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Submit"
-    And I enter "<RANDOM:8>" as ABN
-    And I click on "Save"
-    Then I see "ABN is attached to your account" is visible
+  @SendMessages
+  Scenario: User sends a message and receives a confirmation
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on "Send" button
+    Then I see the "Message sent successfully" message
 
-  @ABN
-  Scenario: Repeat an action that was previously restricted
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on "Register"
-    And I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Submit"
-    And I enter "<RANDOM:8>" as ABN
-    And I click on "Save"
-    And I click on "Post Job"
-    And I enter "<RANDOM:8>" as Job Title
-    And I enter "<RANDOM:8>" as Job Description
-    And I click on "Post"
-    Then I see "Job posted successfully" is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
 
-  @ABN
-  Scenario: Confirm you can now continue
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I enter "<RANDOM:8>" as Name
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Business Name
-    And I enter "<RANDOM:8>@example.com" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I enter "<RANDOM:8>" as Password
-    And I click on "Register"
-    Then I see "Registration Successful" is visible
-    And I see "Please verify your email" is visible
-    And I click on "Continue"
-    Then I see "You can now continue" is visible
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
+
+  @ABNVerification
+  Scenario: User is prompted to enter ABN after posting a job
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Job Title" as Job Title
+    And I enter "Job Description" as Job Description
+    And I click on Post Job
+    Then I see ABN Prompt is Visible
+
+  @AvailabilityListing
+  Scenario: User lists availability dates and verifies listing in directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I enter "Available for Plumbing" as Availability Description
+    And I click on the "Save Changes" button
+    Then I see the updated availability description displayed on the "Account" page
+    When I select the filter option to show only profiles with upcoming available dates in the directory
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @MessageSending
+  Scenario: User sends a message and verifies receipt
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "FurkanTech" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Activation email sent to furkan@example.com" message
+
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "100" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN" message
+
+  @ListSubcontractingDates
+  Scenario: Business lists subcontracting dates and filters directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends messages and verifies recipient and content
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "This is a reply" from "Account B"
 

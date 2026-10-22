@@ -293,7 +293,7 @@
           "step_text": "And I see \"Error Message\" contains \"Please log in to apply for this tender\"",
           "matched_pattern": "I see <*> contains <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" contains \"{value}\""
+          "resolved_pattern": "I see \"{text}\" contains \"{substring}\""
         }
       ]
     },
@@ -336,7 +336,7 @@
           "step_text": "And I see \"Error Message\" contains \"Please log in to apply for this tender\"",
           "matched_pattern": "I see <*> contains <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{text}\" contains \"{value}\""
+          "resolved_pattern": "I see \"{text}\" contains \"{substring}\""
         }
       ]
     },

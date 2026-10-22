@@ -50,7 +50,7 @@
           "step_text": "And I select \"Future Dates\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "Then I see selected dates are highlighted",
@@ -81,13 +81,13 @@
           "step_text": "And I select \"Future Dates\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"Available for plumbing work\" as Description",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "Then I see Description is saved",
@@ -118,13 +118,13 @@
           "step_text": "And I select \"Future Dates\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"5 plumbers\" as Number/Type of Workers",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "Then I see Number/Type of Workers is saved",
@@ -155,13 +155,13 @@
           "step_text": "And I select \"Future Dates\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"$100 per day\" as Rate",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "Then I see Rate is saved",
@@ -192,25 +192,25 @@
           "step_text": "And I select \"Future Dates\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I enter \"Available for plumbing work\" as Description",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"5 plumbers\" as Number/Type of Workers",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"$100 per day\" as Rate",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on \"Save\"",
@@ -326,13 +326,13 @@
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -356,19 +356,19 @@
           "step_text": "And I enter \"<TODAY>\" as Start Date",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"<TODAY>+1\" as End Date",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"Available plumbers\" as Description",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on \"Save\"",
@@ -514,13 +514,13 @@
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -544,19 +544,19 @@
           "step_text": "And I enter \"<TODAY>\" as Start Date",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"<TODAY>+1\" as End Date",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I enter \"Available plumbers\" as Description",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on \"Save\"",
@@ -574,7 +574,7 @@
           "step_text": "And I enter \"Available electricians\" as Description",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on \"Save\"",
@@ -804,25 +804,25 @@
           "step_text": "And I select the availability listing I want to delete",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\""
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on the 'Delete' button",
           "matched_pattern": "I click on <*> button",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {button} button"
+          "resolved_pattern": "I click on {button}"
         },
         {
           "step_text": "Then I see a confirmation dialog",
           "matched_pattern": "I see <*> dialog",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{dialog}\" dialog"
+          "resolved_pattern": "I see {dialog} dialog"
         },
         {
           "step_text": "And I click on 'Confirm Delete'",
           "matched_pattern": "I click on <*> button",
           "pattern_status": "matched",
-          "resolved_pattern": "I click on {button} button"
+          "resolved_pattern": "I click on {button}"
         },
         {
           "step_text": "Then I do not see the deleted availability listing in the directory",
@@ -915,7 +915,7 @@
           "step_text": "And I enable the filter for test businesses",
           "matched_pattern": "I enable the filter for <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enable the filter for \"{filter}\""
+          "resolved_pattern": "I enable the filter for {filter}"
         },
         {
           "step_text": "Then I see the test business in the directory",
@@ -967,13 +967,13 @@
           "step_text": "When I navigate to the Availability Listing page",
           "matched_pattern": "I navigate to <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I navigate to \"{url}\""
+          "resolved_pattern": "I navigate to \"{page}\""
         },
         {
           "step_text": "And I leave the description field empty",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as \"{field}\""
+          "resolved_pattern": "I enter \"{value}\" as {field}"
         },
         {
           "step_text": "And I click on the 'Submit' button",
@@ -985,7 +985,7 @@
           "step_text": "Then I see an error message indicating that the description field cannot be empty",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see {element}"
         }
       ]
     },
@@ -1016,7 +1016,7 @@
           "step_text": "Then I see an error message indicating the character limit has been exceeded",
           "matched_pattern": "I see <*> message indicating <*> has been exceeded",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{message}\" message indicating \"{limit}\" has been exceeded"
+          "resolved_pattern": "I see \"{message}\" message indicating {limit} has been exceeded"
         }
       ]
     },
@@ -1047,7 +1047,7 @@
           "step_text": "Then I see an error message indicating the rate limit has been exceeded",
           "matched_pattern": "I see <*> message indicating <*> has been exceeded",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{message}\" message indicating \"{limit}\" has been exceeded"
+          "resolved_pattern": "I see \"{message}\" message indicating {limit} has been exceeded"
         }
       ]
     }

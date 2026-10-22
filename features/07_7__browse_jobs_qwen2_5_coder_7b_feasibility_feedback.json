@@ -44,7 +44,7 @@
           "step_text": "Then I see multiple job listings",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -75,7 +75,7 @@
           "step_text": "Then I see job listings related to Plumbing",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -137,7 +137,7 @@
           "step_text": "Then I see job listings within 10km",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -168,13 +168,13 @@
           "step_text": "Then I see the details of the first job listing",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         },
         {
           "step_text": "And I see the details of the second job listing",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{element}\""
+          "resolved_pattern": "I see \"{text}\""
         }
       ]
     },
@@ -255,7 +255,7 @@
           "step_text": "Given I open \"https://www.tradehub.com.au/jobs\" on a mobile device",
           "matched_pattern": "I open <*> on a mobile device",
           "pattern_status": "matched",
-          "resolved_pattern": "I open \"{url}\" on a mobile device"
+          "resolved_pattern": "I open \"{url}\" on a {device}"
         },
         {
           "step_text": "When I click on Job Listing 1",
@@ -427,7 +427,7 @@
           "step_text": "Then I see \"Jobs List\" page is displayed",
           "matched_pattern": "I see <*> page",
           "pattern_status": "matched",
-          "resolved_pattern": "I see \"{page}\" page"
+          "resolved_pattern": "I see \"{page_name}\" page"
         }
       ]
     },

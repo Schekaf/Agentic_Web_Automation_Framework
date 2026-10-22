@@ -1,149 +1,207 @@
 Feature: Web Automation with Behave
 
-  @NavigateToSubcontractingAvailability
-  Scenario: Navigate to List Subcontracting Dates / Availability
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Subcontracting Availability" page
-    Then I see "Subcontracting Availability" page is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
 
-  @SelectFutureDates
-  Scenario: Select Future Dates
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Subcontracting Availability" page
-    And I select "Future Dates"
-    Then I see "Future Dates" selected
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @AddDescription
-  Scenario: Add Description
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Subcontracting Availability" page
-    And I enter "<description>" as Description
-    Then I see "Description" field is populated with "<description>"
-
-  @EnterNumberOfWorkers
-  Scenario: Enter Number/Type of Workers
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Subcontracting Availability" page
-    And I enter "{number_of_workers}" as Number of Workers
-    Then I see "Number of Workers" field is populated with "{number_of_workers}"
-
-  @EnterRate
-  Scenario: Enter Rate
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Subcontracting Availability" page
-    And I enter "{rate}" as Rate
-    Then I see "Rate" field is populated with "{rate}"
-
-  @SaveAvailability
-  Scenario: Save Availability
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Subcontracting Availability" page
-    And I enter "{number_of_workers}" as Number of Workers
-    And I enter "{rate}" as Rate
-    And I click on the "Save" button
-    Then I see the "Availability saved successfully" message
-
-  @ListSubcontractingAvailability
-  Scenario: Confirm Dates on Account
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Account" page
-    And I select the "Subcontracting Availability" tab
-    Then I see the saved availability dates displayed on the "Account" page
-
-  @ListSubcontractingAvailability
-  Scenario: Refresh Page
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Account" page
-    And I select the "Subcontracting Availability" tab
-    And I refresh the page
-    Then I see the saved availability dates remain displayed on the "Account" page
-
-  @ListSubcontractingAvailability
-  Scenario: Edit Dates
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Account" page
-    And I select the "Subcontracting Availability" tab
-    And I click on the edit icon next to the saved availability date
-    And I enter "{new_availability_dates}" as Availability Dates
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I enter "2 plumbers available Wed/Thu" as Availability Description
     And I click on the "Save Changes" button
     Then I see the updated availability dates displayed on the "Account" page
 
-  @ListSubcontractingAvailability
-  Scenario: Edit Description
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Account" page
-    And I select the "Subcontracting Availability" tab
-    And I click on the edit icon next to the saved availability date
-    And I enter "{new_availability_description}" as Availability Description
-    And I click on the "Save Changes" button
-    Then I see the updated availability description displayed on the "Account" page
-
-  @ListSubcontractingAvailability
-  Scenario: Remove Available Date
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Account" page
-    And I select the "Subcontracting Availability" tab
-    And I click on the "Delete" icon next to the saved availability date
-    And I click on the "Confirm Deletion" button
-    Then I do not see the deleted availability date displayed on the "Account" page
-
-  @ListSubcontractingAvailability
-  Scenario: Add Another Available Date
-    Given I open "https://www.tradehub.com.au"
-    When I navigate to the "Account" page
-    And I select the "Subcontracting Availability" tab
-    And I click on the "Add New Date" button
-    And I enter "{new_availability_dates}" as Availability Dates
-    And I click on the "Save Changes" button
-    Then I see the new availability date displayed on the "Account" page
-
-  @DeleteAvailabilityListing
-  Scenario: Delete/Cancel Availability Listing
-    Given I open "https://www.tradehub.com.au"
-    When I select a saved availability listing from the directory
-    And I click on the "Delete/Cancel" button
-    Then I do not see the availability listing displayed in the directory
-
-  @SearchDirectoryUnauthorized
-  Scenario: Search Directory Using Another Account
-    Given I open "https://www.tradehub.com.au"
-    When I attempt to search the directory with an unauthorized account
-    Then I see an error message indicating that the action is unauthorized
-
-  @ShowUpcomingAvailableDates
-  Scenario: Enable Show Only Profiles with Upcoming Available Dates
-    Given I open "https://www.tradehub.com.au"
-    When I select the filter option to show only profiles with upcoming available dates in the directory
+  @FilterAvailability
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
     Then I see only profiles with upcoming available dates displayed in the directory
 
-  @TestBusinessAppears
-  Scenario: Confirm Test Business Appears
-    Given I open "https://www.tradehub.com.au"
-    When I enable the filter to show only profiles with upcoming available dates in the directory
-    Then I see the test business displayed in the directory
+  @SendMessages
+  Scenario: User sends a message
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
 
-  @AvailableDatesCorrect
-  Scenario: Confirm Available Dates Are Correct
-    Given I open "https://www.tradehub.com.au"
-    When I select a business with available dates in the directory
-    Then I see the correct available dates displayed in the directory
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
 
-  @EmptyDescriptionInput
-  Scenario: Empty Description Input
-    Given I open "https://www.tradehub.com.au"
-    When I attempt to enter an empty description in the Description field
-    Then I see an error message indicating that the input is invalid in the Description field
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @ListSubcontractingAvailability
-  Scenario: Character Limit for Description
-    Given I open "{url}"
-    When I enter "{text}" as Description
-    And I click on the "Submit" button
-    Then I see "Description exceeds character limit" is visible
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on Post Job
+    Then I see ABN Prompt is Visible
 
-  @ListSubcontractingAvailability
-  Scenario: Rate Limit for Availability Entries
-    Given I open "{url}"
-    When I enter "{text}" as Availability
-    And I click on the "Submit" button
-    Then I see "Rate limit exceeded" is visible
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on the "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @MessageFunctionality
+  Scenario: User sends and receives messages
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
+
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on Post Job
+    Then I see ABN Prompt is Visible
+
+  @ListSubcontractingDates
+  Scenario: Business lists subcontracting dates and filters directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I click on Save Changes
+    Then I see the saved availability dates displayed on the "Account" page
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends messages and verifies recipient and content
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
+
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on Post Job
+    Then I see ABN Prompt is Visible
+
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I click on the "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends messages and verifies message content and sender/receiver
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
+

@@ -1,126 +1,159 @@
 Feature: Web Automation with Behave
 
-  @functional
-  Scenario: Open Find Jobs / Jobs
-    Given I open "https://www.tradehub.com.au/jobs"
-    Then I see "Jobs" page is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @functional
-  Scenario: Browse Available Jobs
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I scroll down the page
-    Then I see multiple job listings
+  @RegisterAccount
+  Scenario: User successfully registers a new account
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @functional
-  Scenario: Search for Jobs
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I enter "Plumbing" in search bar
-    Then I see job listings related to Plumbing
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing job" as Job Title
+    And I enter "Sydney" as Location
+    And I enter "100" as Budget
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
 
-  @functional
-  Scenario: Filter by Trade
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I select "Plumbing" as Trade
-    Then I see job listings related to Plumbing
+  @ListSubcontractingDates
+  Scenario: Business lists subcontracting dates and filters directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @functional
-  Scenario: Filter by Location/Distance
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I select "10km" as Distance
-    Then I see job listings within 10km
+  @SendMessages
+  Scenario: User sends messages and verifies recipient and content
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "This is a reply" from "Account B"
 
-  @functional
-  Scenario: Open Several Job Listings
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I click on the first job listing
-    And I click on the second job listing
-    Then I see details of two job listings
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
 
-  @Functional
-  Scenario: Return to Job Search Results
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I click on Job Listing 1
-    And I click on Apply/View Details
-    Then I see Job Search Results page is visible
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @Functional
-  Scenario: Check Search/Filter Settings
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I click on Job Listing 1
-    And I click on Apply/View Details
-    Then I see Search/Filter settings are intact
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "1000" as Budget
+    And I click on Post Job
+    Then I see ABN Prompt is Visible
 
-  @Functional
-  Scenario: Test Experience on Mobile
-    Given I open "https://www.tradehub.com.au/jobs" on a mobile device
-    When I click on Job Listing 1
-    And I click on Apply/View Details
-    Then I see Job Search Results page is visible on mobile
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on the "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @Functional
-  Scenario: Open Job to Test Applying
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I click on Job Listing 1
-    And I click on Apply/View Details
-    Then I see Apply/Respond to Job page is visible
+  @MessageExchange
+  Scenario: User sends and receives messages in the Messages page
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 
-  @Functional
-  Scenario: Apply/Respond to Job
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I click on Job Listing 1
-    And I click on Apply/View Details
-    And I enter "<RANDOM:8>" as Name
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I select "Trade Business" as Primary Trade
-    And I click on Submit Application
-    Then I see Application Confirmation page is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @Functional
-  Scenario: Go Backwards Without Becoming Stuck
-    Given I open "https://www.tradehub.com.au/jobs"
-    When I click on Job Listing 1
-    And I click on Apply/View Details
-    And I click on Go Back Button
-    Then I see Job Search Results page is visible
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @functional
-  Scenario: Return to Jobs List
-    Given I open the jobs list page
-    When I apply to a job
-    Then I see the jobs list page is displayed
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "123 Main St" as Address
+    And I enter "123456" as Job Description
+    And I click on "Post Job" button
+    Then I see "Please provide ABN" message
 
-  @functional
-  Scenario: Verify Application Submission
-    Given I open the job application page
-    When I fill out the application form with valid data
-    And I submit the application
-    Then I see a confirmation message indicating successful submission
+  @ListAvailability
+  Scenario: Business lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
+    And I see "Show only profiles with upcoming available dates" option in Directory Search filter
 
-  @functional
-  Scenario: Unauthorized Access
-    Given I am not logged in
-    When I try to access the jobs list page
-    Then I see an unauthorized access message
-
-  @functional
-  Scenario: Invalid Payload Inputs
-    Given I open the job application page
-    When I fill out the application form with invalid data
-    And I submit the application
-    Then I see an error message indicating invalid inputs
-
-  @functional
-  Scenario: Empty/Null String Inputs
-    Given I open the job application page
-    When I fill out the application form with empty or null string inputs
-    And I submit the application
-    Then I see an error message indicating empty or null inputs
-
-  @functional
-  Scenario: Character Limits
-    Given I open the job application page
-    When I enter a job title exceeding the character limit
-    And I submit the application
-    Then I see an error message indicating character limit exceeded
+  @SendMessages
+  Scenario: User sends messages between accounts and verifies message content
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "This is a reply" from "Account B"
 

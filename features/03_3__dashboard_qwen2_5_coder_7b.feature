@@ -1,146 +1,204 @@
 Feature: Web Automation with Behave
 
-  @name/business_information_display
-  Scenario: Verify name/business information display
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "User's Name" is displayed
-    And I see "Business Information" is displayed
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
 
-  @date/day_display
-  Scenario: Verify date/day display
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "Current Date" is displayed
-    And I see "Current Day" is displayed
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @profile_information_card
-  Scenario: Verify profile information/card display
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "Profile Information Card" is displayed
+  @ABNVerification
+  Scenario: User is prompted to enter ABN after posting a job
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Job Title" as Job Title
+    And I enter "Job Description" as Job Description
+    And I click on Post Job
+    Then I see ABN Verification Prompt is Visible
 
-  @profile_public_private_controls
-  Scenario: Verify profile public/private controls
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I select "Public" as Profile Visibility
-    And I select "Private" as Profile Visibility
-    Then I see "Profile is now Public" is visible
-    And I see "Profile is now Private" is visible
+  @AvailabilityListing
+  Scenario: User lists availability dates and verifies listing in directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I enter "Available for Plumbing" as Availability Description
+    And I click on the "Save Changes" button
+    Then I see the updated availability description displayed on the "Account" page
+    When I click on the filter option to show only profiles with upcoming available dates in the directory
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @ABN_verification_status_area
-  Scenario: Verify ABN verification status area
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "ABN Verification Status" is displayed
-    And I see "ABN is Verified" is visible
-    Or I see "ABN is Not Verified" is visible
+  @MessageSending
+  Scenario: User sends a message and verifies receipt
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 
-  @profile_views_statistic
-  Scenario: Verify profile views statistic
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "Profile Views Statistic" is displayed
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @openJobsInYourArea
-  Scenario: Verify open jobs in your area
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "Open Jobs" is visible
-    And I see "Jobs in your area" is visible
-    And I see "Job details" is visible
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "FurkanTech" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Activation email sent to furkan@example.com" message
 
-  @unreadMessageCount
-  Scenario: Verify unread message count
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "Unread Messages" is visible
-    And I see "Message count" is visible
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I enter "2 plumbers available Wed/Thu" as Availability Description
+    And I click on "Save Changes" button
+    Then I see the updated availability dates displayed on the "Account" page
 
-  @recentListings
-  Scenario: Verify recent listings
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I see "Recent Listings" is visible
-    And I see "Listing details" is visible
+  @FilterDirectory
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @clickEachDashboardLink
-  Scenario: Click each dashboard link
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I click on "Open Jobs"
-    Then I see "Open Jobs" page is visible
-    And I click on "Unread Messages"
-    Then I see "Unread Messages" page is visible
-    And I click on "Recent Listings"
-    Then I see "Recent Listings" page is visible
+  @SendMessages
+  Scenario: User sends a message
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
 
-  @missingInformation
-  Scenario: Verify missing information
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I do not see "Missing Information" is visible
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @incorrectCounts
-  Scenario: Verify incorrect counts
-    Given I open "https://www.tradehub.com.au/dashboard"
-    Then I do not see "Incorrect Counts" is visible
+  @RegisterAccount
+  Scenario: User successfully registers a new account
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
+    And I see an email with activation link
 
-  @Dashboard
-  Scenario: Verify overlapping text
-    Given I open the dashboard
-    Then I see no overlapping text
+  @ABNVerification
+  Scenario: User is prompted to enter ABN after posting a job
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Job Title" as Job Title
+    And I enter "Job Description" as Job Description
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
 
-  @Dashboard
-  Scenario: Verify empty areas
-    Given I open the dashboard
-    Then I see no empty areas
+  @AvailabilityListing
+  Scenario: User lists availability dates and sees them in the directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    When I navigate to the "Directory" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @Dashboard
-  Scenario: Verify buttons that cannot be clicked
-    Given I open the dashboard
-    Then I see no buttons that cannot be clicked
+  @MessageSending
+  Scenario: User sends a message and sees the confirmation message
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
 
-  @Dashboard
-  Scenario: Verify incorrect mobile layout
-    Given I open the dashboard on a mobile device
-    Then I see the correct mobile layout
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @Dashboard
-  Scenario: Verify information that does not update after actions are completed
-    Given I open the dashboard
-    When I perform an action
-    Then I see the information updates correctly
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @Dashboard
-  Scenario: Verify ABN verification status area with invalid ABN
-    Given I open the dashboard
-    When I enter an invalid ABN in the ABN verification area
-    Then I see an error message in the ABN verification status area
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "123 Main St" as Address
+    And I enter "123456" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN" message
 
-  @invalid_input
-  Scenario: Verify profile public/private controls with invalid input
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I enter "<RANDOM:8>" as Public/Private Setting
-    Then I see "Invalid input" error message is visible
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates saved successfully" message
+    And I select "Show only profiles with upcoming available dates" as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @concurrent_operations
-  Scenario: Verify profile views statistic with concurrent operations
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I simulate multiple users viewing the profile concurrently
-    Then I see the profile views statistic updates correctly
-
-  @zero_jobs
-  Scenario: Verify open jobs in your area with zero jobs
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I select "Open Jobs" tab
-    Then I see "No open jobs available" message is visible
-
-  @maximum_listings
-  Scenario: Verify recent listings with maximum number of listings
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I select "Recent Listings" tab
-    Then I see the maximum number of listings displayed correctly
-
-  @empty_string_input
-  Scenario: Verify recent listings with empty string input
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I enter "" as Search Query
-    Then I see "No results found" message is visible
-
-  @character_limit
-  Scenario: Verify recent listings with character limit
-    Given I open "https://www.tradehub.com.au/dashboard"
-    When I enter "<RANDOM:100>" as Search Query
-    Then I see "Character limit exceeded" error message is visible
+  @SendMessages
+  Scenario: User sends messages and verifies message content
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "This is a reply" from "Account B"
 

@@ -1,110 +1,104 @@
 Feature: Web Automation with Behave
 
-  @MarkJobAsCompleted
-  Scenario: Mark the job as completed
-    Given I open the job details page
-    When I click on 'Mark as Completed'
-    Then I see the 'Job marked as completed' message
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @CheckReviewVisibility
-  Scenario: Check the visibility of the review option
-    Given I open the job details page
-    When I click on 'Mark as Completed'
-    Then I see the 'Leave a review' option is visible
+  @RegisterAccount
+  Scenario: User successfully registers a new account
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "<RANDOM:8>" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @LeaveReview
-  Scenario: Leave a review
-    Given I open the job details page
-    When I click on 'Mark as Completed'
-    And I click on 'Leave a review'
-    And I enter 'Great service' in the 'Review' field
-    And I select '5' as 'Rating'
-    And I click on 'Submit Review'
-    Then I see the 'Review submitted successfully' message
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "123 Main St" as Address
+    And I enter "<RANDOM:1000>" as Description
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN" message
 
-  @SubmitRating
-  Scenario: Submit a rating
-    Given I open the job details page
-    When I click on 'Mark as Completed'
-    And I click on 'Leave a review'
-    And I select '5' as 'Rating'
-    And I click on 'Submit Review'
-    Then I see the 'Review submitted successfully' message
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I enter "Available for plumbing work" as Availability Description
+    And I click on "Save Changes" button
+    Then I see the updated availability description displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @AddWrittenFeedback
-  Scenario: Add written feedback
-    Given I open the job details page
-    When I click on 'Mark as Completed'
-    And I click on 'Leave a review'
-    And I enter 'Great service' in the 'Review' field
-    And I click on 'Submit Review'
-    Then I see the 'Review submitted successfully' message
+  @SendMessages
+  Scenario: User sends messages and verifies message content and sender/receiver
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 
-  @ConfirmReviewAppearance
-  Scenario: Confirm the review appears on the appropriate business profile
-    Given I open the job details page
-    When I click on 'Mark as Completed'
-    And I click on 'Leave a review'
-    And I enter 'Great service' in the 'Review' field
-    And I select '5' as 'Rating'
-    And I click on 'Submit Review'
-    Then I see the review on the business profile
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @Positive
-  Scenario: Test the ability to respond to a review
-    Given I open the TradeHub website
-    When I navigate to the job details page
-    And I click on the 'Leave a review' button
-    And I enter a valid review title and feedback
-    And I click on the 'Submit' button
-    Then I see a confirmation message indicating the review has been submitted
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @Negative
-  Scenario: Check the Reliability Review process for late cancellations
-    Given I open the TradeHub website
-    When I navigate to the job details page
-    And I click on the 'Cancel' button
-    And I select 'Late cancellation' as the reason
-    And I click on the 'Submit' button
-    Then I see a confirmation message indicating the cancellation has been submitted
-    And I see a review prompt for the cancellation
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "123 Main St" as Address
+    And I enter "123456" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN for verification" message
 
-  @Negative
-  Scenario: Verify the review option is not visible for uncompleted jobs
-    Given I open the TradeHub website
-    When I navigate to the job details page
-    And I click on the 'Mark as Completed' button
-    And I click on the 'Submit' button
-    Then I do not see the 'Leave a review' option
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "Add New Date" button
+    And I enter "2023-10-01" as Availability Dates
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    And I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
 
-  @Negative
-  Scenario: Test invalid payload for review submission
-    Given I open the TradeHub website
-    When I navigate to the job details page
-    And I click on the 'Leave a review' button
-    And I enter an empty review title and feedback
-    And I click on the 'Submit' button
-    Then I see an error message indicating the review submission failed
-
-  @Boundary
-  Scenario: Test character limits for review title and feedback
-    Given I open the TradeHub website
-    When I navigate to the job details page
-    And I click on the 'Leave a review' button
-    And I enter a review title with 8 words and feedback with 18 words
-    And I click on the 'Submit' button
-    Then I see a confirmation message indicating the review has been submitted
-
-  @Boundary
-  Scenario: Test rate limits for review submissions
-    Given I open the TradeHub website
-    When I navigate to the job details page
-    And I click on the 'Leave a review' button
-    And I enter a valid review title and feedback
-    And I click on the 'Submit' button
-    And I wait for the rate limit to expire
-    And I click on the 'Leave a review' button again
-    And I enter another valid review title and feedback
-    And I click on the 'Submit' button
-    Then I see a confirmation message indicating the review has been submitted
+  @SendMessages
+  Scenario: User sends messages between accounts
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
 

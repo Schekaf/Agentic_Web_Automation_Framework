@@ -1,204 +1,259 @@
 Feature: Web Automation with Behave
 
-  @AccountRegistration
-  Scenario: Register Account on Mobile
-    Given I open the mobile app
-    When I click on Register Account
-    And I enter "<RANDOM:8>" as Name
-    And I enter "<RANDOM:8>" as Business Name
-    And I enter "<RANDOM:8>@example.com" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Suburb/Location
-    And I enter "<RANDOM:8>" as Password
-    And I click on Register
-    Then I see "Registration Successful" message
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @Login
-  Scenario: Login Account on Mobile
-    Given I open the mobile app
-    When I click on Login Account
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Password
-    And I click on Login
-    Then I see "Login Successful" message
-
-  @Logout
-  Scenario: Logout Account on Mobile
-    Given I open the mobile app
-    When I click on Profile Icon
-    And I click on Logout
-    Then I see "Logged Out" message
-
-  @Dashboard
-  Scenario: Dashboard on Mobile
-    Given I open the mobile app
-    When I click on Dashboard Icon
-    Then I see "Dashboard" page
-
-  @EditProfile
-  Scenario: Edit Profile on Mobile
-    Given I open the mobile app
-    When I click on Profile Icon
-    And I click on Edit Profile
-    And I enter "<RANDOM:8>" as Name
-    And I enter "<RANDOM:8>" as Business Name
-    And I enter "<RANDOM:8>" as Email
-    And I enter "<RANDOM:8>" as Phone
-    And I select "Trade Business" as Primary Trade
-    And I enter "<RANDOM:8>" as Suburb/Location
-    And I enter "<RANDOM:8>" as Password
-    And I click on Save
-    Then I see "Profile Updated" message
-
-  @Directory
-  Scenario: Directory on Mobile
-    Given I open the mobile app
-    When I click on Directory Icon
-    Then I see "Directory" page
-
-  @FindJobs
-  Scenario: Find Jobs on Mobile
-    Given I open the TradeHub mobile app
-    When I enter a search term in the Job Search field
-    And I click on the Search button
-    Then I see a list of job listings
-
-  @OpenJob
-  Scenario: Open Job on Mobile
-    Given I open the TradeHub mobile app
-    When I click on a job listing in the Job Search results
-    Then I see the details of the selected job listing
-
-  @ApplyForJob
-  Scenario: Apply for Job on Mobile
-    Given I open the TradeHub mobile app
-    When I click on a job listing in the Job Search results
-    And I click on the Apply button
-    Then I see the application form for the job
-
-  @ReturnFromApplyForJob
-  Scenario: Return from Apply for Job on Mobile
-    Given I open the TradeHub mobile app
-    When I click on a job listing in the Job Search results
-    And I click on the Apply button
-    And I click on the Back button
-    Then I see the Job Search results
+  @RegisterAccount
+  Scenario: User successfully registers a new account
+    Given I open "https://www.tradehub.com.au/register"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Activation email sent to furkan@example.com" message
 
   @PostJob
-  Scenario: Post Job on Mobile
-    Given I open the TradeHub mobile app
-    When I click on the Post Job button
-    And I enter job details in the Job Details form
-    And I click on the Post button
-    Then I see a confirmation message for the posted job
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Sydney" as Location
+    And I enter "100" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN" message
 
-  @ViewTender
-  Scenario: View Tender on Mobile
-    Given I open the TradeHub mobile app
-    When I click on a tender in the Tender Search results
-    Then I see the details of the selected tender
+  @ListAvailability
+  Scenario: User lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates listed successfully" message
+    And I see "Show only profiles with upcoming available dates" option in Directory Search filter
 
-  @submitTenderQuote
-  Scenario: Submit Tender Quote on Mobile
-    Given I open the TradeHub mobile app
-    When I navigate to the Tenders section
-    And I select a tender
-    And I enter my quote details
-    And I submit the quote
-    Then I see the quote submission confirmation
+  @SendMessages
+  Scenario: User sends messages and verifies message content
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "This is a reply" from "Account B"
 
-  @messages
-  Scenario: Messages on Mobile
-    Given I open the TradeHub mobile app
-    When I navigate to the Messages section
-    Then I see the list of messages
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
 
-  @notifications
-  Scenario: Notifications on Mobile
-    Given I open the TradeHub mobile app
-    When I navigate to the Notifications section
-    Then I see the list of notifications
-
-  @listAvailability
-  Scenario: List Availability on Mobile
-    Given I open the TradeHub mobile app
-    When I navigate to the Availability section
-    And I select a date range
-    And I save the availability
-    Then I see the availability listed
-
-  @textOverlapping
-  Scenario: Check for Text Overlapping on Mobile
-    Given I open the TradeHub mobile app
-    When I navigate to the main screen
-    Then I do not see any text overlapping
-
-  @buttonsOutsideScreen
-  Scenario: Check for Buttons Outside the Screen on Mobile
-    Given I open the TradeHub mobile app
-    When I navigate to the main screen
-    Then I do not see any buttons outside the screen
-
-  @ButtonsCoveredByMenus
-  Scenario: Check for Buttons Covered by Menus on Mobile
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I click on "Menu" button
-    Then I see "Button" is not covered by "Menu"
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "FurkanTech" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
+    And I see an email with subject "Activate your TradeHub account"
 
-  @TinyButtons
-  Scenario: Check for Tiny Buttons on Mobile
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "Rough-in assistance" as Job Description
+    And I enter "Sydney" as Location
+    And I click on "Post Job" button
+    Then I see "Please enter your ABN to post this job" message
+
+  @ListSubcontractingDates
+  Scenario: Business lists available dates and filters directory
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends messages between accounts
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from Account A
+    And I see the message "This is a reply" from Account B
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on Login
+    Then I see Success Message is Visible
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I click on "Button"
-    Then I see "Button" is not too small
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "Plumbing" as Primary Trade
+    And I enter "Sydney" as Suburb/Location
+    And I enter "password123" as Password
+    And I click on Register
+    Then I see Activation Email Sent Message is Visible
 
-  @MenusNotClosing
-  Scenario: Check for Menus That Will Not Close on Mobile
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-31" as End Date
+    And I enter "2 plumbers available Wed/Thu" as Availability Description
+    And I click on the "Save Changes" button
+    Then I see the updated availability dates displayed on the "Account" page
+
+  @FilterDirectory
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends a message
+    Given I open "https://www.tradehub.com.au/messages"
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I click on "Menu" button
-    And I click on "Another Menu" button
-    Then I see "Menu" closes properly
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @KeyboardCoveringInputFields
-  Scenario: Check for Keyboard Covering Input Fields on Mobile
+  @ListAvailability
+  Scenario: Business lists availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I enter "2 plumbers available" as Description
+    And I click on "Save Changes" button
+    Then I see the saved availability dates displayed on the "Account" page
+
+  @DeleteAvailability
+  Scenario: Business deletes availability dates
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on the "Delete" icon next to the saved availability date
+    And I click on the "Confirm Deletion" button
+    Then I do not see the deleted availability date displayed on the "Account" page
+
+  @FilterDirectory
+  Scenario: User filters directory to show only profiles with upcoming available dates
+    Given I open "https://www.tradehub.com.au/directory"
+    When I select the filter option to show only profiles with upcoming available dates as Filter
+    Then I see only profiles with upcoming available dates displayed in the directory
+
+  @SendMessages
+  Scenario: User sends a message
+    Given I navigate to the "Messages" page
+    When I select Account A as the sender
+    And I select Account B as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+
+  @LoginSuccess
+  Scenario: User successfully logs in with valid credentials
+    Given I open "https://www.tradehub.com.au/login"
+    When I enter "valid_username" as Username
+    And I enter "valid_password" as Password
+    And I click on "Login" button
+    Then I see "Welcome, valid_username!" message
+
+  @RegisterAccount
+  Scenario: User registers a new account with valid details
     Given I open "https://www.tradehub.com.au/register"
-    When I click on "Input Field"
-    Then I see "Input Field" is not covered by the keyboard
+    When I enter "Furkan" as Name
+    And I enter "Trade Business" as Business Type
+    And I enter "Furkan's Plumbing" as Business Name
+    And I enter "furkan@example.com" as Email
+    And I enter "1234567890" as Phone
+    And I enter "123456" as Password
+    And I enter "123456" as Confirm Password
+    And I click on "Register" button
+    Then I see "Registration successful!" message
 
-  @PagesNotScrolling
-  Scenario: Check for Pages That Cannot Scroll on Mobile
-    Given I open "https://www.tradehub.com.au/register"
-    When I scroll down the page
-    Then I see the page is scrollable
+  @PostJob
+  Scenario: User posts a job and triggers ABN prompt
+    Given I open "https://www.tradehub.com.au/jobs/post"
+    When I enter "Plumbing" as Job Type
+    And I enter "123 Main St" as Address
+    And I enter "123456" as Budget
+    And I click on "Post Job" button
+    Then I see "Please provide ABN" message
 
-  @PopUpsNotClosing
-  Scenario: Check for Pop-ups/Drawers That Cannot Be Closed on Mobile
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on "Pop-up" button
-    And I click on "Close" button
-    Then I see "Pop-up" closes properly
+  @ListAvailability
+  Scenario: Business lists availability dates and integrates into Directory Search filter
+    Given I open "https://www.tradehub.com.au/account"
+    When I click on "List Subcontracting Dates" button
+    And I enter "2023-10-01" as Start Date
+    And I enter "2023-10-05" as End Date
+    And I click on "Save Changes" button
+    Then I see "Availability dates listed successfully" message
+    And I see "Show only profiles with upcoming available dates" option in Directory Search filter
 
-  @BackButtonsNotWorking
-  Scenario: Check for Back Buttons That Do Not Work on Mobile
-    Given I open "https://www.tradehub.com.au/register"
-    When I click on Back Button
-    Then I should see the same page
-
-  @FormsLosingInformation
-  Scenario: Check for Forms Losing Information on Mobile
-    Given I open "https://www.tradehub.com.au/register"
-    When I enter "<RANDOM:8>" as Name
-    And I click on Next Step
-    Then I should see the entered Name on the next page
-
-  @LayoutDifferences
-  Scenario: Check for Layouts That Look Significantly Different from Desktop on Mobile
-    Given I open "https://www.tradehub.com.au/register" on a mobile device
-    Then I should see a layout similar to desktop
-
-  @NumericalThresholds
-  Scenario: Check for Numerical Thresholds on Mobile
-    Given I open "https://www.tradehub.com.au/register"
-    When I enter "1000" as a numerical value
-    Then I should see a success message
+  @SendMessages
+  Scenario: User sends messages and verifies message content and sender/receiver
+    Given I navigate to the "Messages" page
+    When I select "Account A" as the sender
+    And I select "Account B" as the recipient
+    And I enter "Hello, this is a test message" as the message
+    And I click on the "Send" button
+    Then I see the "Message sent successfully" message
+    And I see the message "Hello, this is a test message" from "Account A"
+    And I see the message "Hello, this is a test message" from "Account B"
 

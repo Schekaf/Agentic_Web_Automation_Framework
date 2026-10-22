@@ -25,7 +25,7 @@
           "step_text": "And I select \"Trade Business\" as Account Type",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Furkan\" as Name",
@@ -55,7 +55,7 @@
           "step_text": "And I select \"Plumbing\" as Primary Trade",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Suburb\" as Suburb/Location",
@@ -79,7 +79,7 @@
           "step_text": "Then I see \"Activation email sent\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -115,7 +115,7 @@
           "step_text": "Then I see \"No tenders found within 15 km radius\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -140,7 +140,7 @@
           "step_text": "And I select \"Trade Business\" as Account Type",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Furkan\" as Name",
@@ -170,7 +170,7 @@
           "step_text": "And I select \"Plumbing\" as Primary Trade",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Suburb\" as Suburb/Location",
@@ -194,7 +194,7 @@
           "step_text": "Then I see \"Activation email sent\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -230,7 +230,7 @@
           "step_text": "Then I see tenders within the 15 km radius",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element}"
+          "resolved_pattern": "I see \"{element}\""
         }
       ]
     },
@@ -255,7 +255,7 @@
           "step_text": "And I select \"Trade Business\" as Account Type",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Furkan\" as Name",
@@ -285,7 +285,7 @@
           "step_text": "And I select \"Plumbing\" as Primary Trade",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Suburb\" as Suburb/Location",
@@ -309,7 +309,7 @@
           "step_text": "Then I see \"Activation email sent\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -369,7 +369,7 @@
           "step_text": "Then I see \"Tender posted successfully\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -394,7 +394,7 @@
           "step_text": "And I select \"Trade Business\" as Account Type",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Furkan\" as Name",
@@ -424,7 +424,7 @@
           "step_text": "And I select \"Plumbing\" as Primary Trade",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Suburb\" as Suburb/Location",
@@ -448,7 +448,7 @@
           "step_text": "Then I see \"Activation email sent\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -508,7 +508,7 @@
           "step_text": "Then I see \"Quote submitted successfully\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -533,7 +533,7 @@
           "step_text": "And I select \"Trade Business\" as Account Type",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Furkan\" as Name",
@@ -563,7 +563,7 @@
           "step_text": "And I select \"Plumbing\" as Primary Trade",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Suburb\" as Suburb/Location",
@@ -587,7 +587,7 @@
           "step_text": "Then I see \"Activation email sent\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -671,7 +671,7 @@
           "step_text": "Then I see \"Quote limit reached\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -696,7 +696,7 @@
           "step_text": "And I select \"Trade Business\" as Account Type",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Furkan\" as Name",
@@ -726,7 +726,7 @@
           "step_text": "And I select \"Plumbing\" as Primary Trade",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {element}"
+          "resolved_pattern": "I select {option} as {element}"
         },
         {
           "step_text": "And I enter \"Suburb\" as Suburb/Location",
@@ -750,7 +750,7 @@
           "step_text": "Then I see \"Activation email sent\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -810,7 +810,7 @@
           "step_text": "Then I see \"Quote submitted successfully\" notification is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -853,19 +853,19 @@
           "step_text": "Then I see \"Jobs\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"Directory\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"15 km radius\" is selected as \"Job Radius\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         }
       ]
     },
@@ -908,13 +908,13 @@
           "step_text": "Then I see \"Directory\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"15 km radius\" is selected as \"Directory Radius\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         }
       ]
     },
@@ -957,25 +957,25 @@
           "step_text": "Then I see \"Jobs\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"Directory\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"Unlimited radius\" is selected as \"Job Radius\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         },
         {
           "step_text": "And I see \"Unlimited radius\" is selected as \"Directory Radius\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         }
       ]
     },
@@ -1018,13 +1018,13 @@
           "step_text": "Then I see \"All jobs\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"Unlimited jobs\" is selected as \"Job Access\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         }
       ]
     },
@@ -1067,13 +1067,13 @@
           "step_text": "Then I see \"All tenders\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"Unlimited tenders\" is selected as \"Tender Access\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         }
       ]
     },
@@ -1116,13 +1116,13 @@
           "step_text": "Then I see \"All tenders\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I see \"Unlimited tender quotes\" is selected as \"Tender Quoting\"",
           "matched_pattern": "I see <*> is selected as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is selected as {option}"
+          "resolved_pattern": "I see \"{element}\" is selected as {option}"
         }
       ]
     },
@@ -1165,7 +1165,7 @@
           "step_text": "Then I see \"Welcome, Premium User!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Post Tender\"",
@@ -1189,7 +1189,7 @@
           "step_text": "And I select \"Unlimited\" as Radius",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on \"Post Tender\"",
@@ -1201,7 +1201,7 @@
           "step_text": "Then I see \"Tender posted successfully!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1244,7 +1244,7 @@
           "step_text": "Then I see \"Welcome, Premium User!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"List Subcontracting Dates\"",
@@ -1274,7 +1274,7 @@
           "step_text": "Then I see \"Availability broadcast posted successfully!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1317,7 +1317,7 @@
           "step_text": "Then I see \"Welcome, Premium User!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Settings\"",
@@ -1329,13 +1329,13 @@
           "step_text": "And I select \"Enable SMS Alerts\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I select \"Enable Email Alerts\"",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on \"Save\"",
@@ -1347,7 +1347,7 @@
           "step_text": "Then I see \"Settings saved successfully!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1390,7 +1390,7 @@
           "step_text": "Then I see \"Welcome, Premium User!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Profile\"",
@@ -1402,7 +1402,7 @@
           "step_text": "And I see \"Premium/Verified\" badge is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1445,7 +1445,7 @@
           "step_text": "Then I see \"Welcome, Premium User!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Market Rates\"",
@@ -1457,7 +1457,7 @@
           "step_text": "And I see \"Current Market Rates\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1500,7 +1500,7 @@
           "step_text": "Then I see \"Welcome, Premium User!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         },
         {
           "step_text": "And I click on \"Post Job\"",
@@ -1524,7 +1524,7 @@
           "step_text": "And I select \"Unlimited\" as Radius",
           "matched_pattern": "I select <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select {element}"
+          "resolved_pattern": "I select {option}"
         },
         {
           "step_text": "And I click on \"Post Job\"",
@@ -1536,7 +1536,7 @@
           "step_text": "Then I see \"Job posted successfully!\" is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     }

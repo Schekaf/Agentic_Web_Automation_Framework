@@ -55,7 +55,7 @@
           "step_text": "Then I see a notification message saying \"Job application submitted successfully\"",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {text}"
+          "resolved_pattern": "I see \"{element}\""
         }
       ]
     },
@@ -128,7 +128,7 @@
           "step_text": "Then I see a notification message saying \"Job selected successfully\"",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {text}"
+          "resolved_pattern": "I see \"{element}\""
         }
       ]
     },
@@ -201,7 +201,7 @@
           "step_text": "Then I see a notification message saying \"Job accepted successfully\"",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {text}"
+          "resolved_pattern": "I see \"{element}\""
         }
       ]
     },
@@ -256,7 +256,7 @@
           "step_text": "Then I see a notification message saying \"Quote submitted successfully\"",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {text}"
+          "resolved_pattern": "I see \"{element}\""
         }
       ]
     },
@@ -305,7 +305,7 @@
           "step_text": "And I enter a message in the message box",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on Send Message",
@@ -317,7 +317,7 @@
           "step_text": "Then I see a notification message saying \"Message sent successfully\"",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -372,7 +372,7 @@
           "step_text": "Then I see a notification message saying \"Availability listed successfully\"",
           "matched_pattern": "I see <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {text}"
+          "resolved_pattern": "I see \"{element}\""
         }
       ]
     },
@@ -397,43 +397,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Business Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Phone\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I select \"Plumbing\" as \"Primary Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {param_name}"
+          "resolved_pattern": "I select \"{option}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Suburb/Location\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -445,7 +445,7 @@
           "step_text": "Then I see \"Success Message\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -457,13 +457,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -475,7 +475,7 @@
           "step_text": "Then I see \"Dashboard\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Job Application\"",
@@ -487,13 +487,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Job Title\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Description\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\"",
@@ -505,7 +505,7 @@
           "step_text": "Then I see \"Notification\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -530,43 +530,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Business Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Phone\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I select \"Plumbing\" as \"Primary Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {param_name}"
+          "resolved_pattern": "I select \"{option}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Suburb/Location\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -578,7 +578,7 @@
           "step_text": "Then I see \"Success Message\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -590,13 +590,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -608,7 +608,7 @@
           "step_text": "Then I see \"Dashboard\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Selection\"",
@@ -620,13 +620,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Selection Title\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Description\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\"",
@@ -638,7 +638,7 @@
           "step_text": "Then I see \"Notification\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -663,43 +663,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Business Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Phone\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I select \"Plumbing\" as \"Primary Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {param_name}"
+          "resolved_pattern": "I select \"{option}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Suburb/Location\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -711,7 +711,7 @@
           "step_text": "Then I see \"Success Message\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -723,13 +723,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -741,7 +741,7 @@
           "step_text": "Then I see \"Dashboard\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Acceptance\"",
@@ -753,13 +753,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Acceptance Title\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Description\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\"",
@@ -771,7 +771,7 @@
           "step_text": "Then I see \"Notification\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -796,43 +796,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Business Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Phone\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I select \"Plumbing\" as \"Primary Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {param_name}"
+          "resolved_pattern": "I select \"{option}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Suburb/Location\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -844,7 +844,7 @@
           "step_text": "Then I see \"Success Message\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -856,13 +856,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -874,7 +874,7 @@
           "step_text": "Then I see \"Dashboard\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Tender Quote\"",
@@ -886,13 +886,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Tender Title\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Description\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\"",
@@ -904,7 +904,7 @@
           "step_text": "Then I see \"Notification\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -929,43 +929,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Business Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Phone\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I select \"Plumbing\" as \"Primary Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {param_name}"
+          "resolved_pattern": "I select \"{option}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Suburb/Location\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -977,7 +977,7 @@
           "step_text": "Then I see \"Success Message\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -989,13 +989,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -1007,7 +1007,7 @@
           "step_text": "Then I see \"Dashboard\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Message\"",
@@ -1019,13 +1019,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Message Title\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Description\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\"",
@@ -1037,7 +1037,7 @@
           "step_text": "Then I see \"Notification\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1062,43 +1062,43 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Business Name\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>@example.com\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Phone\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I select \"Plumbing\" as \"Primary Trade\"",
           "matched_pattern": "I select <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I select \"{option}\" as {param_name}"
+          "resolved_pattern": "I select \"{option}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Suburb/Location\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Register Account\"",
@@ -1110,7 +1110,7 @@
           "step_text": "Then I see \"Success Message\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -1122,13 +1122,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Email\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Password\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Login\"",
@@ -1140,7 +1140,7 @@
           "step_text": "Then I see \"Dashboard\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Availability Activity\"",
@@ -1152,13 +1152,13 @@
           "step_text": "And I enter \"<RANDOM:8>\" as \"Availability Title\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"<RANDOM:8>\" as \"Description\"",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\"",
@@ -1170,7 +1170,7 @@
           "step_text": "Then I see \"Notification\" is \"Visible\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1195,19 +1195,19 @@
           "step_text": "And I enter \"Furkan\" as Name",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"12345678\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -1219,7 +1219,7 @@
           "step_text": "Then I see \"Your application has been submitted successfully\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1244,19 +1244,19 @@
           "step_text": "And I enter \"Furkan\" as Name",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"12345678\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -1273,7 +1273,7 @@
           "step_text": "Then I see \"You have been selected for the job\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1298,19 +1298,19 @@
           "step_text": "And I enter \"Furkan\" as Name",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"12345678\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -1332,7 +1332,7 @@
           "step_text": "Then I see \"You have accepted the job\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1357,25 +1357,25 @@
           "step_text": "And I enter \"Furkan\" as Name",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"12345678\" as Password",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"1000\" as Quote Amount",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -1387,7 +1387,7 @@
           "step_text": "Then I see \"Your quote has been submitted successfully\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1412,19 +1412,19 @@
           "step_text": "And I enter \"Furkan\" as Name",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"furkan@example.com\" as Email",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I enter \"Hello\" as Message",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Send\" button",
@@ -1436,7 +1436,7 @@
           "step_text": "Then I see \"Your message has been sent successfully\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1461,7 +1461,7 @@
           "step_text": "And I enter \"2 plumbers available Wed/Thu\" as Availability",
           "matched_pattern": "I enter <*> as <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I enter \"{value}\" as {param_name}"
+          "resolved_pattern": "I enter \"{value}\" as {element}"
         },
         {
           "step_text": "And I click on \"Submit\" button",
@@ -1473,7 +1473,7 @@
           "step_text": "Then I see \"Your availability has been listed successfully\" message is visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1498,7 +1498,7 @@
           "step_text": "Then I see Job Application Details is Visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1523,7 +1523,7 @@
           "step_text": "Then I see Selection Details is Visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1548,7 +1548,7 @@
           "step_text": "Then I see Acceptance Details is Visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1573,7 +1573,7 @@
           "step_text": "Then I see Tender Quote Details is Visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1598,7 +1598,7 @@
           "step_text": "Then I see Message Details is Visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1623,7 +1623,7 @@
           "step_text": "Then I see Availability Activity Details is Visible",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -1660,7 +1660,7 @@
           "step_text": "Then I see \"Job Application Notification\" is \"Read\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Mark as Unread\"",
@@ -1672,7 +1672,7 @@
           "step_text": "Then I see \"Job Application Notification\" is \"Unread\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1709,7 +1709,7 @@
           "step_text": "Then I see \"Selection Notification\" is \"Read\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Mark as Unread\"",
@@ -1721,7 +1721,7 @@
           "step_text": "Then I see \"Selection Notification\" is \"Unread\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1758,7 +1758,7 @@
           "step_text": "Then I see \"Acceptance Notification\" is \"Read\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Mark as Unread\"",
@@ -1770,7 +1770,7 @@
           "step_text": "Then I see \"Acceptance Notification\" is \"Unread\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1807,7 +1807,7 @@
           "step_text": "Then I see \"Tender Quote Notification\" is \"Read\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Mark as Unread\"",
@@ -1819,7 +1819,7 @@
           "step_text": "Then I see \"Tender Quote Notification\" is \"Unread\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1856,7 +1856,7 @@
           "step_text": "Then I see \"Message Notification\" is \"Read\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Mark as Unread\"",
@@ -1868,7 +1868,7 @@
           "step_text": "Then I see \"Message Notification\" is \"Unread\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -1905,7 +1905,7 @@
           "step_text": "Then I see \"Availability Activity Notification\" is \"Read\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         },
         {
           "step_text": "And I click on \"Mark as Unread\"",
@@ -1917,7 +1917,7 @@
           "step_text": "Then I see \"Availability Activity Notification\" is \"Unread\"",
           "matched_pattern": "I see <*> is <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is {state}"
+          "resolved_pattern": "I see \"{element}\" is {state}"
         }
       ]
     },
@@ -2025,7 +2025,7 @@
           "step_text": "Then I see the notification count updates for selection",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -2132,7 +2132,7 @@
           "step_text": "Then I see the notification count updates for tender quote",
           "matched_pattern": "I see <*> is updated",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is updated"
+          "resolved_pattern": "I see \"{element}\" is updated"
         }
       ]
     },
@@ -2186,7 +2186,7 @@
           "step_text": "Then I see the notification count updates for message",
           "matched_pattern": "I see <*> is visible",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is visible"
+          "resolved_pattern": "I see \"{element}\" is visible"
         }
       ]
     },
@@ -2235,13 +2235,13 @@
           "step_text": "And I list availability activity",
           "matched_pattern": "I list <*>",
           "pattern_status": "matched",
-          "resolved_pattern": "I list {list_name}"
+          "resolved_pattern": "I list {element}"
         },
         {
           "step_text": "Then I see the notification count updates for availability activity",
           "matched_pattern": "I see <*> is updated",
           "pattern_status": "matched",
-          "resolved_pattern": "I see {element} is updated"
+          "resolved_pattern": "I see \"{element}\" is updated"
         }
       ]
     }
