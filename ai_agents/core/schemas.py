@@ -68,6 +68,27 @@ class FeatureSuite(BaseModel):
 
 
 # ==========================================
+# 2.1. LOCATOR AND ELEMENT EXTRACTION SCHEMAS
+# ==========================================
+
+class ActionType(str, Enum):
+    NAVIGATE = "NAVIGATE"
+    INPUT = "INPUT"
+    CLICK = "CLICK"
+    SELECT = "SELECT"
+    VERIFY = "VERIFY"
+
+
+class LocatorSection(BaseModel):
+    section_name: str = Field(description="The section or page header, e.g., 'Home Page', 'Test Login Page'")
+    locators: Dict[str, str] = Field(description="Dictionary mapping element keys to their locator strings, e.g., {'Username': '//*[@id=\'username\']'}")
+
+
+class LocatorFileSchema(BaseModel):
+    sections: List[LocatorSection] = Field(description="List of all locator sections mapped across pages.")
+
+
+# ==========================================
 # 3. PATTERN AUDIT AGENT SCHEMAS
 # ==========================================
 
@@ -190,11 +211,14 @@ class TechStackInsight(BaseModel):
 class SectorInsight(BaseModel):
     insight_id: str = Field(description="Unique identifier or UUID for the extracted insight.")
     title: str = Field(description="Headline or title of the scraped resource or standard update.")
-    category: str = Field(description="Category such as Automotive (ISO 26262), Aerospace (DO-178C), BDD Automation, or Tool Update.")
+    category: str = Field(
+        description="Category such as Automotive (ISO 26262), Aerospace (DO-178C), BDD Automation, or Tool Update.")
     summary: str = Field(description="Concise summary of what happened or what new testing practice was introduced.")
     key_takeaways: List[str] = Field(description="Specific technical rules, requirements, or benchmarks extracted.")
-    actionable_impact: str = Field(description="How this affects our automation framework or whether it requires new test scenarios.")
-    relevance_score: float = Field(description="Relevance score between 0.0 and 1.0 evaluating value for high-reliability QA.")
+    actionable_impact: str = Field(
+        description="How this affects our automation framework or whether it requires new test scenarios.")
+    relevance_score: float = Field(
+        description="Relevance score between 0.0 and 1.0 evaluating value for high-reliability QA.")
 
 
 class SectorInsightsPayload(BaseModel):
