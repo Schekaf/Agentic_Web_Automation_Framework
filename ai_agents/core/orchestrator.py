@@ -26,7 +26,8 @@ from ai_agents.core.schemas import FeatureSuite
 from ai_agents.core.step_library import PatternRegistry, get_escaped_step_patterns
 from ai_agents.core.tradehub_domain import TRADEHUB_RAW_INSTRUCTIONS, TRADEHUB_BUSINESS_KNOWLEDGE
 from ai_agents.core.utils import sanitize_model_tag_for_filename, split_instructions_into_sections, \
-    discover_all_feature_files
+    discover_all_feature_files, harvest_page_elements, parse_feature_files,  \
+    save_all_locators_to_ini
 from ai_agents.qa_automation_feasibility_agent.pattern_audit_agent import PatternAuditAgent
 from ai_agents.qa_automation_feasibility_agent.pattern_parameter_resolution_agent import PatternResolutionAgent
 from ai_agents.qa_automation_feasibility_agent.test_automatable_feasibility_agent import AutomationFeasibilityAgent
@@ -35,12 +36,14 @@ from ai_agents.qa_coach_agent.test_generation_coach import TestGenerationCoachAg
 from ai_agents.qa_coach_agent.test_step_audit_coach import AuditCoachAgent
 from ai_agents.qa_coach_agent.test_step_implementation_generation_coach import StepImplementationGenerationCoachAgent
 from ai_agents.qa_coverage_planner_agent.test_coverage_planner_agent import CoveragePlannerAgent
+from ai_agents.qa_locator_generator_agent.locator_generator_agent import LocatorGeneratorAgent
 from ai_agents.qa_test_fixer_agent.test_fixer_agent import TestFixerAgent
 from ai_agents.qa_test_generator_agent.test_generator import TestGeneratorAgent
 from ai_agents.core.utils import collect_raw_steps, mine_patterns_with_drain
 from ai_agents.qa_test_step_generator_agent.test_step_generator import StepGeneratorAgent
 from ai_agents.qa_test_step_generator_agent.test_step_reviewer import StepReviewAgent
 from ai_agents.qa_test_step_generator_agent.test_step_skeleton_generator import StepSkeletonGeneratorAgent
+from utilities.web_driver import get_driver
 
 
 class Orchestrator:
@@ -60,6 +63,7 @@ class Orchestrator:
         self.skeleton_agent = StepSkeletonGeneratorAgent()
         self.step_generator_agent = StepGeneratorAgent()
         self.step_reviewer_agent = StepReviewAgent()
+        self.locator_generator_agent = LocatorGeneratorAgent()
         self.project_root = Path(__file__).resolve().parent
         self.features_dir = self.project_root / "features"
         self.feature_files = discover_all_feature_files(str(self.features_dir), model_slug=self.model_slug)
@@ -329,3 +333,15 @@ class Orchestrator:
                 print(
                     "⏩ [Audit Coach]: All step definitions are already implemented or skipped. No code generation "
                     "required.")
+
+    def locator_generation(self):
+        print("🔄 Phase 4: Locator Generation Pipeline...")
+        scenarios = parse_feature_files()
+        all_locators = []
+        for scenario in scenarios:
+            print(f"    🔍 Phase 4.1: Generating locators for scenario: {scenario['title']}")
+            elements = harvest_page_elements(get_driver("chrome"), scenario['page_url'])
+            locators = self.locator_generator_agent.generate_locators(scenario["raw_text"], elements)
+            all_locators.extend(locators.sections)
+        save_all_locators_to_ini(all_locators, output_dir="elements", file_name="generated_by_ai_locators.ini")
+        print("    ✅ Generated locators:")
