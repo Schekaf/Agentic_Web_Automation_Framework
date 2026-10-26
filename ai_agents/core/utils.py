@@ -20,9 +20,14 @@ import re
 import functools
 import subprocess
 import time
+from pathlib import Path
+from typing import List, Dict, Any
+
 from drain3 import TemplateMiner
 from drain3.template_miner_config import TemplateMinerConfig
+from selenium.webdriver.common.by import By
 
+from ai_agents.core.schemas import LocatorFileSchema, LocatorSection
 from ai_agents.core.step_scanner import get_undefined_steps_via_behave
 
 PERF_LIST = {
@@ -252,3 +257,136 @@ def collect_raw_steps(feature_files: list[str], tag: str | None = None) -> tuple
     return feature_steps_map, all_raw_steps
 
 
+def harvest_page_elements(driver, url: str) -> List[Dict[str, str]]:
+    """
+    Navigates to the given URL and extracts all visible, interactable elements
+    (inputs, buttons, links, selects, labels) to serve as candidates for locator generation.
+    """
+    if url is not None:
+        driver.get(url)
+    else:
+        print("⚠️ No URL provided for harvesting. Skipping page navigation.")
+        return []
+    candidates = []
+
+    # Target common interactable element tags
+    selector = "input, button, a, select, textarea, label"
+    elements = driver.find_elements(By.CSS_SELECTOR, selector)
+
+    for el in elements:
+        try:
+            # Skip hidden elements to keep data clean and concise
+            if not el.is_displayed():
+                continue
+
+            tag = el.tag_name.lower()
+            el_id = el.get_attribute("id") or None
+            name = el.get_attribute("name") or None
+            placeholder = el.get_attribute("placeholder") or None
+            text_content = el.text.strip() or None
+            aria_label = el.get_attribute("aria-label") or None
+
+            # Construct reliable baseline candidate locators
+            xpath = f"//{tag}"
+            if el_id:
+                xpath = f"//{tag}[@id='{el_id}']"
+            elif placeholder:
+                xpath = f"//{tag}[@placeholder='{placeholder}']"
+            elif text_content:
+                # Truncate long text content to prevent bloated payloads
+                clean_text = text_content[:50]
+                xpath = f"//{tag}[normalize-space()='{clean_text}']"
+            elif name:
+                xpath = f"//{tag}[@name='{name}']"
+
+            css = f"#{el_id}" if el_id else tag
+
+            candidates.append({
+                "tag_name": tag,
+                "element_id": el_id,
+                "name": name,
+                "placeholder": placeholder,
+                "text_content": text_content,
+                "aria_label": aria_label,
+                "xpath_candidate": xpath,
+                "css_candidate": css
+            })
+        except Exception:
+            # Stale element or detached DOM reference protection
+            continue
+
+    return candidates
+
+
+def parse_feature_files(features_dir: str = "features") -> List[Dict[str, Any]]:
+    """
+    Scans the features directory for all .feature files and extracts
+    scenarios, their titles, steps, and associated page URLs.
+    """
+    all_scenarios = []
+
+    if not os.path.exists(features_dir):
+        print(f"Directory {features_dir} does not exist.")
+        return all_scenarios
+
+    for filename in os.listdir(features_dir):
+        if filename.endswith(".feature"):
+            file_path = os.path.join(features_dir, filename)
+            with open(file_path, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            # Parse scenarios using regex block separation
+            scenario_blocks = content.split("Scenario:")
+
+            for block in scenario_blocks[1:]:  # Skip feature-level header
+                lines = [line.strip() for line in block.splitlines() if line.strip()]
+                title = lines[0]
+
+                steps = []
+                page_url = None
+
+                for line in lines[1:]:
+                    # Skip tags if any
+                    if line.startswith("@"):
+                        continue
+
+                    steps.append(line)
+
+                    # Extract URL if it's a navigation step
+                    url_match = re.search(r'Given I open "(https?://[^"]+)"', line)
+                    if url_match:
+                        page_url = url_match.group(1)
+
+                all_scenarios.append({
+                    "feature_file": filename,
+                    "title": title,
+                    "page_url": page_url,
+                    "steps": steps,
+                    "raw_text": f"Scenario: {title}\n" + "\n".join([f"  {s}" for s in steps])
+                })
+
+    return all_scenarios
+
+
+def save_all_locators_to_ini(sections: List[LocatorSection], output_dir: str = "elements", file_name: str = "generated_by_ai_locators.ini"):
+    os.makedirs(output_dir, exist_ok=True)
+    file_path = Path(output_dir) / file_name
+
+    # Group locators by section_name to avoid duplicate section headers
+    grouped_sections = {}
+    for section in sections:
+        sec_name = section.section_name
+        if sec_name not in grouped_sections:
+            grouped_sections[sec_name] = {}
+        # Merge locators into section dict
+        grouped_sections[sec_name].update(section.locators)
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write("[locator]\n")
+        for sec_name, locators in grouped_sections.items():
+            f.write(f"## {sec_name}\n")
+            for key, val in locators.items():
+                f.write(f"{key} = {val}\n")
+            f.write("\n")
+
+    print(f"📁 Locators saved cleanly to: {file_path}")
