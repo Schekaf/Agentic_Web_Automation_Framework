@@ -26,6 +26,39 @@ def strip_gherkin_prefix(step_text: str) -> str:
     return re.sub(r"^(Given|When|Then|And|But)\s+", "", step_text.strip(), flags=re.IGNORECASE)
 
 
+def get_step_info(feature_files: List[str], tags: Optional[str] = None) -> List[str]:
+    if not feature_files:
+        return []
+
+    to_do_s = set()
+
+    for feature_file in feature_files:
+        cmd = [
+            "behave",
+            "--dry-run",
+            "--format",
+            "json",
+            "--no-summary",
+            "--no-snippets",
+        ]
+
+        if tags:
+            cmd.extend(["--tags", tags])
+
+        cmd.append(feature_file)
+
+        result = subprocess.run(cmd, capture_output=True, text=True)
+
+        if result.returncode != 0 and "ParserError" in result.stderr:
+            rel_path = os.path.basename(feature_file)
+            print(f"   ⚠️ Skipping malformed feature file (Gherkin syntax error): {rel_path}")
+            continue
+
+        to_do_s.add(result.stdout)
+
+    return sorted(list(to_do_s))
+
+
 def get_undefined_steps_via_behave(
     feature_files: List[str], tags: Optional[str] = None
 ) -> List[str]:
