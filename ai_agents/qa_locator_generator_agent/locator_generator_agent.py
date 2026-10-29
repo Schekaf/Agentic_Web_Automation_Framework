@@ -40,6 +40,7 @@ CRITICAL RULES FOR LOCATOR GENERATION:
 2. **Valid XPath Syntax:** XPaths MUST use lowercase tag names (e.g., `//div[...]`, `//input[...]`, `//button[...]`). NEVER use uppercase tags (`DIV`, `INPUT`) and NEVER prefix locators with `xpath=`.
 3. **Deduplication:** Avoid generating duplicate keys within the same section.
 4. Rigidly adhere to the response schema output format.
+5. **Human-Readable Keys (NO SNAKE_CASE):** Use clean, natural Title Case keys matching how elements or fields are described in the scenario text (e.g., `Select Account A = ...`, `Job Title = ...`, `Username = ...`). **NEVER** use snake_case like `select_account_a` or uppercase snake_case like `REGISTER_BUTTON`.
 """
 
 
