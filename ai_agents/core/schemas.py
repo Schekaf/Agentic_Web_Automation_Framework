@@ -157,7 +157,7 @@ class StepImplementationTargetScope(BaseModel):
     step_pattern: str = Field(
         description="The Gherkin step pattern requiring implementation, e.g., 'I click on {element}'"
     )
-    action: Literal["GENERATE", "SKIP"] = Field(
+    action: Literal["GENERATE", "SKIP", "REMOVE", "REFACTOR"] = Field(
         description="Directive action for step definition code generation"
     )
     target_python_file: Optional[str] = Field(

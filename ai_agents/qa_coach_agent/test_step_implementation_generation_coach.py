@@ -20,25 +20,25 @@ from langchain_core.prompts import PromptTemplate
 from ai_agents.core.base_agent import BaseAgent
 from ai_agents.core.schemas import StepImplementationCoachResponse
 
-STEP_IMPLEMENTATION_COACH_PROMPT = """You are the Step Implementation Generation Coach Agent responsible for gatekeeping Phase 4 code generation.
-
-UNDEFINED STEP PATTERNS (FROM BEHAVE DRY-RUN / PATTERN MINING):
-{undefined_step_patterns}
+STEP_IMPLEMENTATION_COACH_PROMPT = """You are the intelligent Step Implementation Coach Agent responsible for auditing and gatekeeping Phase 4 code generation and refactoring.
 
 EXISTING STEP DEFINITIONS CODEBASE:
 {existing_step_definitions}
 
+FEATURE SUITE AUDIT REPORT (STATUS & ISSUES):
+{step_status_report}
+
 YOUR TASK:
-Analyze the undefined step patterns extracted from the test suite against existing step definitions and past lessons learned.
-Determine EXACTLY which step definitions must be GENERATE or SKIPPED.
+Analyze the feature suite audit report against the existing codebase. Determine which items require code generation (missing steps) or refactoring/resolution (ambiguous or conflicting steps).
 
 RULES & DIRECTIVES:
-1. "GENERATE": The step is undefined and requires new Python step definition code.
-2. "SKIP": The step pattern is already covered in existing step definitions, invalid, or non-automatable.
+1. **GENERATE**: Use for completely missing or undefined steps. Add the step pattern to `target_scope`.
+2. **REMOVE**: Use for ambiguous or conflicting steps (e.g., `AmbiguousStep` errors where multiple decorators clash). Add the conflicting pattern or error context to `target_scope`.
+3. **SKIP**: Use for steps that are already uniquely and correctly implemented.
 
 CRITICAL INSTRUCTION:
-For EVERY pattern listed in UNDEFINED STEP PATTERNS, you MUST create a corresponding entry in `target_scope`.
-Set `should_run_generator=True` ONLY if at least one step pattern requires "GENERATE".
+For EVERY item in the audit report that requires action (GENERATE or REFACTOR), you MUST include it in `target_scope`. 
+Set `should_run_generator=True` if `target_scope` is not empty, otherwise `should_run_generator=False`.
 """
 
 
@@ -56,16 +56,14 @@ class StepImplementationGenerationCoachAgent(BaseAgent):
 
     def evaluate_execution(
         self,
-        undefined_step_patterns: Union[List[str], Set[str]],
-        existing_step_definitions: List[str]
+        existing_step_definitions: List[str],
+        step_status_report: List[dict]
     ) -> StepImplementationCoachResponse:
         """
         Evaluates gate criteria for Phase 4 step code generation based on undefined steps.
         """
         try:
-            patterns_list = list(undefined_step_patterns)
-
-            if not patterns_list:
+            if not step_status_report:
                 return StepImplementationCoachResponse(
                     should_run_generator=False,
                     target_scope=[]
@@ -74,7 +72,7 @@ class StepImplementationGenerationCoachAgent(BaseAgent):
             coach_response: StepImplementationCoachResponse = self.invoke(
                 self.chain,
                 {
-                    "undefined_step_patterns": json.dumps(patterns_list, indent=2, ensure_ascii=False),
+                    "step_status_report": json.dumps(step_status_report, indent=2, ensure_ascii=False),
                     "existing_step_definitions": json.dumps(existing_step_definitions, indent=2, ensure_ascii=False)
                 }
             )
