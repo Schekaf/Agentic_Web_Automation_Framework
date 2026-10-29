@@ -15,6 +15,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import glob
+import json
 import os
 import re
 import functools
@@ -28,7 +29,7 @@ from drain3.template_miner_config import TemplateMinerConfig
 from selenium.webdriver.common.by import By
 
 from ai_agents.core.schemas import LocatorFileSchema, LocatorSection
-from ai_agents.core.step_scanner import get_undefined_steps_via_behave
+from ai_agents.core.step_scanner import get_undefined_steps_via_behave, get_step_info
 
 PERF_LIST = {
 }
@@ -249,12 +250,50 @@ def collect_raw_steps(feature_files: list[str], tag: str | None = None) -> tuple
 
     for feature_file in feature_files:
         tags_param = [tag] if tag else None
-        steps = get_undefined_steps_via_behave([feature_file], tags=tags_param)
+        steps = get_step_info([feature_file], tags=tags_param)
+        ## steps = get_undefined_steps_via_behave([feature_file], tags=tags_param)
         if steps:
             feature_steps_map.append({"file": feature_file, "steps": steps})
             all_raw_steps.extend(steps)
 
     return feature_steps_map, all_raw_steps
+
+
+def audit_steps_via_behave(feature_files: list[str]) -> list[dict]:
+    """
+    Runs behave --dry-run and returns a list of issues found
+    (e.g., undefined steps, AmbiguousStep conflicts, or syntax errors).
+    Returns an empty list [] if everything is clean.
+    """
+    cmd = ["behave", "--dry-run", "--format", "json", "--no-summary", "--no-snippets"]
+    cmd.extend(feature_files)
+
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    issues = []
+
+    # If returncode is 0, all steps are defined and valid
+    if result.returncode == 0:
+        return issues
+
+    # Combined output for error inspection
+    error_output = (result.stderr + "\n" + result.stdout).strip()
+
+    if "AmbiguousStep" in error_output:
+        # Extract the conflicting step patterns using regex
+        # Behave format typically says: @step('...') has already been defined in ... existing step @step('...')
+        issues.append({
+            "issue_type": "ambiguous_step_conflict",
+            "detail": error_output,
+            "action_required": "Remove redundant/hardcoded step definition in favor of the parameterized wildcard."
+        })
+    else:
+        # Capture any other errors, including undefined steps or syntax issues
+        issues.append({
+            "issue_type": "undefined_or_other_error",
+            "detail": error_output,
+            "action_required": "Investigate the error output for missing step definitions or Gherkin syntax issues."
+        })
+    return issues
 
 
 def harvest_page_elements(driver, url: str) -> List[Dict[str, str]]:
@@ -381,12 +420,16 @@ def save_all_locators_to_ini(sections: List[LocatorSection], output_dir: str = "
         # Merge locators into section dict
         grouped_sections[sec_name].update(section.locators)
 
+    seen_keys = set()
+
     with open(file_path, "w", encoding="utf-8") as f:
         f.write("[locator]\n")
         for sec_name, locators in grouped_sections.items():
             f.write(f"## {sec_name}\n")
             for key, val in locators.items():
-                f.write(f"{key} = {val}\n")
+                if key not in seen_keys:
+                    seen_keys.add(key)
+                    f.write(f"{key} = {val}\n")
             f.write("\n")
 
     print(f"📁 Locators saved cleanly to: {file_path}")
