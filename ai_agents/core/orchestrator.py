@@ -26,8 +26,8 @@ from ai_agents.core.schemas import FeatureSuite
 from ai_agents.core.step_library import PatternRegistry, get_escaped_step_patterns
 from ai_agents.core.tradehub_domain import TRADEHUB_RAW_INSTRUCTIONS, TRADEHUB_BUSINESS_KNOWLEDGE
 from ai_agents.core.utils import sanitize_model_tag_for_filename, split_instructions_into_sections, \
-    discover_all_feature_files, harvest_page_elements, parse_feature_files,  \
-    save_all_locators_to_ini
+    discover_all_feature_files, harvest_page_elements, parse_feature_files, \
+    save_all_locators_to_ini, audit_steps_via_behave
 from ai_agents.qa_automation_feasibility_agent.pattern_audit_agent import PatternAuditAgent
 from ai_agents.qa_automation_feasibility_agent.pattern_parameter_resolution_agent import PatternResolutionAgent
 from ai_agents.qa_automation_feasibility_agent.test_automatable_feasibility_agent import AutomationFeasibilityAgent
@@ -64,7 +64,7 @@ class Orchestrator:
         self.step_generator_agent = StepGeneratorAgent()
         self.step_reviewer_agent = StepReviewAgent()
         self.locator_generator_agent = LocatorGeneratorAgent()
-        self.project_root = Path(__file__).resolve().parent
+        self.project_root = Path.cwd()
         self.features_dir = self.project_root / "features"
         self.feature_files = discover_all_feature_files(str(self.features_dir), model_slug=self.model_slug)
 
@@ -269,6 +269,7 @@ class Orchestrator:
     def code_generation(self):
         print("🔄 Phase 3: Evaluating Step Definition & Code Generation Pipeline...")
         feature_steps_map, all_raw_steps = collect_raw_steps(self.feature_files)
+        step_status = audit_steps_via_behave(self.feature_files)
         latest_patterns = False if len(all_raw_steps) == 0 else PatternRegistry.collect_all_used_patterns(
             feedback_dir="features")
         if not latest_patterns:
@@ -281,10 +282,10 @@ class Orchestrator:
             # 3. Invoke Phase 4 Coach Gatekeeper
 
             coach_response = self.step_impl_coach.evaluate_execution(
-                undefined_step_patterns=latest_patterns,
+                step_status_report=step_status,
                 existing_step_definitions=existing_step_definitions
             )
-            del self.step_impl_coach
+            ## del self.step_impl_coach
             gc.collect()
 
             if coach_response.should_run_generator:
@@ -296,8 +297,8 @@ class Orchestrator:
                     if target.action == "GENERATE"
                 ]
                 unhandled_pattern_set = set(unhandled_patterns)
-
-                if unhandled_patterns:
+                output_file = Path("features/steps/generated_by_ai_steps.py")
+                if False:
                     print(
                         f"    🔍 Phase 3.1: Generating step skeletons for {len(unhandled_patterns)} unhandled pattern(s)...")
 
@@ -328,7 +329,32 @@ class Orchestrator:
 
                         print(f"    ✅ Generated step definitions appended to {output_file.resolve()}")
                 else:
+                    for target in coach_response.target_scope:
+                        action = target.action
+                        pattern = target.step_pattern
+
+                        content = output_file.read_text(encoding="utf-8")
+                        blocks = content.split("\n@step")
+                        if action == "REMOVE":
+                            cleaned_blocks = []
+                            for i, block in enumerate(blocks):
+                                block_text = "@step" + block if i > 0 else block
+                                if f"('{pattern}')" in block or f'("{pattern}")' in block:
+                                    print(f"🗑️ Removing step definition for: '{pattern}'")
+                                    continue
+                                cleaned_blocks.append(block_text)
+
+                            output_file.write_text("\n".join(cleaned_blocks) + "\n", encoding="utf-8")
+                            print(f"🗑️ Successfully removed step definition for: '{pattern}'")
+                            # Find and delete the exact function/decorator block matching this pattern
+                            # remove_step_from_file(file_path, pattern)
+
+                        elif action == "REFACTOR":
+                            # Call your review/refactoring agent to rewrite this specific step block
+                            # refactor_step_in_file(file_path, pattern, target.reason)
+                            pass
                     print("⏩ [Audit Coach]: Generator was flagged, but no specific patterns required GENERATE.")
+                    return True
             else:
                 print(
                     "⏩ [Audit Coach]: All step definitions are already implemented or skipped. No code generation "
