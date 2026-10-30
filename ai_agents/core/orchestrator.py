@@ -24,7 +24,7 @@ from ai_agents.core.lessons_learned_manager import LessonsLearnedManager
 from ai_agents.core.model_selector import print_missing_model_error
 from ai_agents.core.schemas import FeatureSuite
 from ai_agents.core.step_library import PatternRegistry, get_escaped_step_patterns
-from ai_agents.core.tradehub_domain import TRADEHUB_RAW_INSTRUCTIONS, TRADEHUB_BUSINESS_KNOWLEDGE
+from ai_agents.core.domain import RAW_INSTRACTIONS, BUSINESS_KNOWLEDGE
 from ai_agents.core.utils import sanitize_model_tag_for_filename, split_instructions_into_sections, \
     discover_all_feature_files, harvest_page_elements, parse_feature_files, \
     save_all_locators_to_ini, audit_steps_via_behave
@@ -106,7 +106,7 @@ class Orchestrator:
                 batch_suite = test_generator.generate_tests_for_instructions(
                     coverage_plan=batch_plan,
                     step_patterns=get_escaped_step_patterns(),
-                    business_knowledge=TRADEHUB_BUSINESS_KNOWLEDGE
+                    business_knowledge=BUSINESS_KNOWLEDGE
                 )
 
                 if not feature_title and hasattr(batch_suite, "feature_title"):
@@ -129,16 +129,17 @@ class Orchestrator:
                 raise e
 
     def test_generation(self):
-        sections = split_instructions_into_sections(TRADEHUB_RAW_INSTRUCTIONS)
+        sections = split_instructions_into_sections(RAW_INSTRACTIONS)
         print(f"📄 Found {len(sections)} distinct section(s) to process...")
         print("🔄 Phase 0: Planning Test Generation Pipeline...")
         print("    🤖 [Test Generation Coach Agent]: Evaluating requirements sections vs existing root feature files...")
-        coach_response = self.test_gen_coach.evaluate_execution(
-            requirements_doc=TRADEHUB_RAW_INSTRUCTIONS,
-            existing_features_summary=self.test_gen_coach.get_section_summary(sections, model_slug=self.model_slug)
-        )
-        directives_by_index = {target.section_index: target for target in coach_response.target_scope}
+
         for index, section in enumerate(sections, 1):
+            coach_response = self.test_gen_coach.evaluate_execution(
+                requirements_doc=section,
+                existing_features_summary=self.test_gen_coach.get_section_summary(sections, model_slug=self.model_slug)
+            )
+            directives_by_index = {target.section_index: target for target in coach_response.target_scope}
             first_line = section.split('\n')[0].strip()
             directive = directives_by_index.get(index)
 
@@ -268,97 +269,79 @@ class Orchestrator:
 
     def code_generation(self):
         print("🔄 Phase 3: Evaluating Step Definition & Code Generation Pipeline...")
-        feature_steps_map, all_raw_steps = collect_raw_steps(self.feature_files)
+
+        output_file = Path("features/steps/generated_by_ai_steps.py")
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        if not output_file.exists():
+            output_file.write_text("# Auto-generated steps\n", encoding="utf-8")
+
+        # 1. Audit step status via behave dry-run
         step_status = audit_steps_via_behave(self.feature_files)
-        latest_patterns = False if len(all_raw_steps) == 0 else PatternRegistry.collect_all_used_patterns(
-            feedback_dir="features")
-        if not latest_patterns:
-            print("⏩ Phase 3 Skipped: No active step patterns found in feedback directory.")
-        else:
-            # 2. Extract existing step definitions from features/steps
-            existing_step_files = list(Path("features/steps").glob("*.py")) if Path("features/steps").exists() else []
-            existing_step_definitions = [step_file.read_text(encoding="utf-8") for step_file in existing_step_files]
 
-            # 3. Invoke Phase 4 Coach Gatekeeper
+        # Extract existing code for coach review
+        existing_step_files = list(Path("features/steps").glob("*.py"))
+        existing_step_definitions = [f.read_text(encoding="utf-8") for f in existing_step_files]
 
-            coach_response = self.step_impl_coach.evaluate_execution(
-                step_status_report=step_status,
-                existing_step_definitions=existing_step_definitions
-            )
-            ## del self.step_impl_coach
-            gc.collect()
+        # 2. Invoke Step Implementation Coach
+        coach_response = self.step_impl_coach.evaluate_execution(
+            step_status_report=step_status,
+            existing_step_definitions=existing_step_definitions
+        )
+        gc.collect()
 
-            if coach_response.should_run_generator:
-                print(f"    🤖 [Audit Coach]: Evaluating audit execution scope...")
-                # Filter patterns flagged strictly for GENERATE
-                unhandled_patterns = [
-                    target.step_pattern
-                    for target in coach_response.target_scope
-                    if target.action == "GENERATE"
-                ]
-                unhandled_pattern_set = set(unhandled_patterns)
-                output_file = Path("features/steps/generated_by_ai_steps.py")
-                if False:
-                    print(
-                        f"    🔍 Phase 3.1: Generating step skeletons for {len(unhandled_patterns)} unhandled pattern(s)...")
+        if not coach_response.should_run_generator or not coach_response.target_scope:
+            print("⏩ [Audit Coach]: All step definitions are clean and valid. Skipping generation.")
+            return True
 
-                    skeletons = self.skeleton_agent.generate_skeletons(unhandled_pattern_set, unhandled_patterns)
-                    del self.skeleton_agent
-                    gc.collect()
+        print("🤖 [Audit Coach]: Processing actions in target scope...")
 
-                    if skeletons:
-                        combined_skeletons = "\n\n".join(skeletons)
+        has_changes = False
 
-                        print("    🔍 Phase 3.2: Generating Python @step implementation code...")
+        for target in coach_response.target_scope:
+            action = target.action
+            pattern = target.step_pattern
 
-                        draft_code = self.step_generator_agent.generate_missing_steps(combined_skeletons)
-                        del self.step_generator_agent
-                        gc.collect()
+            if action == "REMOVE":
+                content = output_file.read_text(encoding="utf-8")
+                blocks = content.split("\n@step")
+                cleaned_blocks = []
 
-                        print("    🧹 Phase 3.3: Reviewing, sanitizing, and validating AST with Ruff...")
+                for i, block in enumerate(blocks):
+                    block_text = "@step" + block if i > 0 else block
 
-                        cleaned_final_code = self.step_reviewer_agent.review_and_fix(draft_code)
-                        del self.step_reviewer_agent
-                        gc.collect()
+                    # Check if the block contains the hardcoded pattern to remove
+                    if f"('{pattern}')" in block_text or f'("{pattern}")' in block_text:
+                        print(f"🗑️ Removing hardcoded/redundant step definition block for: '{pattern}'")
+                        has_changes = True
+                        continue
 
-                        # Write out final generated step file
-                        output_file = Path("features/steps/generated_by_ai_steps.py")
-                        output_file.parent.mkdir(parents=True, exist_ok=True)
-                        with open(output_file, "a" if output_file.exists() else "w", encoding="utf-8") as out_f:
-                            out_f.write("\n\n" + cleaned_final_code + "\n")
+                    cleaned_blocks.append(block_text)
 
-                        print(f"    ✅ Generated step definitions appended to {output_file.resolve()}")
-                else:
-                    for target in coach_response.target_scope:
-                        action = target.action
-                        pattern = target.step_pattern
+                if has_changes:
+                    output_file.write_text("\n".join(cleaned_blocks), encoding="utf-8")
+                    print(f"✅ Cleaned up file: {output_file}")
 
-                        content = output_file.read_text(encoding="utf-8")
-                        blocks = content.split("\n@step")
-                        if action == "REMOVE":
-                            cleaned_blocks = []
-                            for i, block in enumerate(blocks):
-                                block_text = "@step" + block if i > 0 else block
-                                if f"('{pattern}')" in block or f'("{pattern}")' in block:
-                                    print(f"🗑️ Removing step definition for: '{pattern}'")
-                                    continue
-                                cleaned_blocks.append(block_text)
+            elif action == "GENERATE":
+                print(f"🔍 Phase 3.1: Generating balanced step for pattern: '{pattern}'")
 
-                            output_file.write_text("\n".join(cleaned_blocks) + "\n", encoding="utf-8")
-                            print(f"🗑️ Successfully removed step definition for: '{pattern}'")
-                            # Find and delete the exact function/decorator block matching this pattern
-                            # remove_step_from_file(file_path, pattern)
+                # Pass single pattern to generator enforce balanced structure
+                skeletons = self.skeleton_agent.generate_skeletons({pattern}, [pattern])
+                if skeletons:
+                    draft_code = self.step_generator_agent.generate_missing_steps("\n\n".join(skeletons))
+                    cleaned_code = self.step_reviewer_agent.review_and_fix(draft_code)
 
-                        elif action == "REFACTOR":
-                            # Call your review/refactoring agent to rewrite this specific step block
-                            # refactor_step_in_file(file_path, pattern, target.reason)
-                            pass
-                    print("⏩ [Audit Coach]: Generator was flagged, but no specific patterns required GENERATE.")
-                    return True
-            else:
-                print(
-                    "⏩ [Audit Coach]: All step definitions are already implemented or skipped. No code generation "
-                    "required.")
+                    with open(output_file, "a", encoding="utf-8") as out_f:
+                        out_f.write("\n\n" + cleaned_code + "\n")
+
+                    print(f"✅ Appended new balanced step definition for '{pattern}' to {output_file}")
+                    has_changes = True
+
+            elif action == "REFACTOR":
+                print(f"🔧 Refactoring step definition for pattern: '{pattern}'...")
+                # Handled by refactoring agent or targeted block rewrite
+                pass
+
+        return has_changes
 
     def locator_generation(self):
         print("🔄 Phase 4: Locator Generation Pipeline...")
