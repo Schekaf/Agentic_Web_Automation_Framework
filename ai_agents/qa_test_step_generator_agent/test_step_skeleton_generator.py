@@ -30,26 +30,46 @@ LESSONS LEARNED (STRICT RULES TO AVOID PAST FAILURE MODES):
 TASK:
 Generate the most meaningful, reusable step pattern strings and skeleton signatures for Python Behave definitions.
 
+======================================================================
+STEP DEFINITION GENERALIZATION RULES (BALANCED SPECIFICITY)
+======================================================================
+1. ACTION VERBS MUST BE EXPLICIT:
+   - DO NOT parameterize action verbs like click, enter, see, select, or verify using variables.
+   - WRONG: @step('I {{action}} "{{value}}" as {{element}}')
+   - RIGHT: @step('I enter "{{value}}" as {{element}}')
+
+2. TARGET ELEMENTS & VALUES MUST BE PARAMETERIZED:
+   - DO NOT hardcode specific UI field labels, element names, or button titles in the step pattern.
+   - WRONG: @step('I enter "{{value}}" as Budget')
+   - RIGHT: @step('I enter "{{value}}" as {{element}}')
+
 CRITICAL PATTERN ORDERING RULE (PREVENT STEP INTERCEPTION):
 - SORT ALL STEPS BY PATTERN LENGTH IN DESCENDING ORDER (LONGEST / MOST SPECIFIC PATTERNS FIRST).
+
 - Specific multi-parameter patterns (e.g., `@step('I see {{element}} is "{{state}}"')`) MUST appear BEFORE shorter/generic patterns (e.g., `@step('I see "{{element}}"')`). Otherwise, Behave's regex engine will intercept all execution using the shorter rule.
+
 
 RULES FOR PATTERNS & PARAMETERS:
 - Abstract dynamic values into descriptive parameters like {{element}}, {{text}}, {{option}}, {{state}}, {{location}}, {{value}}.
+
 - MAXIMUM 3 parameters per step pattern.
+
 - If 1 parameter: Prefer {{element}} (e.g., `I click on {{element}}`).
+
 - If 2 parameters: Prefer {{action_value}} and {{element}} (e.g., `I select "{{option}}" as {{element}}`).
+
 - If 3 parameters: At least one parameter MUST be {{element}}.
+
 
 STRICT CODE OUTPUT FORMAT RULES:
 1. NO DUPLICATE FUNCTION NAMES. Every function name MUST be unique and derived from the step text in snake_case (e.g., `def step_input_value_into_element(context, value, element):`). NEVER output `def step_impl`.
+
 2. SINGLE DECORATOR PER FUNCTION. Do NOT stack multiple `@given` / `@when` / `@then` decorators on top of a single `step_impl` function.
 3. QUOTE ESCAPING: Use single quotes `'` for decorators. If a parameter string inside contains single quotes, double-quote the decorator string or escape it properly (e.g., `@given('I enter "{{value}}" as {{element}}')`).
 4. Output ONLY the clean Python skeleton code without markdown blocks or explanations.
 
 Output ONE step definition skeleton per pattern.
 """
-
 
 class StepSkeletonGeneratorAgent(BaseAgent):
     """
