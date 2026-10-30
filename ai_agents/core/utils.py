@@ -154,7 +154,8 @@ def aggregate_by_verb_prefix(patterns: list[str]) -> list[str]:
 
 def split_instructions_into_sections(raw_text: str) -> list[str]:
     """Splits raw instructions into section chunks (matching lines starting with numbers like '1. ', '2. ')."""
-    pattern = r'(?=\b\d+\.\s+[A-Z])'
+    pattern = r'(?=(?:^|\n|\s)\d+\.\s*)'
+
     sections = re.split(pattern, raw_text)
     return [sec.strip() for sec in sections if sec.strip()]
 
