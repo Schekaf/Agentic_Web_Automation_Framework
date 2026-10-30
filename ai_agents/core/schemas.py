@@ -113,7 +113,9 @@ class PatternAuditResponse(BaseModel):
 class FeatureTargetScope(BaseModel):
     section_index: int = Field(description="The 1-based index of the requirement section, e.g., 1")
     section_title: str = Field(description="Title of the requirement section, e.g., '1. Create a New Account'")
-    feature_file_name: str = Field(description="Target .feature file name, e.g., '01_create_a_new_account.feature'")
+    feature_file_name: str = Field(
+        description="Concise, snake_case .feature filename under 30 characters, e.g., '01_wings_import.feature'"
+    )
     action: Literal["GENERATE", "REGENERATE", "SKIP"] = Field(description="Action directive for the section")
     reason: str = Field(description="Justification based on requirement coverage or historical failure modes")
     lessons_for_agent: List[str] = Field(default_factory=list,
