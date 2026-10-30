@@ -38,6 +38,12 @@ RULES & DIRECTIVES:
 2. "REGENERATE": Feature file exists, but requirements have changed OR past lessons learned indicate known structure/step failures in this feature.
 3. "SKIP": Feature file exists, fully covers requirements, and has no flagged historical failure patterns.
 
+CRITICAL RULE FOR FEATURE FILE NAMES:
+- The `feature_file_name` field MUST be short, clean, and in snake_case format.
+- Maximum length: 30-35 characters.
+- It must ALWAYS end with the `.feature` extension (e.g., "01_wings_import.feature", "02_requisitions.feature").
+- NEVER include long sentences, parentheses, special characters, hashes (#), or commas in the filename.
+
 For each feature in your target scope:
 - Provide a clear `feature_file_name` (e.g., '11_create_a_project_tender.feature').
 - Provide an explicit `action` ("GENERATE", "REGENERATE", or "SKIP").
