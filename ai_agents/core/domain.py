@@ -13,6 +13,29 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+DOCUMENT = """
+Wings exports
+The importer reads the Wings headings as they are (ORDER #, VENDOR #, ORDERED BY EMPLOYEE NAME, RECEIPT DT., REQ. ORDER PRIORITY, …). Aliases for other headings, including Turkish ones, are in src/lib/import/mappings.ts; switching to Veryon means adding its headings there.
+
+The raw order export. Besides its report layouts, Wings gives the order list as a raw export (EXCEL.ORDER_EXPORT…xlsx, headings such as ORDER_NUMBER, ORDER_LINE, LINE_STATUS, VENDOR_NAME). It is read like ALL ORDERS and carries every order series (purchase PO-, repair RO-, calibration CA-, service SE-, CF-), all statuses, and the requisitions as well. Its cost columns are not imported. It has no vendor number yet, so its suppliers are matched by name; a name not known yet is added as Pending review, and gets its vendor number when a later list brings one. A line Wings shows as CREATED counts as open. The report layouts (WEBREP…IC_588, PDF or Excel) cannot be read: merged cells and combined columns.
+
+Requisitions. Requests for parts (RQ-… raised by people, RQA-… raised from min/max levels) come in the same Wings lists as the orders, under ORDER # with order type REQUISITION. They are kept apart from the orders, one row per request line with who asked, the buyer, priority, the date needed and the purchase or repair orders placed for it (PURCHASE_REPAIR_ORDER_NUMBER, several when it was ordered in parts). The Requests page lists those still waiting for an order (where an RFQ starts, prefilled from the request), those ordered and open, and the days from request to order; an order shows the requests behind it. A tool loan list made only of requisitions is refused.
+
+Reports by mail. When Wings sends its reports on a schedule (or a colleague mails them) to the workspace mailbox, they are imported by themselves: mail from a sender listed in WINGS_REPORT_SENDERS whose .xlsx or .csv attachments are lists the import knows is imported as an upload would be (supplier lists first, then orders, then receiving and tool loans), logged under the sender's account or else the first admin, and not kept as negotiation mail. Other mail from those senders is taken in as usual. The Import page shows the reports received and what each import changed.
+
+CSV and .txt files may be UTF-8, UTF-16 (“Unicode text”) or Windows-1254 (Turkish Excel).
+The heading row may sit below a title or print-date line, within the first 20 rows.
+Dates may be real spreadsheet dates, YYYY-MM-DD, day-first DD.MM.YYYY, or DD-MON-YY as Wings writes some (05-JUN-25).
+Numbers may use either decimal convention (1.250,50 or 1,250.50).
+A workbook with several sheets is imported sheet by sheet; the tool loan list (borrowed and lent sheets) loads in one upload. A list type chosen by hand on the Import page applies to every sheet it fits; a sheet with another list's headings is refused with a message.
+A supplier list needs a vendor number, e-mail, country or payment terms column next to the name.
+The Import page takes files up to 25 MB; use import-wings.sh (above) for bigger ones.
+From the ALL ORDERS layout the import also reads the supplier's order confirmation (ORDER CONFIRMATION, CONF.DATE), the shipment (SHIP DATE, ETA DT., CARRIER; each new value is kept as an order event from Wings for the chase list, an ORDER CONFIRMATION of N, NO, FALSE, 0 or - counting as none until Wings' own values are confirmed), and WAYBILL, shown on the chase list but not counted as the supplier's shipment (whether it is the inbound or our outbound shipment on a repair order is to confirm), and from the receiving list LOT #, EXPIRE DT., CERT. DT., and the part's HS CODE (customs tariff code, GTİP) and ECCN CODE, which prefill a customs file for the same part; its SHIPMENT INV. and CUSTOMS INV. columns are not read (whether they hold invoice numbers or amounts is to confirm, and an amount is never imported). The raw ORDER_EXPORT has none of these columns yet (nor condition, unit, aircraft, essentiality, ship-by, waybill or destination): a list without a column never blanks what an earlier list gave. Each import records the columns it had, so a screen can tell a field no imported list carries (not in the Wings list) from one Wings left empty.
+The ALL ORDERS export has no prices; agreed prices come from negotiation records. The order report v2 has REPAIR COST, EXCHANGE COST and LIST PRICE columns; they are left out on purpose. If Wings can add unit price and currency to the export, they are picked up automatically (UNIT PRICE, CURRENCY).
+Wings marks receipt lines REJECTED when condition, serial, expiry, part or lot differ from the order. The scorecard counts as receiving discrepancies only the supplier's problems: serial, expiry, part or lot mismatches, and parts arriving unserviceable (US) or in quarantine (QUAR). A repair returned in another condition than ordered (for example OH or INS instead of RE) is shown but not counted (Supply management's decision). A rejection stays counted after Wings clears the status. A buyer's review of a delivery comes first (see Receiving problems and corrective actions): one marked not the supplier's fault is left out, one a buyer counted is in. Whether the receiving list's CERT. N means a missing release document is to confirm, so it is not read as missing documents.
+Comparisons with the previous 12 months are shown only when the receiving list reaches back over that whole period.
+The Wings due date is the date the part was needed, not a supplier-confirmed date, so on-time figures are strict."""
+
 
 BUSINESS_KNOWLEDGE = """
 SRM SYSTEM RULES & BUSINESS LOGIC:
