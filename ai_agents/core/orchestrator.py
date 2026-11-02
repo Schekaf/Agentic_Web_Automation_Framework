@@ -15,6 +15,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import gc
 import sys
+import time
 from pathlib import Path
 
 from ollama import ResponseError
@@ -22,12 +23,12 @@ from ollama import ResponseError
 from ai_agents.core.config import get_agent_model
 from ai_agents.core.lessons_learned_manager import LessonsLearnedManager
 from ai_agents.core.model_selector import print_missing_model_error
-from ai_agents.core.schemas import FeatureSuite
+from ai_agents.core.schemas import FeatureSuite, RouterDecision
 from ai_agents.core.step_library import PatternRegistry, get_escaped_step_patterns
-from ai_agents.core.domain import RAW_INSTRACTIONS, BUSINESS_KNOWLEDGE
+from ai_agents.core.domain import RAW_INSTRACTIONS, BUSINESS_KNOWLEDGE, DOCUMENT
 from ai_agents.core.utils import sanitize_model_tag_for_filename, split_instructions_into_sections, \
     discover_all_feature_files, harvest_page_elements, parse_feature_files, \
-    save_all_locators_to_ini, audit_steps_via_behave
+    save_all_locators_to_ini, audit_steps_via_behave, rest_check
 from ai_agents.qa_automation_feasibility_agent.pattern_audit_agent import PatternAuditAgent
 from ai_agents.qa_automation_feasibility_agent.pattern_parameter_resolution_agent import PatternResolutionAgent
 from ai_agents.qa_automation_feasibility_agent.test_automatable_feasibility_agent import AutomationFeasibilityAgent
@@ -37,6 +38,7 @@ from ai_agents.qa_coach_agent.test_step_audit_coach import AuditCoachAgent
 from ai_agents.qa_coach_agent.test_step_implementation_generation_coach import StepImplementationGenerationCoachAgent
 from ai_agents.qa_coverage_planner_agent.test_coverage_planner_agent import CoveragePlannerAgent
 from ai_agents.qa_locator_generator_agent.locator_generator_agent import LocatorGeneratorAgent
+from ai_agents.qa_requirements_router_agent.requirements_router_agent import RequirementsRouterAgent
 from ai_agents.qa_test_fixer_agent.test_fixer_agent import TestFixerAgent
 from ai_agents.qa_test_generator_agent.test_generator import TestGeneratorAgent
 from ai_agents.core.utils import collect_raw_steps, mine_patterns_with_drain
@@ -69,12 +71,23 @@ class Orchestrator:
         self.feature_files = discover_all_feature_files(str(self.features_dir), model_slug=self.model_slug)
 
     def orchestrate(self):
-        self.test_generation()
+        router_decision = self.requirement_analysis()
+        self.test_generation(router_decision)
         self.automation_feasibility()
         self.audit()
         self.code_generation()
 
     @staticmethod
+    def requirement_analysis() -> RouterDecision:
+        print("🔄 Phase 0: Requirement Analysis & Test Generation Pipeline...")
+        router = RequirementsRouterAgent()
+        routing_decision = router.route_payload(DOCUMENT)
+        print(f"🔀 [Router Decision]: Detected {routing_decision.detected_format} (Confidence: {routing_decision.confidence_score})")
+        print(f"💡 [Reasoning]: {routing_decision.reasoning}")
+        return routing_decision
+
+    @staticmethod
+    @rest_check
     def generate_tests(section: str, first_line: str, coverage_planner: CoveragePlannerAgent,
                        test_generator: TestGeneratorAgent) -> FeatureSuite:
         try:
@@ -90,7 +103,7 @@ class Orchestrator:
             # -----------------------------------------------------------------
             print("        🤖 [Test Generator Agent]: Synthesizing Gherkin feature suite...")
 
-            BATCH_SIZE = 6  # Small batch size to avoid output token limits
+            BATCH_SIZE = 2  # Small batch size to avoid output token limits
             all_scenarios = []
             feature_title = ""
 
@@ -128,33 +141,31 @@ class Orchestrator:
             else:
                 raise e
 
-    def test_generation(self):
-        sections = split_instructions_into_sections(RAW_INSTRACTIONS)
-        print(f"📄 Found {len(sections)} distinct section(s) to process...")
+    def test_generation(self, instruction: RouterDecision):
+        print(f"📄 Found {len(instruction.extracted_sections)} distinct section(s) to process...")
         print("🔄 Phase 0: Planning Test Generation Pipeline...")
         print("    🤖 [Test Generation Coach Agent]: Evaluating requirements sections vs existing root feature files...")
 
-        for index, section in enumerate(sections, 1):
+        for index, section in enumerate(instruction.extracted_sections, 1):
             coach_response = self.test_gen_coach.evaluate_execution(
-                requirements_doc=section,
-                existing_features_summary=self.test_gen_coach.get_section_summary(sections, model_slug=self.model_slug)
+                requirements_doc=section.section_content,
+                existing_features_summary=self.test_gen_coach.get_section_summary(instruction.extracted_sections, model_slug=self.model_slug)
             )
             directives_by_index = {target.section_index: target for target in coach_response.target_scope}
-            first_line = section.split('\n')[0].strip()
             directive = directives_by_index.get(index)
 
             # Fallback guard: skip if file exists and no explicit re-generation is requested
             if not directive or directive.action == "SKIP":
-                print(f"    ⏩ [Coach Directive] SKIP [{index}/{len(sections)}]: {first_line}")
+                print(f"    ⏩ [Coach Directive] SKIP [{index}/{len(instruction.extracted_sections)}]: {section.section_title}")
                 continue
 
-            print(f"    🎯 [Coach Directive]: {directive.action} [{index}/{len(sections)}]: {first_line}")
+            print(f"    🎯 [Coach Directive]: {directive.action} [{index}/{len(instruction.extracted_sections)}]: {section.section_title}")
             print(f"    📋 Reason: {directive.reason}")
 
             # Trigger Coverage Planner & Test Generator ONLY for this specific section
             feature_suite = self.generate_tests(
-                section=section,
-                first_line=first_line,
+                section=section.section_content,
+                first_line=section.section_title,
                 coverage_planner=self.coverage_planner,
                 test_generator=self.test_generator
             )
