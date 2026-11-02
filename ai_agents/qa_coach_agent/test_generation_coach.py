@@ -19,7 +19,7 @@ import re
 import json
 from langchain_core.prompts import PromptTemplate
 from ai_agents.core.base_agent import BaseAgent
-from ai_agents.core.schemas import TestGenerationCoachResponse
+from ai_agents.core.schemas import TestGenerationCoachResponse, DocumentSection
 
 TEST_GENERATION_COACH_PROMPT = """You are the Test Generation Coach Agent responsible for gatekeeping the BDD feature generation phase.
 
@@ -66,10 +66,10 @@ class TestGenerationCoachAgent(BaseAgent):
         self.chain = prompt | self.llm.with_structured_output(TestGenerationCoachResponse)
 
     @staticmethod
-    def get_section_summary(sections: List[str], model_slug: str) -> List[Dict[str, Any]]:
+    def get_section_summary(sections: List[DocumentSection], model_slug: str) -> List[Dict[str, Any]]:
         sections_payload = []
         for index, section in enumerate(sections, 1):
-            first_line = section.split('\n')[0].strip()
+            first_line = section.section_content.split('\n')[0].strip()
             sanitized_name = re.sub(r'[^a-zA-Z0-9_]', '_', first_line.lower())
             file_name = f"{index:02d}_{sanitized_name}_{model_slug}.feature"
 
