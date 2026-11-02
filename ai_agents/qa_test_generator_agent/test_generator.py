@@ -66,6 +66,10 @@ DYNAMIC TOKENS:
 DOMAIN KNOWLEDGE:
 {business_knowledge}
 
+CRITICAL STEP COUNT RULE:
+- NEVER generate more than 15-20 steps in a single scenario. 
+- If a test case requires a long workflow, break it down into multiple sequential scenarios (e.g., Scenario A for setup, Scenario B for execution, Scenario C for validation).
+
 CRITICAL RULES FOR GENERATION:
 1. Translate EVERY planned scenario from the CoveragePlan into a ScenarioItem.
 2. Ensure specific step definitions for Free vs. Premium tier boundaries and ABN workflow triggers where specified.
