@@ -19,6 +19,33 @@ from typing import List, Dict, Any, Literal, Optional
 from pydantic import BaseModel, Field
 
 
+class DocumentSection(BaseModel):
+    section_index: int = Field(description="1-based index of the categorized section")
+    section_title: str = Field(description="Extracted or synthesized title for the section")
+    section_content: str = Field(description="The raw text or requirements belonging to this specific section")
+    suggested_feature_name: str = Field(
+        description="Short, snake_case .feature filename slug, e.g., 'wings_import.feature'")
+
+
+class RouterDecision(BaseModel):
+    detected_format: Literal["JIRA_TEST_STEPS", "BRD_SRS_DOCUMENT", "CUSTOM_UNSTRUCTURED_DOC", "UNKNOWN"] = Field(
+        description="The inspected structure and format of the input payload."
+    )
+    target_agent: Literal["XrayToGherkinAgent", "CoveragePlannerAgent", "DynamicSectionProcessor"] = Field(
+        description="The downstream handler: use 'DynamicSectionProcessor' if the document needs section splitting."
+    )
+    confidence_score: float = Field(
+        description="Confidence score of the classification between 0.0 and 1.0."
+    )
+    reasoning: str = Field(
+        description="Brief explanation of why this routing decision was made."
+    )
+    extracted_sections: List[DocumentSection] = Field(
+        default_factory=list,
+        description="If the document is unstructured or custom, break it down into clean, categorized sections here."
+    )
+
+
 # ==========================================
 # 1. COVERAGE PLANNER AGENT SCHEMAS
 # ==========================================
@@ -81,7 +108,8 @@ class ActionType(str, Enum):
 
 class LocatorSection(BaseModel):
     section_name: str = Field(description="The section or page header, e.g., 'Home Page', 'Test Login Page'")
-    locators: Dict[str, str] = Field(description="Dictionary mapping element keys to their locator strings, e.g., {'Username': '//*[@id=\'username\']'}")
+    locators: Dict[str, str] = Field(
+        description="Dictionary mapping element keys to their locator strings, e.g., {'Username': '//*[@id=\'username\']'}")
 
 
 class LocatorFileSchema(BaseModel):
