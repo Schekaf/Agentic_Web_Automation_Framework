@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 
 from ai_agents.core.base_agent import BaseAgent
+from ai_agents.core.domain import PAGE_CATALOG
 from ai_agents.core.schemas import FeatureSuite, CoveragePlan
 from ai_agents.core.utils import rest_check
 
@@ -33,6 +34,9 @@ Requirement Section: {requirement_section}
 
 PLANNED SCENARIOS TO TRANSLATE:
 {coverage_plan}
+
+PAGE CATALOG:
+{page_catalog}
 
 LESSONS LEARNED (STRICT RULES TO AVOID PAST FAILURE MODES):
 {lessons_learned}
@@ -95,6 +99,7 @@ class TestGeneratorAgent(BaseAgent):
     def generate_tests_for_instructions(
             self,
             coverage_plan: CoveragePlan,
+            page_catalog=PAGE_CATALOG,
             step_patterns: str = "",
             business_knowledge: str = ""
     ) -> FeatureSuite:
@@ -108,6 +113,7 @@ class TestGeneratorAgent(BaseAgent):
                 "coverage_plan": coverage_plan.model_dump_json(indent=2),
                 "step_patterns": step_patterns,
                 "business_knowledge": business_knowledge,
+                "page_catalog": page_catalog,
             }
         )
 
