@@ -13,13 +13,15 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+import json
 from typing import List
 
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 
 from ai_agents.core.base_agent import BaseAgent
-from ai_agents.core.schemas import LocatorFileSchema # Assuming you defined this schema or similar
+from ai_agents.core.schemas import LocatorFileSchema, \
+    NavigationFilterOutput  # Assuming you defined this schema or similar
 from ai_agents.core.utils import rest_check
 
 load_dotenv()
@@ -43,6 +45,23 @@ CRITICAL RULES FOR LOCATOR GENERATION:
 5. **Human-Readable Keys (NO SNAKE_CASE):** Use clean, natural Title Case keys matching how elements or fields are described in the scenario text (e.g., `Select Account A = ...`, `Job Title = ...`, `Username = ...`). **NEVER** use snake_case like `select_account_a` or uppercase snake_case like `REGISTER_BUTTON`.
 """
 
+NAVIGATOR_FILTER_PROMPT = """
+You are an expert QA automation navigation analyst. 
+You are given a list of interactive elements harvested from a web application's homepage.
+
+Your task is to identify ONLY the elements that act as navigation links, menu items, or dashboard cards that take the user to a new subpage/feature view (e.g., "Wings Exports", "Raw Orders", "Mail Intake", settings, or reports).
+
+DO NOT select elements that are:
+- Generic buttons like "Save", "Cancel", "Delete", "Submit", or "Log out".
+- Form inputs or dropdown menus.
+- Footer links, privacy policies, or help modals that don't change the main workspace view.
+
+HARVESTED ELEMENTS:
+{dom_candidates}
+
+Return your response strictly as a JSON list of strings containing the exact text or identifiers of the navigation elements you chose.
+"""
+
 
 class LocatorGeneratorAgent(BaseAgent):
     """
@@ -58,6 +77,9 @@ class LocatorGeneratorAgent(BaseAgent):
         prompt = PromptTemplate.from_template(PROMPT)
         self.chain = prompt | self.llm.with_structured_output(LocatorFileSchema)
 
+        filter_promt = PromptTemplate.from_template(NAVIGATOR_FILTER_PROMPT)
+        self.filter_chain = filter_promt | self.llm.with_structured_output(NavigationFilterOutput)
+
     @rest_check
     def generate_locators(self, scenario_text: str, dom_candidates: List[dict]) -> LocatorFileSchema:
         """
@@ -71,3 +93,37 @@ class LocatorGeneratorAgent(BaseAgent):
         })
 
         return result
+
+    @rest_check
+    def filter_navigation_elements(self, dom_candidates: List[dict]) -> List[str]:
+        """
+        Given a list of harvested elements return the best matching locators which are pointing to a new subpage.
+        """
+        slim_candidates = [
+            {
+                "tag": el.get("tag_name"),
+                "text": el.get("text_content"),
+                "id": el.get("element_id"),
+                "name": el.get("name"),
+                "placeholder": el.get("placeholder"),
+                "href": el.get("href"),
+                "xpath": el.get("xpath_candidate")
+            }
+            for el in dom_candidates if el.get("text_content") or el.get("element_id")
+        ]
+
+        candidates_json_str = json.dumps(slim_candidates, indent=2)
+
+        # 2. Invoke using your pre-built filter chain
+        print("🤖 Analyzing page elements for navigation targets...")
+        response = self.filter_chain.invoke({
+            "dom_candidates": candidates_json_str
+        })
+
+        # 3. Map the LLM's selected identifiers back to the full original `dom_candidates` dictionaries
+        filtered_identifiers = [item.element_xpath for item in response.navigators]
+
+
+        print(
+            f"🎯 Filtered {len(filtered_identifiers)} navigation targets out of {len(dom_candidates)} total harvested elements.")
+        return filtered_identifiers
