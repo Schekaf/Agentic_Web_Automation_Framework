@@ -1,0 +1,263 @@
+[
+  {
+    "agent_id": "AutomationFeasibilityAgent",
+    "category": "drain_mapping_drift",
+    "original_output": "Step: And I see the null string field is handled correctly in the output | Pattern: I see <*> is <*>",
+    "corrected_output": "New Pattern: And I see <*> is <*>",
+    "root_cause": "The step verb 'see' does not match the pattern action 'is'.",
+    "rule_derived": "Ensure matched patterns strictly preserve step sentence structure.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Given I open \"http://localhost:3131/rfqs/new\"",
+    "corrected_output": "Given I open \"http://localhost:3131/rfqs/new\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 4
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I enter \"AW139 C-check parts\" in \"Title\"",
+    "corrected_output": "When I enter \"AW139 C-check parts\" in \"Title\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"RQ-1234\" in \"Wings REQ\"",
+    "corrected_output": "And I enter \"RQ-1234\" in \"Wings REQ\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I select \"AOG\" as \"Priority\"",
+    "corrected_output": "And I select \"AOG\" as \"Priority\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"2023-12-31\" in \"Answer by\"",
+    "corrected_output": "And I enter \"2023-12-31\" in \"Answer by\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"Boeing 737\" in \"Aircraft\"",
+    "corrected_output": "And I enter \"Boeing 737\" in \"Aircraft\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+    "corrected_output": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I select \"EXW\" as \"Delivery terms\"",
+    "corrected_output": "And I select \"EXW\" as \"Delivery terms\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"New York JFK\" in \"named place\"",
+    "corrected_output": "And I enter \"New York JFK\" in \"named place\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+    "corrected_output": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on \"NE\"",
+    "corrected_output": "And I click on \"NE\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on \"Add a line\"",
+    "corrected_output": "And I click on \"Add a line\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 2
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"123456\" in \"part number\"",
+    "corrected_output": "And I enter \"123456\" in \"part number\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"Part Description\" in \"description\"",
+    "corrected_output": "And I enter \"Part Description\" in \"description\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"10\" in \"quantity\"",
+    "corrected_output": "And I enter \"10\" in \"quantity\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"Unit\" in \"unit\"",
+    "corrected_output": "And I enter \"Unit\" in \"unit\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on \"Add a supplier\"",
+    "corrected_output": "And I click on \"Add a supplier\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"supplier@company.com\" in \"sales@supplier.com; several with ;\"",
+    "corrected_output": "And I enter \"supplier@company.com\" in \"sales@supplier.com; several with ;\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"Internal note for the team\" in \"Internal note\"",
+    "corrected_output": "And I enter \"Internal note for the team\" in \"Internal note\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I click on \"Save without sending\"",
+    "corrected_output": "And I click on \"Save without sending\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 4
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"RFQ saved successfully\" is visible",
+    "corrected_output": "Then I see \"RFQ saved successfully\" is visible",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I enter \"invalid_req_number\" in \"Wings REQ\"",
+    "corrected_output": "When I enter \"invalid_req_number\" in \"Wings REQ\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"Invalid Wings REQ number\" is visible",
+    "corrected_output": "Then I see \"Invalid Wings REQ number\" is visible",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I enter \"\" in \"Title\"",
+    "corrected_output": "When I enter \"\" in \"Title\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"Title is required\" is visible",
+    "corrected_output": "Then I see \"Title is required\" is visible",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "When I enter \"invalid date\" in \"Answer by\"",
+    "corrected_output": "When I enter \"invalid date\" in \"Answer by\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "And I enter \"1\" in \"Line 1\"",
+    "corrected_output": "And I enter \"1\" in \"Line 1\"",
+    "root_cause": "The original step was already correctly formatted, but the explanation report indicates a need for fixes, which is not accurate in this case.",
+    "rule_derived": "Each step should start with a keyword followed by a space and the step text should be properly aligned.",
+    "occurrence_count": 1
+  },
+  {
+    "agent_id": "TestGeneratorAgent",
+    "category": "gherkin_syntax",
+    "original_output": "Then I see \"Invalid date format\" is visible",
+    "corrected_output": "Then I see \"Invalid date format\" is visible",
+    "root_cause": "The original step was already correctly formatted",
+    "rule_derived": "",
+    "occurrence_count": 1
+  }
+]
