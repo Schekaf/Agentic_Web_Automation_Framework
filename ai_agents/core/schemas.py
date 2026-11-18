@@ -116,6 +116,21 @@ class LocatorFileSchema(BaseModel):
     sections: List[LocatorSection] = Field(description="List of all locator sections mapped across pages.")
 
 
+class NavigationElementSelection(BaseModel):
+    element_xpath: str = Field(
+        description="The exact text content or ID of the harvested element that points to a new page."
+    )
+    reasoning: str = Field(
+        description="Brief explanation of why this element is a navigation link to a subpage."
+    )
+
+
+class NavigationFilterOutput(BaseModel):
+    navigators: List[NavigationElementSelection] = Field(
+        description="List of selected interactive elements that lead to new application pages."
+    )
+
+
 # ==========================================
 # 3. PATTERN AUDIT AGENT SCHEMAS
 # ==========================================
