@@ -27,9 +27,12 @@ from typing import List, Dict, Any
 from drain3 import TemplateMiner
 from drain3.template_miner_config import TemplateMinerConfig
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from ai_agents.core.schemas import LocatorFileSchema, LocatorSection
 from ai_agents.core.step_scanner import get_undefined_steps_via_behave, get_step_info
+from utilities.web_driver import get_driver
 
 PERF_LIST = {
 }
@@ -318,13 +321,27 @@ def harvest_page_elements(driver, url: str) -> List[Dict[str, str]]:
             # Skip hidden elements to keep data clean and concise
             if not el.is_displayed():
                 continue
+            region = "unknown"
+            ancestors = el.find_elements("xpath", "./ancestor::*")
+            for anc in reversed(ancestors):
+                cls = anc.get_attribute("class") or ""
+                tag_name = anc.tag_name.lower()
+                if "topbar" in cls or tag_name == "header":
+                    region = "header"
+                if "sidenav" in cls or tag_name == "nav" or tag_name == "aside":
+                    region = "sidebar"
+                if "main" in cls or tag_name == "main":
+                    region = "main"
 
             tag = el.tag_name.lower()
             el_id = el.get_attribute("id") or None
             name = el.get_attribute("name") or None
             placeholder = el.get_attribute("placeholder") or None
-            text_content = el.text.strip() or None
+            data_tip_content = el.get_attribute("data-tip") or None
+            text = el.text.strip() or None
             aria_label = el.get_attribute("aria-label") or None
+            href = el.get_dom_attribute("href") or None
+            class_attr = el.get_attribute("class") or None
 
             # Construct reliable baseline candidate locators
             xpath = f"//{tag}"
@@ -332,12 +349,14 @@ def harvest_page_elements(driver, url: str) -> List[Dict[str, str]]:
                 xpath = f"//{tag}[@id='{el_id}']"
             elif placeholder:
                 xpath = f"//{tag}[@placeholder='{placeholder}']"
-            elif text_content:
+            elif data_tip_content:
                 # Truncate long text content to prevent bloated payloads
-                clean_text = text_content[:50]
-                xpath = f"//{tag}[normalize-space()='{clean_text}']"
+                data_tip = data_tip_content
+                xpath = f'//{tag}[contains(@data-tip,"{data_tip}")]'
             elif name:
                 xpath = f"//{tag}[@name='{name}']"
+            elif class_attr:
+                xpath = f"//{tag}[@class='{class_attr}']"
 
             css = f"#{el_id}" if el_id else tag
 
@@ -346,14 +365,17 @@ def harvest_page_elements(driver, url: str) -> List[Dict[str, str]]:
                 "element_id": el_id,
                 "name": name,
                 "placeholder": placeholder,
-                "text_content": text_content,
+                "data_tip": data_tip_content,
+                "text":text,
                 "aria_label": aria_label,
+                "href": href,
+                "class_attr": class_attr,
                 "xpath_candidate": xpath,
-                "css_candidate": css
+                "css_candidate": css,
+                "region": region
             })
-        except Exception:
-            # Stale element or detached DOM reference protection
-            continue
+        except Exception as e:
+            print(f"{e}")
 
     return candidates
 
@@ -408,7 +430,8 @@ def parse_feature_files(features_dir: str = "features") -> List[Dict[str, Any]]:
     return all_scenarios
 
 
-def save_all_locators_to_ini(sections: List[LocatorSection], output_dir: str = "elements", file_name: str = "generated_by_ai_locators.ini"):
+def save_all_locators_to_ini(sections: List[LocatorSection], output_dir: str = "elements",
+                             file_name: str = "generated_by_ai_locators.ini"):
     os.makedirs(output_dir, exist_ok=True)
     file_path = Path(output_dir) / file_name
 
@@ -428,9 +451,91 @@ def save_all_locators_to_ini(sections: List[LocatorSection], output_dir: str = "
         for sec_name, locators in grouped_sections.items():
             f.write(f"## {sec_name}\n")
             for key, val in locators.items():
-                if key not in seen_keys:
-                    seen_keys.add(key)
+                clean_key = key.strip().lower()
+                if clean_key not in seen_keys:
+                    seen_keys.add(clean_key)
                     f.write(f"{key} = {val}\n")
             f.write("\n")
 
     print(f"📁 Locators saved cleanly to: {file_path}")
+
+
+def login_to_app(driver, base_url="http://localhost:3131"):
+    """
+    Navigates to the login page, enters credentials, and logs into the application.
+    """
+    print("🔐 Logging into the application...")
+    driver.get(f"{base_url}/login")
+
+    wait = WebDriverWait(driver, 10)
+
+    # Locate email, password inputs and sign-in button using selectors
+    email_input = wait.until(
+        EC.presence_of_element_located((By.ID, "email")))
+    password_input = driver.find_element(By.ID, "password")
+    sign_in_btn = driver.find_element(By.XPATH, "//button[normalize-space()='Giriş yap' or normalize-space()='Sign in']")
+
+    # Fill in test credentials
+    email_input.clear()
+    email_input.send_keys("merve@srm.local")
+
+    password_input.clear()
+    password_input.send_keys("srm-demo")
+
+    sign_in_btn.click()
+
+    # Wait until redirected away from the login page to confirm success
+    wait.until(EC.url_changes(f"{base_url}/login"))
+    print("✅ Login successful! Landed on dashboard.")
+    return driver
+
+
+def build_page_catalog():
+    driver = get_driver()
+    login_page = harvest_page_elements(driver, "http://localhost:3131/login")
+    driver = login_to_app(driver)
+    home_page = harvest_page_elements(driver, driver.current_url)
+
+    pages = set()
+    for element in home_page:
+        if element["href"] is not None and element["href"] != "/" and element["region"] == "sidebar":
+            driver.find_element("xpath", element["xpath_candidate"]).click()
+            time.sleep(1)
+            print(f"🔹 Navigation Element: {element["text"].replace(f"\n", " ")} | URL: {driver.current_url}")
+            pages.add(driver.current_url)
+            _current_page_elements = harvest_page_elements(driver, driver.current_url)
+            for _element in _current_page_elements:
+                if _element["href"] is not None and _element["href"] != "/" and _element["region"] == "main":
+                    try:
+                        el = driver.find_element("xpath", _element["xpath_candidate"])
+                        el.click()
+                        time.sleep(1)
+                        print(
+                            f"🔸 Navigation Element: {_element["text"].replace(f"\n", " ")} | URL: {driver.current_url}")
+                        pages.add(driver.current_url)
+                        driver.back()
+                    except Exception as e:
+                        print(f"⚠️ Could not find element: {_element['xpath_candidate']}")
+                        continue
+
+    page_elements = {}
+    for page in pages:
+        _harvested_elements = harvest_page_elements(driver, page)
+        _simplfied_elements = []
+        for element in _harvested_elements:
+            if element["region"] == "main":
+                _simplfied_elements.append({
+                    "text": element["text"],
+                    "data-tip": element["data_tip"],
+                    "xpath_candidate": element["xpath_candidate"]
+                })
+        page_elements[page] = _simplfied_elements
+
+    output_dir = Path("ai_agents/core")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    catalog_file = output_dir / "page_catalog.json"
+
+    with open(catalog_file, "w", encoding="utf-8") as f:
+        json.dump(page_elements, f, indent=2, ensure_ascii=False)
+
+    print(f"\n📁 Successfully saved {len(page_elements)} page catalogs to {catalog_file}")
