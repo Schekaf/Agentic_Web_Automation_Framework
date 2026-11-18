@@ -24,7 +24,7 @@ browser_options = ["--disable-notifications", "--disable-infobars", "--disable-e
                    "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage", "--disable-popup-blocking"]
 
 
-def get_driver(browser):
+def get_driver(browser="chrome"):
     if browser == "chrome":
         chrome_options = webdriver.ChromeOptions()
         default_chrome_path = os.path.expandvars(r"%USERPROFILE%\AppData\Local\Programs\chrome-win64\chrome.exe")
@@ -53,4 +53,4 @@ def get_driver(browser):
         return webdriver.Edge(service=edge_service, options=edge_options)
 
     else:
-        raise ValueError(f"Unsupported browser: {browser_name}. Choose from 'chrome', 'firefox', or 'edge'.")
+        raise ValueError(f"Unsupported browser: {browser}. Choose from 'chrome', 'firefox', or 'edge'.")
