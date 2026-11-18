@@ -70,8 +70,7 @@ class TestGenerationCoachAgent(BaseAgent):
         sections_payload = []
         for index, section in enumerate(sections, 1):
             first_line = section.section_content.split('\n')[0].strip()
-            sanitized_name = re.sub(r'[^a-zA-Z0-9_]', '_', first_line.lower())
-            file_name = f"{index:02d}_{sanitized_name}_{model_slug}.feature"
+            file_name = f"{section.suggested_feature_name}.feature"
 
             sections_payload.append({
                 "section_index": index,
