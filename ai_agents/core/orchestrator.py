@@ -17,6 +17,7 @@ import gc
 import sys
 import time
 from pathlib import Path
+from typing import List
 
 from ollama import ResponseError
 
@@ -28,7 +29,7 @@ from ai_agents.core.step_library import PatternRegistry, get_escaped_step_patter
 from ai_agents.core.domain import RAW_INSTRACTIONS, BUSINESS_KNOWLEDGE, DOCUMENT
 from ai_agents.core.utils import sanitize_model_tag_for_filename, split_instructions_into_sections, \
     discover_all_feature_files, harvest_page_elements, parse_feature_files, \
-    save_all_locators_to_ini, audit_steps_via_behave, rest_check
+    save_all_locators_to_ini, audit_steps_via_behave, rest_check, login_to_app
 from ai_agents.qa_automation_feasibility_agent.pattern_audit_agent import PatternAuditAgent
 from ai_agents.qa_automation_feasibility_agent.pattern_parameter_resolution_agent import PatternResolutionAgent
 from ai_agents.qa_automation_feasibility_agent.test_automatable_feasibility_agent import AutomationFeasibilityAgent
@@ -51,21 +52,7 @@ from utilities.web_driver import get_driver
 class Orchestrator:
     def __init__(self):
         self.model_slug = sanitize_model_tag_for_filename(get_agent_model("TestGeneratorAgent"))
-        self.test_gen_coach = TestGenerationCoachAgent()
-        self.coverage_planner = CoveragePlannerAgent()
-        self.test_generator = TestGeneratorAgent()
-        self.feasibility_coach = AutomationFeasibilityCoachAgent()
-        self.feasibility_agent = AutomationFeasibilityAgent()
-        self.pattern_auditor = PatternAuditAgent()
-        self.resolution_agent = PatternResolutionAgent(interactive_mode='n')
-        self.test_fixer_agent = TestFixerAgent()
         self.lessons_manager = LessonsLearnedManager()
-        self.audit_coach = AuditCoachAgent(lessons_manager=self.lessons_manager)
-        self.step_impl_coach = StepImplementationGenerationCoachAgent(lessons_manager=self.lessons_manager)
-        self.skeleton_agent = StepSkeletonGeneratorAgent()
-        self.step_generator_agent = StepGeneratorAgent()
-        self.step_reviewer_agent = StepReviewAgent()
-        self.locator_generator_agent = LocatorGeneratorAgent()
         self.project_root = Path.cwd()
         self.features_dir = self.project_root / "features"
         self.feature_files = discover_all_feature_files(str(self.features_dir), model_slug=self.model_slug)
@@ -84,6 +71,8 @@ class Orchestrator:
         routing_decision = router.route_payload(DOCUMENT)
         print(f"🔀 [Router Decision]: Detected {routing_decision.detected_format} (Confidence: {routing_decision.confidence_score})")
         print(f"💡 [Reasoning]: {routing_decision.reasoning}")
+        del router
+        gc.collect()
         return routing_decision
 
     @staticmethod
@@ -145,11 +134,13 @@ class Orchestrator:
         print(f"📄 Found {len(instruction.extracted_sections)} distinct section(s) to process...")
         print("🔄 Phase 0: Planning Test Generation Pipeline...")
         print("    🤖 [Test Generation Coach Agent]: Evaluating requirements sections vs existing root feature files...")
-
+        test_gen_coach = TestGenerationCoachAgent()
+        coverage_planner = CoveragePlannerAgent()
+        test_generator = TestGeneratorAgent()
         for index, section in enumerate(instruction.extracted_sections, 1):
-            coach_response = self.test_gen_coach.evaluate_execution(
+            coach_response = test_gen_coach.evaluate_execution(
                 requirements_doc=section.section_content,
-                existing_features_summary=self.test_gen_coach.get_section_summary(instruction.extracted_sections, model_slug=self.model_slug)
+                existing_features_summary=test_gen_coach.get_section_summary(instruction.extracted_sections, model_slug=self.model_slug)
             )
             directives_by_index = {target.section_index: target for target in coach_response.target_scope}
             directive = directives_by_index.get(index)
@@ -166,8 +157,8 @@ class Orchestrator:
             feature_suite = self.generate_tests(
                 section=section.section_content,
                 first_line=section.section_title,
-                coverage_planner=self.coverage_planner,
-                test_generator=self.test_generator
+                coverage_planner=coverage_planner,
+                test_generator=test_generator
             )
 
             # Write FeatureSuite to disk
@@ -183,11 +174,15 @@ class Orchestrator:
                     f.write("\n")
 
             print(f"        ✅ Generated: {directive.feature_file_name}\n")
+        del test_gen_coach, coverage_planner, test_generator
+        gc.collect()
 
     def automation_feasibility(self):
         print("🔄 Phase 1: Automation Feasibility & Pattern Mining Pipeline...")
         print("    🤖 [Feasibility Coach]: Evaluating feature feasibility status...")
-        feasibility_coach_response = self.feasibility_coach.evaluate_execution()
+        feasibility_coach = AutomationFeasibilityCoachAgent()
+        feasibility_agent = AutomationFeasibilityAgent()
+        feasibility_coach_response = feasibility_coach.evaluate_execution()
         directives_map = {target.feature_file_name: target for target in feasibility_coach_response.target_scope}
         if feasibility_coach_response.should_run_feasibility:
             print("    🔍 Phase 1.1: Collecting initial undefined steps...")
@@ -204,11 +199,13 @@ class Orchestrator:
                     print(f"    🎯 [Coach Directive]: {directive.action} -> {feature_file.name}")
                     print(f"    📋 Reason: {directive.reason}")
                     print(f"    🤖 [Feasibility Agent]: Generating feasibility report for {feature_file.name}...")
-                    self.feasibility_agent.process_feature_file(str(feature_file), registry)
+                    feasibility_agent.process_feature_file(str(feature_file), registry)
                 else:
                     print(f"    ⏩ [Coach Directive] SKIP -> {feature_file.name} (Feedback intact)")
         else:
             print("    ⏩ [Feasibility Coach]: All feasibility feedback reports are valid and up to date.")
+        del feasibility_coach, feasibility_agent
+        gc.collect()
 
     def audit(self):
         print("🔄 Phase 2: Audit Pipeline...")
@@ -217,8 +214,10 @@ class Orchestrator:
         pattern_registry = PatternRegistry(initial_patterns=harvested_patterns)
         print(f"    📋 PatternRegistry loaded with {len(pattern_registry.active_patterns)} unique active patterns.")
         print("    🤖 [Audit Coach]: Evaluating audit execution scope...")
-
-        audit_coach_response = self.audit_coach.evaluate_audit_execution()
+        audit_coach = AuditCoachAgent(lessons_manager=self.lessons_manager)
+        pattern_auditor = PatternAuditAgent()
+        audit_coach_response = audit_coach.evaluate_audit_execution()
+        feasibility_agent = AutomationFeasibilityAgent()
         audit_directives_map = {target.feature_file_name: target for target in audit_coach_response.target_scope}
         if audit_coach_response.should_run_audit:
             features_dir = Path("features")
@@ -228,10 +227,10 @@ class Orchestrator:
                 if directive and directive.action == "EXECUTE_AUDIT":
                     print(f"    🎯 [Coach Directive]: EXECUTE_AUDIT -> {feature_file.name}")
                     print(f"    📋 Reason: {directive.reason}")
-                    self.pattern_auditor.audit_and_remediate_feature(
+                    pattern_auditor.audit_and_remediate_feature(
                         feature_path=str(feature_file),
                         registry=pattern_registry,
-                        rematch_fn=self.feasibility_agent.rematch_step,
+                        rematch_fn=feasibility_agent.rematch_step,
                         lessons_manager=self.lessons_manager
                     )
                     print("\n🔧 Phase 3.1: Harmonizing Gherkin step syntax for automatable scenarios...")
@@ -267,19 +266,19 @@ class Orchestrator:
                                         root_cause=fix.get("root_cause", ""),
                                         rule_derived=fix.get("rule_derived", "")
                                     )
-
-                    del resolution_agent, test_fixer_agent
-                    gc.collect()
                 else:
                     print(f"    ⏩ [Coach Directive]: SKIP_AUDIT -> {feature_file.name} (All resolved_patterns intact)")
-
-            del self.pattern_auditor, self.feasibility_agent
-            gc.collect()
         else:
             print("    ⏩ [Audit Coach]: All feedback files have complete, valid resolved_patterns.")
+        del pattern_auditor, feasibility_agent, audit_coach, resolution_agent, test_fixer_agent
+        gc.collect()
 
     def code_generation(self):
         print("🔄 Phase 3: Evaluating Step Definition & Code Generation Pipeline...")
+        step_impl_coach = StepImplementationGenerationCoachAgent(lessons_manager=self.lessons_manager)
+        skeleton_agent = StepSkeletonGeneratorAgent()
+        step_generator_agent = StepGeneratorAgent()
+        step_reviewer_agent = StepReviewAgent()
 
         output_file = Path("features/steps/generated_by_ai_steps.py")
         output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -294,7 +293,7 @@ class Orchestrator:
         existing_step_definitions = [f.read_text(encoding="utf-8") for f in existing_step_files]
 
         # 2. Invoke Step Implementation Coach
-        coach_response = self.step_impl_coach.evaluate_execution(
+        coach_response = step_impl_coach.evaluate_execution(
             step_status_report=step_status,
             existing_step_definitions=existing_step_definitions
         )
@@ -336,10 +335,10 @@ class Orchestrator:
                 print(f"🔍 Phase 3.1: Generating balanced step for pattern: '{pattern}'")
 
                 # Pass single pattern to generator enforce balanced structure
-                skeletons = self.skeleton_agent.generate_skeletons({pattern}, [pattern])
+                skeletons = skeleton_agent.generate_skeletons({pattern}, [pattern])
                 if skeletons:
-                    draft_code = self.step_generator_agent.generate_missing_steps("\n\n".join(skeletons))
-                    cleaned_code = self.step_reviewer_agent.review_and_fix(draft_code)
+                    draft_code = step_generator_agent.generate_missing_steps("\n\n".join(skeletons))
+                    cleaned_code = step_reviewer_agent.review_and_fix(draft_code)
 
                     with open(output_file, "a", encoding="utf-8") as out_f:
                         out_f.write("\n\n" + cleaned_code + "\n")
@@ -351,17 +350,28 @@ class Orchestrator:
                 print(f"🔧 Refactoring step definition for pattern: '{pattern}'...")
                 # Handled by refactoring agent or targeted block rewrite
                 pass
-
+        del step_impl_coach, skeleton_agent, step_generator_agent, step_reviewer_agent
+        gc.collect()
         return has_changes
 
-    def locator_generation(self):
+    @staticmethod
+    def locator_generation():
         print("🔄 Phase 4: Locator Generation Pipeline...")
+        locator_generator_agent = LocatorGeneratorAgent()
         scenarios = parse_feature_files()
         all_locators = []
         for scenario in scenarios:
             print(f"    🔍 Phase 4.1: Generating locators for scenario: {scenario['title']}")
+            login_to_app(get_driver("chrome"))
             elements = harvest_page_elements(get_driver("chrome"), scenario['page_url'])
-            locators = self.locator_generator_agent.generate_locators(scenario["raw_text"], elements)
+            locators = locator_generator_agent.generate_locators(scenario["raw_text"], elements)
             all_locators.extend(locators.sections)
         save_all_locators_to_ini(all_locators, output_dir="elements", file_name="generated_by_ai_locators.ini")
         print("    ✅ Generated locators:")
+        del locator_generator_agent
+        gc.collect()
+
+    @staticmethod
+    def page_locators(dom_candidates: List[dict]):
+        locator_generator_agent = LocatorGeneratorAgent()
+        return locator_generator_agent.filter_navigation_elements(dom_candidates)
