@@ -1,0 +1,1364 @@
+{
+  "feature_file": "09_follow_up_order_placement.feature",
+  "feature_path": "features\\09_follow_up_order_placement.feature",
+  "total_scenarios": 25,
+  "automatable_scenarios_count": 25,
+  "scenarios": [
+    {
+      "title": "Create a new RFQ with valid inputs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"A320\" in \"Aircraft\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Delivery terms\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"New York\" in \"named place\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a line\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Part123\" in \"Part number\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Description1\" in \"Description\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"Quantity\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"Unit\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a supplier\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"supplier@company.com\" in \"Email\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Internal note for the team\" in \"Internal note\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"Save without sending\" is enabled",
+          "matched_pattern": "Then I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{text}\" is {state}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with an empty title",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I enter \"\" in \"Title\"",
+          "matched_pattern": "When I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"A320\" in \"Aircraft\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Delivery terms\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"New York\" in \"named place\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a line\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Part123\" in \"Part number\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Description1\" in \"Description\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"Quantity\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"Unit\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a supplier\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"supplier@company.com\" in \"Email\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Internal note for the team\" in \"Internal note\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"Save without sending\" is disabled",
+          "matched_pattern": "Then I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{text}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a title exceeding 8 words",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"This is a very long title that exceeds eight words\" in \"Title\"",
+          "matched_pattern": "I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Title must be 8 words or less\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a priority set to AOG",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AW139 C-check parts\" in \"Title\"",
+          "matched_pattern": "I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a priority set to AOG risk",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AW139 C-check parts\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"AOG risk\" as \"Priority\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a priority set to Critical",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"AW139 C-check parts\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"Critical\" as \"Priority\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a priority set to Routine",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"Routine\" as \"Priority\"",
+          "matched_pattern": "I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with an invalid Incoterm",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"Invalid Incoterm\" as \"Delivery terms\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*\"",
+          "pattern_status": "suggested"
+        },
+        {
+          "step_text": "Then I see \"Invalid Incoterm\" is selected as \"Delivery terms\"",
+          "matched_pattern": "Then I see <*> is selected as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{option}\" is selected as {element}"
+        },
+        {
+          "step_text": "And I see \"Error: Invalid Incoterm\" is visible",
+          "matched_pattern": "And I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a valid Incoterm and named place",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Boeing 737\" in \"Aircraft\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Delivery terms\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"New York\" in \"named place\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with an invalid delivery term",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Boeing 737\" in \"Aircraft\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"Invalid Term\" as \"Delivery terms\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Invalid delivery term\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a valid delivery term and named place",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"A380\" in \"Aircraft\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Incoterm\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"New York JFK\" in \"named place\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with an empty note to suppliers",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"A380\" in \"Aircraft\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I leave \"Note to suppliers\" empty",
+          "matched_pattern": "And I leave <*> empty",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I leave \"{field}\" empty"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Incoterm\"",
+          "matched_pattern": "And I select <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I select \"{option}\" as {element}"
+        },
+        {
+          "step_text": "And I enter \"New York JFK\" in \"named place\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Note to suppliers cannot be empty\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a valid note to suppliers",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"AW139 C-check parts\" in \"Wings REQ\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"A380\" in \"Aircraft\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Delivery terms\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Supplier Dock\" in \"named place\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"NE\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a line\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Part Number 1\" in \"part number\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Description 1\" in \"description\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"quantity\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"unit\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a supplier\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"supplier@company.com\" in \"sales@supplier.com; several with ;\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"RFQ created successfully\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with an empty internal note",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I enter \"Wings REQ 123\" in \"Title\"",
+          "matched_pattern": "When I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"AW139 C-check parts\" in \"Wings REQ\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"A380\" in \"Aircraft\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Delivery terms\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Supplier Dock\" in \"named place\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"NE\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a line\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Part Number 1\" in \"part number\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Description 1\" in \"description\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"quantity\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"unit\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a supplier\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"supplier@company.com\" in \"sales@supplier.com; several with ;\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"Internal note cannot be empty\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Create a new RFQ with a valid internal note",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I enter \"AW139 C-check parts\" in \"Title\"",
+          "matched_pattern": "When I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Wings REQ-1234\" in \"Wings REQ\"",
+          "matched_pattern": "And I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"AOG\" as \"Priority\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"2023-12-31\" in \"Answer by\"",
+          "matched_pattern": "And I enter \"<date>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Boeing 737\" in \"Aircraft\"",
+          "matched_pattern": "And I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "matched_pattern": "And I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"EXW\" as \"Delivery terms\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"New York\" in \"named place\"",
+          "matched_pattern": "And I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "matched_pattern": "And I select \"<option>\" as \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a line\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"Quantity\"",
+          "matched_pattern": "And I enter \"<number>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"Unit\"",
+          "matched_pattern": "And I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Internal note for the team\" in \"Internal note\"",
+          "matched_pattern": "And I enter \"<text>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"Save without sending\" is enabled",
+          "matched_pattern": "Then I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{text}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with valid inputs",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on \"<button_text>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"Quantity\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<input_label>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"Unit\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<input_label>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"Add a line\" is disabled",
+          "matched_pattern": "Then I see <*> is <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{text}\" is {state}"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with an empty part number",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"\" in \"Part Number\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Part number is required\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with a part number exceeding character limit",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"<RANDOM:100>\" in \"Part Number\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Part number exceeds character limit\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with a valid part number and description",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<URL>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on \"<button_text>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"123456\" in \"Part Number\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field_name>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Valid Description\" in \"Description\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field_name>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"10\" in \"Quantity\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field_name>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"Unit\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field_name>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"Line added successfully\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with an empty quantity",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"123456\" in \"Part Number\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Valid Description\" in \"Description\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"\" in \"Quantity\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I enter \"Unit\" in \"Unit\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "Then I see \"Quantity cannot be empty\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with a quantity exceeding numerical threshold",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"<RANDOM:8>\" as \"Quantity\"",
+          "matched_pattern": "When I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I see \"Quantity exceeds numerical threshold\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with a valid quantity",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I enter \"10\" as \"Quantity\"",
+          "matched_pattern": "I enter <*> as <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" as {element}"
+        },
+        {
+          "step_text": "Then I do not see \"Quantity exceeds numerical threshold\" is visible",
+          "matched_pattern": "I do not see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with an empty unit",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "Given I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "When I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"\" in \"Unit\"",
+          "matched_pattern": "And I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "And I click on {element}"
+        },
+        {
+          "step_text": "Then I see \"Unit is required\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with a valid unit",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "I open <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I open \"{url}\""
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "And I enter \"Each\" in \"Unit\"",
+          "matched_pattern": "I enter <*> in <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I enter \"{value}\" in {element}"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "I click on <*>",
+          "pattern_status": "matched",
+          "resolved_pattern": "I click on {element}"
+        },
+        {
+          "step_text": "Then I do not see \"Unit is required\" is visible",
+          "matched_pattern": "I do not see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "I do not see \"{element}\" is visible"
+        }
+      ]
+    },
+    {
+      "title": "Add a line with an empty supplier",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "step_text": "Given I open \"http://localhost:3131/rfqs/new\"",
+          "matched_pattern": "Given I open \"<url>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "When I click on \"Add a line\"",
+          "matched_pattern": "When I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Add a supplier\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I enter \"\" in \"supplier\"",
+          "matched_pattern": "And I enter \"<value>\" in \"<field>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "And I click on \"Save without sending\"",
+          "matched_pattern": "And I click on \"<button>\"",
+          "pattern_status": "matched"
+        },
+        {
+          "step_text": "Then I see \"supplier is required\" is visible",
+          "matched_pattern": "Then I see <*> is visible",
+          "pattern_status": "matched",
+          "resolved_pattern": "Then I see \"{element}\" is visible"
+        }
+      ]
+    }
+  ]
+}
