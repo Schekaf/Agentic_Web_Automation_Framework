@@ -25,7 +25,7 @@ def step_apply_for_type(context, type):
 def step_accept_job(context, job):
     context.page.click(f'accept-{job}-job')
 
-@step('I see "{element}" is selected as current tab')
+@step('I see {element} is selected as current tab')
 def step_check_current_tab(context, element):
     assert context.page.get_attribute(element, 'aria-selected') == 'true'
 
@@ -41,13 +41,10 @@ def step_select_option_as_element(context, option, element):
 def step_do_not_select_option_as_element(context, option, element):
     context.page.click(f'{element}-not-{option}')
 
-@step('I do not see "{element}"')
+@step('I do not see {element}')
 def step_check_element_not_visible(context, element):
     assert not context.page.is_visible(element)
 
-@step('I see "{element}" in "{context}"')
-def step_check_element_in_context(context, element, context_name):
-    assert context.page.get_text(f'{context_name}-{element}')
 
 @step('I scroll down the page')
 def step_scroll_down_page(context):
@@ -61,18 +58,10 @@ def step_select_option(context, option):
 def step_press_element(context, element):
     context.page.press(element)
 
-@step('I am logged out of the TradeHub system')
-def step_log_out_tradehub_system(context):
-    context.page.click('logout')
 
-@step('I see "{element}" field is required')
+@step('I see {element} field is required')
 def step_check_required_field(context, element):
     assert context.page.get_attribute(element, 'required') == 'true'
-
-@step('I attempt to send a message to Account "{account}"')
-def step_attempt_send_message_to_account(context, account):
-    context.page.fill('message-to', account)
-    context.page.click('send-message')
 
 @step('I see "{page}" page')
 def step_check_page(context, page):
@@ -82,15 +71,11 @@ def step_check_page(context, page):
 def step_receive_message(context, message):
     assert context.page.get_text('message') == message
 
-@step('I enter "{value}" field')
-def step_input_field_value(context, value):
-    context.page.fill('input-field', value)
-
-@step('I click "{element}"')
+@step('I click {element}')
 def step_click_element(context, element):
     context.page.click(element)
 
-@step('I see "{element}" contains "{value}"')
+@step('I see {element} contains "{value}"')
 def step_check_element_contains_value(context, element, value):
     assert value in context.page.get_text(element)
 
@@ -106,15 +91,8 @@ def step_check_element_selected_state(context, element, state):
 def step_check_element(context, element):
     assert context.page.is_visible(element)
 
-@step('I am logged into the TradeHub system')
-def step_log_into_tradehub_system(context):
-    context.page.fill('username', 'user')
-    context.page.fill('password', 'pass')
-    context.page.click('login')
 
-
-
-@step('I click on "{element}"')
+@step('I click on {element}')
 def step_click_on_element(context, element):
     context.page.click(element)
 
