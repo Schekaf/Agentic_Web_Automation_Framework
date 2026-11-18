@@ -110,12 +110,6 @@ def step_check_tag_selected(context, tag):
     assert context.page.get_attribute(tag, 'aria-selected') == 'true'
 
 
-
-@step('I reopen the browser')
-def step_reopen_browser(context):
-    context.page.close()
-    context.page = context.browser.new_page()
-
 @step('I navigate to the "{page}"')
 def step_navigate_to_page(context, page):
     context.page.goto(page)
