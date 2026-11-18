@@ -17,6 +17,7 @@
 from langchain_core.prompts import PromptTemplate
 
 from ai_agents.core.base_agent import BaseAgent
+from ai_agents.core.domain import PAGE_CATALOG
 from ai_agents.core.schemas import CoveragePlan
 from ai_agents.core.utils import rest_check
 
@@ -30,6 +31,9 @@ REQUIREMENT SECTION:
 
 REQUIREMENT TEXT:
 {requirement_text}
+
+PAGE CATALOG:
+{page_catalog}
 
 LESSONS LEARNED (PAST FAILURE MODES TO AVOID):
 {lessons_learned}
@@ -63,7 +67,8 @@ class CoveragePlannerAgent(BaseAgent):
         self.chain = prompt | self.llm.with_structured_output(CoveragePlan)
 
     @rest_check
-    def plan_coverage(self, requirement_text: str, requirement_section: str = "Requirement Section") -> CoveragePlan:
+    def plan_coverage(self, requirement_text: str, page_catalog=PAGE_CATALOG,
+                      requirement_section: str = "Requirement Section") -> CoveragePlan:
         """
         Executes the scenario coverage planning chain for the provided requirement text.
         """
@@ -73,6 +78,7 @@ class CoveragePlannerAgent(BaseAgent):
             {
                 "requirement_section": requirement_section,
                 "requirement_text": requirement_text,
+                "page_catalog": page_catalog,
             }
         )
 
