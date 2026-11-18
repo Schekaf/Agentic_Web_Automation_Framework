@@ -170,5 +170,40 @@
     "url": "https://www.parasoft.com/resources/case-studies/federal-agency-fulfills-rigorous-do-178c-standard-with-unified-automated-testing-solution/",
     "site_type": "Case Study",
     "reason": "Shares a case study on fulfilling DO-178C standards with automated testing solutions, relevant for aerospace and automotive industries."
+  },
+  {
+    "url": "https://github.com/behave/behave",
+    "site_type": "GitHub Repository",
+    "reason": "Provides detailed documentation and examples for Behave, a BDD testing tool, useful for understanding and implementing BDD practices."
+  },
+  {
+    "url": "https://github.com/MathiasPaulenko/qa-practices-resources/tree/main/resources/documentation/behave/behave-data-guide",
+    "site_type": "GitHub Repository",
+    "reason": "Offers advanced features and examples for using Behave, including data-driven testing and dynamic examples, useful for enhancing test automation."
+  },
+  {
+    "url": "https://testautomationtools.dev/behave-overview-advantages-and-disadvantages/",
+    "site_type": "Blog",
+    "reason": "Provides an overview of Behave, its advantages, and disadvantages, and how it compares to other testing tools, useful for decision-making."
+  },
+  {
+    "url": "https://www.getxray.app/",
+    "site_type": "Official Documentation Portal",
+    "reason": "Offers comprehensive documentation for Xray, an AI-powered test management tool, useful for understanding its features and implementation."
+  },
+  {
+    "url": "https://www.getxray.app/test-management/",
+    "site_type": "Official Documentation Portal",
+    "reason": "Provides detailed information on Xray's test management capabilities, useful for QA teams looking to improve their testing processes."
+  },
+  {
+    "url": "https://docs.getxray.app/space/XRAYCLOUD/392921171/AI+Test+Case+Generation",
+    "site_type": "Official Documentation Portal",
+    "reason": "Details Xray's AI-powered test case generation feature, useful for teams looking to automate test case creation."
+  },
+  {
+    "url": "https://www.getxray.app/blog/ai-powered-test-case-test-model-generation-in-xray/",
+    "site_type": "Blog",
+    "reason": "Shares insights on Xray's AI test case and test model generation capabilities, useful for understanding the benefits of AI in test automation."
   }
 ]
