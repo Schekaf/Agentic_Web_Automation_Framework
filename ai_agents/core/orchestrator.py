@@ -17,19 +17,22 @@ import gc
 import sys
 import time
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from ollama import ResponseError
 
+from ai_agents.core.base_agent import BaseAgent
 from ai_agents.core.config import get_agent_model
 from ai_agents.core.lessons_learned_manager import LessonsLearnedManager
 from ai_agents.core.model_selector import print_missing_model_error
-from ai_agents.core.schemas import FeatureSuite, RouterDecision
+from ai_agents.core.schemas import FeatureSuite, RouterDecision, SCHEMA_REGISTRY, get_output_schema
+from ai_agents.core.skill_loader import SkillLoader
 from ai_agents.core.step_library import PatternRegistry, get_escaped_step_patterns
 from ai_agents.core.domain import RAW_INSTRACTIONS, BUSINESS_KNOWLEDGE, DOCUMENT
 from ai_agents.core.utils import sanitize_model_tag_for_filename, split_instructions_into_sections, \
     discover_all_feature_files, harvest_page_elements, parse_feature_files, \
-    save_all_locators_to_ini, audit_steps_via_behave, rest_check, login_to_app
+    save_all_locators_to_ini, audit_steps_via_behave, rest_check, login_to_app, get_step_patterns, \
+    load_framework_utilities, get_section_summary
 from ai_agents.qa_automation_feasibility_agent.pattern_audit_agent import PatternAuditAgent
 from ai_agents.qa_automation_feasibility_agent.pattern_parameter_resolution_agent import PatternResolutionAgent
 from ai_agents.qa_automation_feasibility_agent.test_automatable_feasibility_agent import AutomationFeasibilityAgent
@@ -46,16 +49,22 @@ from ai_agents.core.utils import collect_raw_steps, mine_patterns_with_drain
 from ai_agents.qa_test_step_generator_agent.test_step_generator import StepGeneratorAgent
 from ai_agents.qa_test_step_generator_agent.test_step_reviewer import StepReviewAgent
 from ai_agents.qa_test_step_generator_agent.test_step_skeleton_generator import StepSkeletonGeneratorAgent
+from ai_agents.qa_test_step_generator_agent.joker import Joker
 from utilities.web_driver import get_driver
 
 
 class Orchestrator:
-    def __init__(self):
+    def __init__(self, document: str = "") -> None:
+        self.document = document
         self.model_slug = sanitize_model_tag_for_filename(get_agent_model("TestGeneratorAgent"))
         self.lessons_manager = LessonsLearnedManager()
+        self.skill_loader = SkillLoader()
         self.project_root = Path.cwd()
         self.features_dir = self.project_root / "features"
-        self.feature_files = discover_all_feature_files(str(self.features_dir), model_slug=self.model_slug)
+        self.feature_files = discover_all_feature_files(
+            str(self.features_dir),
+            model_slug=self.model_slug,
+        )
 
     def orchestrate(self):
         router_decision = self.requirement_analysis()
@@ -64,13 +73,158 @@ class Orchestrator:
         self.audit()
         self.code_generation()
 
-    @staticmethod
-    def requirement_analysis() -> RouterDecision:
+    # ------------------------------------------------------------------
+    # PHASE 1: TEST GENERATION PHASE
+    # Coach: test_generation_coach -> REGENERATE / GENERATE / SKIP
+    # Loop: coverage_planner -> test_generator -> *.feature files -> DONE
+    # ------------------------------------------------------------------
+    def test_generation_phase(self, instruction: RouterDecision) -> None:
+        print("🔄 Test Generation Phase...")
+        # 1. Inspect input document & existing *.feature files via test_generation_coach
+        # 2. For directives with action in {"GENERATE", "REGENERATE"}:
+        #    - plan = self.run_skill("coverage_planner", {...})
+        #    - generated = self.run_skill("test_generator", {...})
+        #    - write/update *.feature files via your existing file writer helper
+        # 3. For action == "SKIP": leave existing *.feature untouched
+        # 4. Refresh discovered feature files before moving to Automation Feasibility
+        print(f"📄 Found {len(instruction.extracted_sections)} distinct section(s) to process...")
+        print("🔄 Phase 0: Planning Test Generation Pipeline...")
+        print("    🤖 [Test Generation Coach Agent]: Evaluating requirements sections vs existing root feature files...")
+
+        test_gen_coach = BaseAgent(
+            skill_name="test_generation_coach",
+            lessons_manager=self.lessons_manager,
+            skill_loader=self.skill_loader,
+        )
+        coverage_planner = BaseAgent(
+            skill_name="coverage_planner",
+            lessons_manager=self.lessons_manager,
+            skill_loader=self.skill_loader,
+        )
+        test_generator = BaseAgent(
+            skill_name="test_generator",
+            lessons_manager=self.lessons_manager,
+            skill_loader=self.skill_loader,
+        )
+
+        try:
+            existing_features_summary = get_section_summary(instruction.extracted_sections, self.model_slug)
+            for index, section in enumerate(instruction.extracted_sections, 1):
+                coach_response = test_gen_coach.invoke(
+                    {
+                        "requirements_doc": section.section_content,
+                        "existing_features_summary": existing_features_summary,
+                    }
+                )
+                directives_by_index = {
+                    target.section_index: target
+                    for target in coach_response.target_scope
+                }
+                directive = directives_by_index.get(index)
+
+                # Fallback guard: skip if file exists and no explicit re-generation is requested
+                if not directive or directive.action == "SKIP":
+                    print(
+                        f"    ⏩ [Coach Directive] SKIP [{index}/{len(instruction.extracted_sections)}]: {section.section_title}"
+                    )
+                    continue
+
+                print(
+                    f"    🎯 [Coach Directive]: {directive.action} [{index}/{len(instruction.extracted_sections)}]: {section.section_title}"
+                )
+                print(f"    📋 Reason: {directive.reason}")
+
+                # Trigger Coverage Planner & Test Generator ONLY for this specific section
+                feature_suite = self.generate_tests(
+                    section=section.section_content,
+                    first_line=section.section_title,
+                    coverage_planner=coverage_planner,
+                    test_generator=test_generator,
+                )
+
+                # Write FeatureSuite to disk
+                file_path = Path("features") / directive.feature_file_name
+                file_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(file_path, "w", encoding="utf-8") as f:
+                    f.write(f"Feature: {feature_suite.feature_title}\n\n")
+                    for scenario in feature_suite.scenarios:
+                        if scenario.tag:
+                            f.write(f"  {scenario.tag}\n")
+                        f.write(f"  Scenario: {scenario.name}\n")
+                        for step in scenario.steps:
+                            f.write(f"    {step.keyword} {step.statement}\n")
+                        f.write("\n")
+
+                print(f"        ✅ Generated: {directive.feature_file_name}\n")
+        finally:
+            del test_gen_coach, coverage_planner, test_generator
+            gc.collect()
+
+    # ------------------------------------------------------------------
+    # PHASE 2: AUTOMATION FEASIBILITY PHASE
+    # Coach: feasibility_coach -> RE-EVALUATE / EVALUATE / SKIP
+    # Loop: behave -dry-run -> drain3 engine -> automation_feasibility
+    # Output: *_feasibility_feedback.json -> DONE
+    # ------------------------------------------------------------------
+    def automation_feasibility_phase(self) -> None:
+        print("🔄 Automation Feasibility Phase...")
+        # 1. Audit feature / *_feasibility_feedback.json pairs via feasibility_coach
+        # 2. For targets with action in {"EVALUATE", "RE-EVALUATE"}:
+        #    - run your existing `behave --dry-run` + `drain3` step/pattern prep helpers
+        #    - call self.run_skill("automation_feasibility", {...})
+        #    - save updated *_feasibility_feedback.json via your existing helper
+        # 3. For action == "SKIP": keep existing feedback report
+
+    # ------------------------------------------------------------------
+    # PHASE 3: AUDIT PHASE
+    # Coach: audit_coach -> AUDIT / SKIP
+    # Loop: pattern_audit -> pattern_parameter_resolution -> test_analyzer / test_modifier
+    # Output: resolved_pattern in *_feasibility_feedback.json + updated *.feature -> DONE
+    # ------------------------------------------------------------------
+    def audit_phase(self) -> None:
+        print("🔄 Audit Phase...")
+        # 1. Inspect feedback payloads via audit_coach
+        # 2. For targets with action == "AUDIT":
+        #    - audit_res = self.run_skill("pattern_audit", {...})
+        #    - resolved = self.run_skill("pattern_parameter_resolution", {...})
+        #    - run your deterministic remediation / test_analyzer / test_modifier helpers
+        #    - persist resolved_pattern to *_feasibility_feedback.json & update *.feature
+        # 3. For action == "SKIP": skip audit remediation for that file
+
+    # ------------------------------------------------------------------
+    # PHASE 4: CODE GENERATION PHASE
+    # Coach: code_generation_coach -> GENERATE / SKIP
+    # Loop: test_step_skeleton_generator -> test_step_generator -> test_step_reviewer
+    # Output: generated_by_ai_steps.py -> DONE
+    # ------------------------------------------------------------------
+    def code_generation_phase(self) -> None:
+        print("🔄 Code Generation Phase...")
+        # 1. Collect existing *_steps.py implementations + behave -dry-run status
+        # 2. Audit via code_generation_coach -> per-step GENERATE / SKIP directives
+        # 3. For steps with action == "GENERATE":
+        #    - skeleton = self.run_skill("test_step_skeleton_generator", {...})
+        #    - step_code = self.run_skill("test_step_generator", {...})
+        #    - reviewed = self.run_skill("test_step_reviewer", {...})
+        #    - write new step implementations to generated_by_ai_steps.py via your helper
+        # 4. For action == "SKIP": leave existing step implementations untouched
+
+    def requirement_analysis(self, payload: Optional[str] = None) -> RouterDecision:
         print("🔄 Phase 0: Requirement Analysis & Test Generation Pipeline...")
-        router = RequirementsRouterAgent()
-        routing_decision = router.route_payload(DOCUMENT)
-        print(f"🔀 [Router Decision]: Detected {routing_decision.detected_format} (Confidence: {routing_decision.confidence_score})")
+        raw_payload = payload if payload is not None else self.document
+
+        router = BaseAgent(
+            skill_name="requirements_router",
+            lessons_manager=self.lessons_manager,
+            skill_loader=self.skill_loader,
+        )
+        routing_decision: RouterDecision = router.invoke({"raw_payload": raw_payload})
+
+        print(
+            f"🔀 [Router Decision]: Detected {routing_decision.detected_format} "
+            f"(Confidence: {routing_decision.confidence_score})"
+        )
         print(f"💡 [Reasoning]: {routing_decision.reasoning}")
+
         del router
         gc.collect()
         return routing_decision
@@ -81,9 +235,11 @@ class Orchestrator:
                        test_generator: TestGeneratorAgent) -> FeatureSuite:
         try:
             print("        🤖 [Coverage Planner Agent]: Planning test scenario coverage matrix...")
-            coverage_plan = coverage_planner.plan_coverage(
-                requirement_text=section,
-                requirement_section=first_line
+            coverage_plan = coverage_planner.invoke(
+                {
+                    "requirement_text": section,
+                    "requirement_section": first_line,
+                }
             )
             print(f"            Planned {coverage_plan.total_scenarios_planned} test scenario(s).")
 
@@ -105,10 +261,12 @@ class Orchestrator:
                 # Create a temporary plan for this sub-batch
                 batch_plan = coverage_plan.model_copy(update={"scenarios": batch})
 
-                batch_suite = test_generator.generate_tests_for_instructions(
-                    coverage_plan=batch_plan,
-                    step_patterns=get_escaped_step_patterns(),
-                    business_knowledge=BUSINESS_KNOWLEDGE
+                batch_suite = test_generator.invoke(
+                    {
+                     "coverage_plan": batch_plan,
+                     "step_patterns": get_escaped_step_patterns(),
+                     "business_knowledge": BUSINESS_KNOWLEDGE
+                    }
                 )
 
                 if not feature_title and hasattr(batch_suite, "feature_title"):
@@ -140,17 +298,20 @@ class Orchestrator:
         for index, section in enumerate(instruction.extracted_sections, 1):
             coach_response = test_gen_coach.evaluate_execution(
                 requirements_doc=section.section_content,
-                existing_features_summary=test_gen_coach.get_section_summary(instruction.extracted_sections, model_slug=self.model_slug)
+                existing_features_summary=test_gen_coach.get_section_summary(instruction.extracted_sections,
+                                                                             model_slug=self.model_slug)
             )
             directives_by_index = {target.section_index: target for target in coach_response.target_scope}
             directive = directives_by_index.get(index)
 
             # Fallback guard: skip if file exists and no explicit re-generation is requested
             if not directive or directive.action == "SKIP":
-                print(f"    ⏩ [Coach Directive] SKIP [{index}/{len(instruction.extracted_sections)}]: {section.section_title}")
+                print(
+                    f"    ⏩ [Coach Directive] SKIP [{index}/{len(instruction.extracted_sections)}]: {section.section_title}")
                 continue
 
-            print(f"    🎯 [Coach Directive]: {directive.action} [{index}/{len(instruction.extracted_sections)}]: {section.section_title}")
+            print(
+                f"    🎯 [Coach Directive]: {directive.action} [{index}/{len(instruction.extracted_sections)}]: {section.section_title}")
             print(f"    📋 Reason: {directive.reason}")
 
             # Trigger Coverage Planner & Test Generator ONLY for this specific section
@@ -375,3 +536,99 @@ class Orchestrator:
     def page_locators(dom_candidates: List[dict]):
         locator_generator_agent = LocatorGeneratorAgent()
         return locator_generator_agent.filter_navigation_elements(dom_candidates)
+
+    @staticmethod
+    def optimize_tests():
+        print("🔄 Phase 5: Optimizing Gherkin Feature File Syntax...")
+
+        # 1. Locate all feature files in your features directory
+        features_dir = Path("features")
+        if not features_dir.exists():
+            print("❌ Features directory not found!")
+            return
+
+        feature_files = list(features_dir.glob("*.feature"))
+        if not feature_files:
+            print("⚠️ No .feature files found to optimize.")
+            return
+
+        # 2. Automatically scan and aggregate all step implementations from features/steps/
+        existing_step_implementations = get_step_patterns()
+
+        # 3. Instantiate the Joker agent once outside the loop to save overhead
+        joker_agent = Joker()
+
+        try:
+            for file_path in feature_files:
+                print(f"📄 Processing feature file: {file_path.name}")
+
+                # Read the current content of the feature file
+                feature_content = file_path.read_text(encoding="utf-8")
+
+                # Optimize/harmonize the feature content via the agent
+                optimized_feature_content = joker_agent.optimize_test_doc(
+                    existing_step_implementations=existing_step_implementations,
+                    feature_content=feature_content
+                )
+
+                # Overwrite the feature file with the synchronized syntax
+                file_path.write_text(optimized_feature_content, encoding="utf-8")
+                print(f"✅ Successfully optimized and saved: {file_path.name}")
+
+        finally:
+            # Clean up memory safely
+            del joker_agent
+            gc.collect()
+            print("🧹 Joker agent memory cleaned up.")
+
+    @staticmethod
+    def optimize_step_implementation():
+        print("🔄 Optimizing step implementations pattern by pattern...")
+
+        # 1. Load framework utilities once
+        framework_utilities = load_framework_utilities()
+
+        # 2. Get all patterns (assuming get_step_patterns() returns a list or iterable of strings)
+        step_patterns = get_step_patterns()
+
+        if not step_patterns:
+            print("⚠️ No step patterns found to optimize.")
+            return
+        list_step_patterns = [
+            line.strip()
+            for line in step_patterns.splitlines()
+            if line.strip().startswith(("@given", "@when", "@then", "@step"))
+        ]
+        print(f"📂 Found {len(list_step_patterns)} step pattern(s) to process.")
+
+        joker_agent = Joker()
+        all_generated_implementations = []
+
+        try:
+            for index, pattern in enumerate(list_step_patterns, 1):
+                print(f"\n[{index}/{len(list_step_patterns)}] Processing pattern: '{pattern}'")
+
+                try:
+                    # Process one pattern at a time
+                    optimized_code = joker_agent.optimize_step_implementation(
+                        framework_utilities=framework_utilities,
+                        step_pattern=pattern
+                    )
+                    all_generated_implementations.append(optimized_code)
+                    print(f"✅ Generated implementation for pattern {index}.")
+                except Exception as e:
+                    print(f"❌ Error generating step for '{pattern}': {e}")
+
+            # Combine all generated step implementations into a final string/file
+            final_code = "\n\n".join(all_generated_implementations)
+            print("\n🎉 All step implementations generated successfully!")
+            output_file = Path("features/steps/generated_by_ai_steps.py")
+            output_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(output_file, "w", encoding="utf-8") as out_f:
+                output_file.write_text("# Auto-generated steps\n", encoding="utf-8")
+                out_f.write("from utilities.step_helper import step")
+                out_f.write("\n\n" + final_code + "\n")
+        finally:
+            del joker_agent
+            gc.collect()
+            print("🧹 Joker agent memory cleaned up after full batch optimization.")
