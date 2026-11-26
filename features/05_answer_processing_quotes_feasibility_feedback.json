@@ -1,0 +1,890 @@
+{
+  "feature_file": "05_answer_processing_quotes.feature",
+  "feature_path": "C:\\Users\\Schekaf\\PycharmProjects\\Agentic_Web_Automation_Framework\\features\\05_answer_processing_quotes.feature",
+  "total_scenarios": 12,
+  "automatable_scenarios_count": 12,
+  "scenarios": [
+    {
+      "title": "Process valid answer with matching Message-ID",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"valid_answer\" in \"Answer Text\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"matching_message_id\" in \"Message-ID\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer processed successfully\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with changed subject",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"valid_answer\" in \"Answer Text\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"new_subject\" in \"Subject\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer processed successfully\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with different sender",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"AW139 C-check parts\" as Title",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"RQ-1234\" as Wings REQ",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"AOG\" as Priority",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"2023-12-31\" as Answer by",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Boeing 737\" as Aircraft",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Shipping to another base\" as Note to suppliers",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"EXW\" as Delivery terms",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"New York JFK\" as named place",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"Outright purchase\" as Outright purchase/Exchange/Repair/Loan",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"123456\" as part number",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Part Description\" as description",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"10\" as quantity",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Unit\" as unit",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a supplier\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"supplier@company.com\" as sales@supplier.com; several with ;",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Internal note for the team\" as Internal note",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Save without sending\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer saved successfully\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with invalid ANTHROPIC_API_KEY",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"AW139 C-check parts\" as Title",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"RQ-1234\" as Wings REQ",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"AOG\" as Priority",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"2023-12-31\" as Answer by",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Boeing 737\" as Aircraft",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Shipping to another base\" as Note to suppliers",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"EXW\" as Delivery terms",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"New York JFK\" as named place",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"Outright purchase\" as Outright purchase/Exchange/Repair/Loan",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"123456\" as part number",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Part Description\" as description",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"10\" as quantity",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Unit\" as unit",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a supplier\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"supplier@company.com\" as sales@supplier.com; several with ;",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Internal note for the team\" as Internal note",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Save without sending\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Invalid ANTHROPIC_API_KEY\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with missing line item",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"AW139 C-check parts\" in \"Title\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"RQ-1234\" in \"Wings REQ\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"AOG\" as \"Priority\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"2023-12-31\" in \"Answer by\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Boeing 737\" in \"Aircraft\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"EXW\" as \"Delivery terms\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"New York JFK\" in \"named place\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Save without sending\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer saved successfully\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with invalid line item data",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"AW139 C-check parts\" in \"Title\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"RQ-1234\" in \"Wings REQ\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I select \"AOG\" as \"Priority\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"2023-12-31\" in \"Answer by\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"Boeing 737\" in \"Aircraft\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"Shipping to another base\" in \"Note to suppliers\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I select \"EXW\" as \"Delivery terms\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"New York JFK\" in \"named place\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I select \"Outright purchase\" as \"Outright purchase/Exchange/Repair/Loan\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"123456\" in \"part number\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"Part Description\" in \"description\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"invalid_quantity\" in \"quantity\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"Unit\" in \"unit\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Add a supplier\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"supplier@company.com\" in \"sales@supplier.com; several with ;\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"Internal note for the team\" in \"Internal note\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Save without sending\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Invalid quantity format\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with declined line item",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"AW139 C-check parts\" in \"Title\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"Declined\" as \"Status\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer declined\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with price match",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I enter \"AW139 C-check parts\" in \"Title\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I enter \"1000\" in \"Price\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I enter <*> in <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Price match found\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with empty line items",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer cannot be empty\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with max number of line items",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Maximum number of line items reached\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with zero line items",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I click on \"Remove line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Answer saved successfully\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    },
+    {
+      "title": "Process answer with invalid line item type",
+      "is_automatable": true,
+      "reason": "",
+      "steps": [
+        {
+          "keyword": "Given",
+          "statement": "I open \"http://localhost:3131/answers/new\"",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I open <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "When",
+          "statement": "I click on \"Add a line\"",
+          "status": "NEEDS_NEW_STEP",
+          "matched_pattern": "I click on <*>",
+          "reason": "Undefined step, matches Drain3 pattern"
+        },
+        {
+          "keyword": "And",
+          "statement": "I select \"Invalid Type\" as Line Item Type",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I select <*> as <*>",
+          "reason": "Matches existing step pattern"
+        },
+        {
+          "keyword": "Then",
+          "statement": "I see \"Invalid line item type\" is visible",
+          "status": "AUTOMATABLE",
+          "matched_pattern": "I see <*> is visible",
+          "reason": "Matches visibility assertion pattern"
+        }
+      ]
+    }
+  ]
+}
